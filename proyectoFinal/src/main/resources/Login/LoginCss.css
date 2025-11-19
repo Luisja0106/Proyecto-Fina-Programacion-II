@@ -17,7 +17,6 @@
   -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25), 2, 1.0, -9,-9); /*dropshadow o innershadow(tipo de sombra, color, tamaño, difuminado, posicion en x, posicion en y)*/
 }
 .input_field {
-  /*TODO: arreglar el problema de las sombras del cursor*/
   -fx-background-color: #E3D4D1;
   -fx-border-color: black;
   -fx-border-radius: 4px;
@@ -30,23 +29,26 @@
 }
 .input_field:focused {
   -fx-background-color: white;
+  -fx-effect: none;
 }
 
 .password_container {
-  /*TODO: arreglar el problema de las sombras del cursor*/
   -fx-spacing:0px;
   -fx-background-color: #E3D4D1;
   -fx-background-radius: 4px;
   -fx-border-radius: 4px;
   -fx-border-color:black;
-  /* -fx-padding: 12 0; */
-  -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25), 2, 1.0, 4,4);
+  -fx-padding: 0;
 }
 .input_field_password {
-  /*TODO: arreglar el problema de las sombras del cursor*/
   -fx-background-color: transparent;
   -fx-background-insets: 0;
   -fx-font-size: 14px;
+  -fx-max-width: Infinity;
+}
+.input_field_password:focused {
+  -fx-background-color: #E3D4D1;
+  -fx-effect: none;
 }
 .password_button {
   -fx-background-color: transparent;

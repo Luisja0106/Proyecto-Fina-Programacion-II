@@ -33,12 +33,12 @@
             </TextField>
             <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="370.0" styleClass="password_container" stylesheets="@LoginCss.css">
                <children>
-                  <PasswordField maxWidth="Infinity" styleClass="input_field_password" HBox.hgrow="ALWAYS">
+                  <PasswordField maxWidth="Infinity" prefHeight="48.0" prefWidth="194.0" styleClass="input_field_password" HBox.hgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </PasswordField>
-                  <Button maxWidth="Infinity" mnemonicParsing="false" styleClass="password_button" text="MOSTRAR" HBox.hgrow="ALWAYS">
+                  <Button maxWidth="Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="88.0" styleClass="password_button" text="MOSTRAR" HBox.hgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
