@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1047.0" styleClass="login_container" stylesheets="@LoginCss.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1047.0" styleClass="login_container" stylesheets="@LoginCss.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.LoginController">
    <children>
       <VBox fx:id="logo_square" alignment="CENTER" maxHeight="470.0" maxWidth="452.0" prefHeight="470.0" prefWidth="300.0" spacing="15.0">
          <padding>
@@ -21,24 +21,24 @@
          </StackPane.margin>
          <children>
             <ImageView fitHeight="110.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField minWidth="-Infinity" promptText="Usuario" styleClass="input_field">
+            <TextField fx:id="lblUser" minWidth="-Infinity" promptText="Usuario" styleClass="input_field">
                <VBox.margin>
                   <Insets left="40.0" right="40.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="ejemplo@correo.com" styleClass="input_field">
+            <TextField fx:id="lblCorreo" promptText="ejemplo@correo.com" styleClass="input_field">
                <VBox.margin>
                   <Insets left="40.0" right="40.0" />
                </VBox.margin>
             </TextField>
             <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="370.0" styleClass="password_container" stylesheets="@LoginCss.css">
                <children>
-                  <PasswordField maxWidth="Infinity" prefHeight="48.0" prefWidth="194.0" styleClass="input_field_password" HBox.hgrow="ALWAYS">
+                  <PasswordField fx:id="lblPassword" maxWidth="Infinity" prefHeight="48.0" prefWidth="194.0" styleClass="input_field_password" HBox.hgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </PasswordField>
-                  <Button maxWidth="Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="88.0" styleClass="password_button" text="MOSTRAR" HBox.hgrow="ALWAYS">
+                  <Button fx:id="btnMostrarPass" maxWidth="Infinity" mnemonicParsing="false" onAction="#mostrar" prefHeight="44.0" prefWidth="88.0" styleClass="password_button" text="MOSTRAR" HBox.hgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -48,7 +48,7 @@
                   <Insets left="40.0" right="40.0" />
                </VBox.margin>
             </HBox>
-            <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="107.0" styleClass="login_button" text="Iniciar Sesión">
+            <Button mnemonicParsing="false" onAction="#iniciar" prefHeight="28.0" prefWidth="107.0" styleClass="login_button" text="Iniciar Sesión">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

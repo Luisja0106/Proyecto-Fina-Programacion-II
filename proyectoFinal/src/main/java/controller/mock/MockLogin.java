@@ -6,13 +6,7 @@ import model.User;
 public class MockLogin implements LoginInterface {
   @Override
   public boolean login(String username, String password) {
-    if (username == "luffy") {
-      return true;
-    }
-    if (password == "01060825") {
-      return true;
-    }
-    return false;
+    return username.equals("luffy") && password.equals("01060825");
   }
 
   @Override
