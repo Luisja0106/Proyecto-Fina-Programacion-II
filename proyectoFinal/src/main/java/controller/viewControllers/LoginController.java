@@ -43,8 +43,6 @@ public class LoginController {
     InputDialog.information("Login correcto", "Iniciando sesion");
   }
 
-  // TODO: añadir creacion de cuenta, y gestion de la misma.
-
   @FXML
   void mostrar(ActionEvent event) {
     if (btnMostrarPass.getText().equals("MOSTRAR")) {
@@ -72,6 +70,11 @@ public class LoginController {
       // cambio en el boton
       btnMostrarPass.setText("MOSTRAR");
     }
+  }
+
+  @FXML
+  void regi(ActionEvent actionEvent) {
+    InputDialog.information("Cambiando de pestaña", "Cambiando de pesta");
   }
 
   private boolean verificaciones() {

@@ -3,12 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
 
 <StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1047.0" styleClass="login_container" stylesheets="@LoginCss.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.LoginController">
    <children>
@@ -60,6 +63,12 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+            <TextFlow prefHeight="15.0" prefWidth="370.0" textAlignment="CENTER">
+               <children>
+                  <Label styleClass="lbl_pregunta" text="¿No tienes cuenta?" />
+                  <Hyperlink onAction="#regi" styleClass="link_registro" text="Registrate aqui" textFill="#321717" />
+               </children>
+            </TextFlow>
          </children>
       </VBox>
    </children>
