@@ -33,11 +33,16 @@
             </TextField>
             <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="370.0" styleClass="password_container" stylesheets="@LoginCss.css">
                <children>
-                  <PasswordField fx:id="lblPassword" maxWidth="Infinity" prefHeight="48.0" prefWidth="194.0" styleClass="input_field_password" HBox.hgrow="ALWAYS">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </PasswordField>
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="lblPasswordUnHide" prefHeight="41.0" prefWidth="212.0" styleClass="input_field_password" visible="false" />
+                        <PasswordField fx:id="lblPasswordHide" maxWidth="Infinity" prefHeight="41.0" prefWidth="216.0" styleClass="input_field_password">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </PasswordField>
+                     </children>
+                  </StackPane>
                   <Button fx:id="btnMostrarPass" maxWidth="Infinity" mnemonicParsing="false" onAction="#mostrar" prefHeight="44.0" prefWidth="88.0" styleClass="password_button" text="MOSTRAR" HBox.hgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="HAND" />
