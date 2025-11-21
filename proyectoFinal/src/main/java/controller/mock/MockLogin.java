@@ -11,7 +11,11 @@ public class MockLogin implements LoginInterface {
 
   @Override
   public boolean createAccount(User newUser) {
-    return false;
+    if (newUser != null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
