@@ -1,7 +1,9 @@
 package controller.viewControllers;
 
+import application.App;
 import controller.mock.MockLogin;
 import utils.InputDialog;
+import utils.Paths;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -34,7 +36,7 @@ public class LoginController {
     if (!verificaciones())
       return;
     String user = lblUser.getText();
-    String pass = lblPasswordHide.getText();
+    String pass = (lblPasswordHide.getText().isEmpty()) ? lblPasswordUnHide.getText() : lblPasswordHide.getText();
     boolean resu = login.login(user, pass);
     if (!resu) {
       InputDialog.information("Error datos invalidos", "Favor ingrese ingrese datos validos");
@@ -74,11 +76,12 @@ public class LoginController {
 
   @FXML
   void regi(ActionEvent actionEvent) {
-    InputDialog.information("Cambiando de pestaña", "Cambiando de pesta");
+    App.app.setScene(Paths.GESTIONAR_REGISTRO_VIEW);
   }
 
   private boolean verificaciones() {
-    if (lblUser.getText().isEmpty() || lblPasswordHide.getText().isEmpty() || lblCorreo.getText().isEmpty()) {
+    String password = (lblPasswordHide.getText().isEmpty()) ? lblPasswordUnHide.getText() : lblPasswordHide.getText();
+    if (lblUser.getText().isEmpty() || password.isEmpty() || lblCorreo.getText().isEmpty()) {
       InputDialog.warning("Llene todos los campos", "Favor llene todos los campos");
       return false;
     }
