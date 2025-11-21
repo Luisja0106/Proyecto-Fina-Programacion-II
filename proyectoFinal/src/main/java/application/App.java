@@ -1,0 +1,40 @@
+package application;
+
+import java.io.IOException;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import utils.Paths;
+
+public class App extends Application {
+  public static App app; // variable utilizada para cambiar de scena dinamicamente desde los controllers.
+  private Stage stageWindow; // variable con una unica stage.
+
+  public static void main(String[] args) {
+    launch();
+  }
+
+  @Override
+  public void start(Stage stage) throws Exception {
+    // se carga El login primero
+    app = this;
+    stageWindow = stage;
+    setScene(Paths.GESTIONAR_LOGIN_VIEW); // scena inicial
+  }
+
+  public void setScene(String paths) { // metodo que carga la scena de forma dinamica.
+    FXMLLoader loader = new FXMLLoader(getClass().getResource(paths)); // se crea el controlador de cada scena
+    try {
+      StackPane root = loader.load(); // se crea el stackPane y se le asignan los elementos correspondientes
+      Scene scene = new Scene(root); // se sube todo a una scena
+      stageWindow.setScene(scene); // se abre la escena en la ventana o stage actual.
+      stageWindow.show(); // se muestra
+    } catch (IOException Exception) {
+      Exception.printStackTrace();
+    }
+  }
+
+}
