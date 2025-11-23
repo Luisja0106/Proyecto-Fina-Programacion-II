@@ -46,8 +46,14 @@ public class RegistroController {
 
   @FXML
   void Crear(ActionEvent event) {
+    String password = (lblrepePUnHide.isVisible()) ? lblrepePUnHide.getText() : lblrepePHide.getText();
+    String passRepead = (lblnewPUnhide.isVisible()) ? lblnewPUnhide.getText() : lblnewPHide.getText();
+    if (!password.equals(passRepead)) {
+      InputDialog.error("Error las contraseñas no coinciden", "Las contraseñas no coinciden");
+      return;
+    }
     // TODO: actualizar este metodo cuando se tenga la clase user y login
-    User u = user.createUser(lblUser.getText(), lblrepePUnHide.getText(), lblCorreo.getText());
+    User u = user.createUser(lblUser.getText(), password, lblCorreo.getText());
     if (login.createAccount(u)) {
       InputDialog.information("cuenta Creada de forma satisfactoria", "Se ha creado la cuenta");
     } else {
@@ -84,7 +90,7 @@ public class RegistroController {
       unHide.requestFocus();
       unHide.positionCaret(unHide.getText().length());
       // cambio en el boton
-      btnMostrarPrepe.setText("OCULTAR");
+      btn.setText("OCULTAR");
     } else {
       // almacenamos datos de la posicion del cursor y la info
       hide.setText(unHide.getText());
