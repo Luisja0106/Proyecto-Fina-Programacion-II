@@ -42,7 +42,7 @@ public class LoginController {
       InputDialog.information("Error datos invalidos", "Favor ingrese ingrese datos validos");
       return;
     }
-    InputDialog.information("Login correcto", "Iniciando sesion");
+    App.app.setScene(Paths.GESTIONAR_CATALOGO_VIEW);
   }
 
   @FXML
@@ -95,5 +95,4 @@ public class LoginController {
   public void initialize() {
     lblPasswordUnHide.setVisible(false);
   }
-
 }
