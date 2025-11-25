@@ -10,4 +10,20 @@ public class Usuarios extends Admin {
         this.tarjeta = tarjeta;
         this.direccion = direccion;
     }
+
+    //getters
+    public int getTarjeta() {
+        return tarjeta;
+    }
+    public String getDireccion() {
+        return direccion;
+    }
+
+    //setters
+    public void setTarjeta(int tarjeta) {
+        this.tarjeta = tarjeta;
+    }
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 }
