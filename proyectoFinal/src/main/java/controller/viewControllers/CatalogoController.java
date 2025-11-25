@@ -64,7 +64,9 @@ public class CatalogoController {
     rbTWS.setToggleGroup(filtro);
     rbTocaDisco.setToggleGroup(filtro);
     cbFiltroOrdenar.getItems().addAll("A-Z", "Z-A", "Menor Precio", "Mayor Precio");
-    addGrig();
+    for (int i = 0; i < 20; i++) {
+      addGrig();
+    }
   }
 
   public void cargarProducto() {
