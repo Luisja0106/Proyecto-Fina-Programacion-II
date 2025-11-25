@@ -1,0 +1,27 @@
+.background {
+  -fx-background-color:#BD9D93;
+  -fx-border-radius: 24px;
+  -fx-background-radius:24px;
+  -fx-border-width:1px;
+  -fx-background-insets: 0;
+  -fx-border-insets: 0;
+}
+.marco {
+  -fx-border-color: black;
+  -fx-background-color: #CD846F;
+  -fx-border-radius: 24px;
+  -fx-background-radius:24px;
+}
+.carrito {
+  -fx-background-color: #34383C;
+  -fx-border-color:black;
+  -fx-border-radius: 12px;
+  -fx-background-radius:12px;
+}
+.cart_button {
+  -fx-background-color: transparent;
+  -fx-text-fill: #AEB2B4;
+}
+.hearth_button {
+  -fx-background-color: transparent;
+}
