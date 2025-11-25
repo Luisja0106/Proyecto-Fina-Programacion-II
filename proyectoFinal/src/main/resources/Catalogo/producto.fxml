@@ -11,20 +11,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="349.0" prefWidth="275.0" spacing="10.0" styleClass="background" stylesheets="@producto.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="349.0" prefWidth="275.0" spacing="10.0" styleClass="background" stylesheets="@producto.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.ProductController">
    <children>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="202.0" prefWidth="275.0" styleClass="marco">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgProducto" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </StackPane>
-      <Label text="nombre">
+      <Label fx:id="txtNom" text="nombre">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Label layoutX="122.0" layoutY="222.0" text="\$$$">
+      <Label fx:id="txtPrecio" layoutX="122.0" layoutY="222.0" text="\$$$">
          <font>
             <Font size="28.0" />
          </font>
@@ -33,7 +32,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="177.0" styleClass="carrito">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="135.0" styleClass="cart_button" text="agregar al carrito" />
+                  <Button fx:id="btnCarrito" mnemonicParsing="false" onAction="#addCarrito" prefHeight="35.0" prefWidth="135.0" styleClass="cart_button" text="agregar al carrito" />
                   <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Imagenes/agregar-al-carrito-de-compras.png" />
@@ -42,7 +41,7 @@
                </children>
             </HBox>
             <Region prefHeight="27.0" prefWidth="39.0" />
-            <Button graphicTextGap="0.0" mnemonicParsing="false" styleClass="hearth_button" text="♡">
+            <Button fx:id="btnAddFav" graphicTextGap="0.0" mnemonicParsing="false" onAction="#addFavs" styleClass="hearth_button" text="♡">
                <font>
                   <Font size="20.0" />
                </font>

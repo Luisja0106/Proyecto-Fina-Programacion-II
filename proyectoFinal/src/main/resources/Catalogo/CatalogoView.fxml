@@ -17,144 +17,155 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="1254.0" prefWidth="1280.0" styleClass="background" stylesheets="@CatalogoCSS.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <HBox prefHeight="103.0" prefWidth="1280.0" spacing="15.0" styleClass="top" stylesheets="@CatalogoCSS.css" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="86.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" />
-            <Region prefHeight="103.0" prefWidth="223.0" />
-            <StackPane prefHeight="103.0" prefWidth="721.0">
+<StackPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.CatalogoController">
+   <children>
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="1254.0" prefWidth="1280.0" styleClass="background" stylesheets="@CatalogoCSS.css">
+         <top>
+            <HBox prefHeight="103.0" prefWidth="1280.0" spacing="15.0" styleClass="top" stylesheets="@CatalogoCSS.css" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="buscador" minWidth="-Infinity" prefHeight="40.0" prefWidth="650.0" promptText="Buscar">
-                     <padding>
-                        <Insets left="10.0" right="30.0" />
-                     </padding>
-                     <StackPane.margin>
-                        <Insets />
-                     </StackPane.margin></TextField>
-                  <ImageView fitHeight="25.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
-                     <image>
-                        <Image url="@../Imagenes/busqueda-de-lupa.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </StackPane>
-            <Region prefHeight="103.0" prefWidth="108.0">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin></Region>
-            <HBox alignment="CENTER" prefHeight="103.0" prefWidth="194.0" spacing="10.0">
-               <children>
-                  <ImageView fitHeight="35.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Imagenes/userIcon.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="92.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Imagenes/cart.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="26.0" fitWidth="38.0" layoutX="146.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Imagenes/exit.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
-         </children>
-         <opaqueInsets>
-            <Insets bottom="1.0" />
-         </opaqueInsets>
-         <BorderPane.margin>
-            <Insets bottom="20.0" />
-         </BorderPane.margin></HBox>
-   </top>
-   <left>
-      <VBox prefHeight="1329.0" prefWidth="357.0" BorderPane.alignment="CENTER">
-         <children>
-            <Region prefHeight="20.0" prefWidth="377.0" />
-            <VBox minWidth="-Infinity" prefHeight="577.0" prefWidth="337.0" spacing="15.0" styleClass="left_square">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <VBox.margin>
-                  <Insets left="20.0" right="20.0" />
-               </VBox.margin>
-               <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <ImageView fitHeight="86.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" />
+                  <Region prefHeight="103.0" prefWidth="223.0" />
+                  <StackPane prefHeight="103.0" prefWidth="721.0">
                      <children>
-                        <ImageView fitHeight="98.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                        <TextField fx:id="buscador" minWidth="-Infinity" prefHeight="40.0" prefWidth="650.0" promptText="Buscar">
+                           <padding>
+                              <Insets left="10.0" right="30.0" />
+                           </padding>
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin>
+                        </TextField>
+                        <ImageView fitHeight="25.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
                            <image>
-                              <Image url="@../Imagenes/filtrar.png" />
+                              <Image url="@../Imagenes/busqueda-de-lupa.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="left_square_title" alignment="CENTER" contentDisplay="CENTER" text="Filtros" />
-                        <Region prefHeight="100.0" prefWidth="60.0" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </StackPane>
+                  <Region prefHeight="103.0" prefWidth="108.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Region>
+                  <HBox alignment="CENTER" prefHeight="103.0" prefWidth="194.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="35.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/userIcon.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="92.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/cart.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="26.0" fitWidth="38.0" layoutX="146.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/exit.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </HBox>
-                  <VBox alignment="CENTER_LEFT" spacing="10.0">
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="1.0" />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" />
+               </BorderPane.margin>
+            </HBox>
+         </top>
+         <left>
+            <VBox prefHeight="1329.0" prefWidth="357.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Region prefHeight="20.0" prefWidth="377.0" />
+                  <VBox minWidth="-Infinity" prefHeight="577.0" prefWidth="337.0" spacing="15.0" styleClass="left_square">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
                      <children>
-                        <RadioButton mnemonicParsing="false" text="IEMS (In Ear Monitors)" />
-                        <RadioButton mnemonicParsing="false" text="Auriculares" />
-                        <RadioButton mnemonicParsing="false" text="TWS (True Wireless)" />
-                        <RadioButton mnemonicParsing="false" text="DACs (Digital to Analog Converter)" />
-                        <RadioButton mnemonicParsing="false" text="Discos  Vinilos" />
-                        <RadioButton mnemonicParsing="false" text="Toca Discos" />
-                     </children>
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                  </VBox>
-                  <Label text="Precio">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="315.0" spacing="2.0">
-                     <children>
-                        <TextField promptText="Valor Minimo" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="98.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/filtrar.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="left_square_title" alignment="CENTER" contentDisplay="CENTER" text="Filtros" />
+                              <Region prefHeight="100.0" prefWidth="60.0" />
+                           </children>
+                        </HBox>
+                        <VBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="rbIEMS" mnemonicParsing="false" text="IEMS (In Ear Monitors)" />
+                              <RadioButton fx:id="rbAuriculares" mnemonicParsing="false" text="Auriculares" />
+                              <RadioButton fx:id="rbTWS" mnemonicParsing="false" text="TWS (True Wireless)" />
+                              <RadioButton fx:id="rbDAC" mnemonicParsing="false" text="DACs (Digital to Analog Converter)" />
+                              <RadioButton fx:id="rbDisco" mnemonicParsing="false" text="Discos  Vinilos" />
+                              <RadioButton fx:id="rbTocaDisco" mnemonicParsing="false" text="Toca Discos" />
+                           </children>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </VBox>
+                        <Label text="Precio">
                            <font>
                               <Font size="24.0" />
-                           </font></Text>
-                        <TextField promptText="Valor Maximo" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="315.0" spacing="2.0">
+                           <children>
+                              <TextField fx:id="txtPrecioMin" promptText="Valor Minimo" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <TextField fx:id="txtPrecioMax" promptText="Valor Maximo" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="10.0" prefWidth="295.0" spacing="50.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="169.0" text="Ordenar Por">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbFiltroOrdenar" prefWidth="150.0" />
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="10.0" prefWidth="295.0" spacing="50.0">
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <ScrollPane fx:id="center" prefHeight="1505.0" prefWidth="869.0" styleClass="scroll_pane" stylesheets="@CatalogoCSS.css" BorderPane.alignment="CENTER">
+               <content>
+                  <VBox>
                      <children>
-                        <Label prefHeight="25.0" prefWidth="169.0" text="Ordenar Por">
-                           <font>
-                              <Font size="20.0" />
-                           </font></Label>
-                        <ComboBox fx:id="cbFiltro" prefWidth="150.0" />
+                        <Region prefHeight="20.0" prefWidth="200.0" />
+                        <TilePane fx:id="tlObjetos" prefHeight="1090.0" prefWidth="869.0" styleClass="grid" />
                      </children>
-                  </HBox>
-               </children>
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding>
-            </VBox>
-         </children></VBox>
-   </left>
-   <center>
-      <ScrollPane fx:id="center" prefHeight="1505.0" prefWidth="869.0" styleClass="scroll_pane" stylesheets="@CatalogoCSS.css" BorderPane.alignment="CENTER">
-         <content>
-            <VBox>
-               <children>
-                  <Region prefHeight="20.0" prefWidth="200.0" />
-                  <TilePane prefHeight="1090.0" prefWidth="869.0" styleClass="grid" />
-               </children>
-            </VBox>
-         </content>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin></ScrollPane>
-   </center>
-</BorderPane>
+                  </VBox>
+               </content>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>
