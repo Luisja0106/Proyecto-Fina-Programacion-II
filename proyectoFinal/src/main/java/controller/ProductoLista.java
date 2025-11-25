@@ -85,4 +85,53 @@ public class ProductoLista extends Listas<Productos> {
         setGuardarProductosTxt();
         return true;
     }
+
+    /**
+     * Ordenamiento burbuja dependiendo del criterio
+     * @param criterio - (A-Z, Z-A, Menor Precio, Mayor Precio)
+     */
+    private void ordenarLista(String criterio) {
+        if (getEsVacia() || cabecera.sig == cabecera) return; // Lista vacía o 1 elemento
+
+        boolean huboCambio;
+        do {
+            huboCambio = false;
+            Nodo<Productos> actual = cabecera;
+            Nodo<Productos> siguiente = cabecera.sig;
+
+            while (siguiente != cabecera) {
+                boolean realizarIntercambio = false;
+
+                // Lógica de decisión según criterio
+                switch (criterio) {
+                    case "A-Z":
+                        if (actual.info.getNombre().compareToIgnoreCase(siguiente.info.getNombre()) > 0)
+                            realizarIntercambio = true;
+                        break;
+                    case "Z-A":
+                        if (actual.info.getNombre().compareToIgnoreCase(siguiente.info.getNombre()) < 0)
+                            realizarIntercambio = true;
+                        break;
+                    case "Menor Precio":
+                        if (actual.info.getPrecio() > siguiente.info.getPrecio())
+                            realizarIntercambio = true;
+                        break;
+                    case "Mayor Precio":
+                        if (actual.info.getPrecio() < siguiente.info.getPrecio())
+                            realizarIntercambio = true;
+                        break;
+                }
+
+                if (realizarIntercambio) {
+                    Productos temp = actual.info;
+                    actual.info = siguiente.info;
+                    siguiente.info = temp;
+                    huboCambio = true;
+                }
+
+                actual = siguiente;
+                siguiente = siguiente.sig;
+            }
+        } while (huboCambio);
+    }
 }
