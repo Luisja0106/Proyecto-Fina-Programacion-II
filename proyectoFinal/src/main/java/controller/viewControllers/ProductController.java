@@ -33,7 +33,10 @@ public class ProductController {
   @FXML
   void addFavs(ActionEvent event) {
     InputDialog.information("Se ha añadido a favoritos", "El producto se ha añadido a favoritos satisfactoriamente");
-
   }
 
+  public void setProducto(String nom, float precio, String ruta) {
+    txtNom.setText(nom);
+    txtPrecio.setText("$" + precio);
+  }
 }
