@@ -8,14 +8,16 @@ public class Productos {
     private float precio;
     private String imagen; // Ruta de la imagen
     private int stock;
+    private String categoria;
 
-    public Productos(String id, String nombre, String nomVendedor, float precio, String imagen, int stock) {
+    public Productos(String id, String nombre, String nomVendedor, float precio, String imagen, int stock, String categoria) {
         this.id = id;
         this.nombre = nombre;
         this.nomVendedor = nomVendedor;
         this.precio = precio;
         this.imagen = imagen;
         this.stock = stock;
+        this.categoria = categoria;
     }
 
     // setters y getters
@@ -37,8 +39,11 @@ public class Productos {
     public int getStock() { return stock; }
     public void setStock(int stock) { this.stock = stock; }
 
+    public String getCategoria() { return categoria; }
+    public void setCategoria(String categoria) { this.categoria = categoria; }
+
     // txt formato: id;nombre;vendedor;precio;rutaImagen;stock
     public String toCsv() {
-        return id + ";" + nombre + ";" + nomVendedor + ";" + precio + ";" + imagen + ";" + stock;
+        return id + ";" + nombre + ";" + nomVendedor + ";" + precio + ";" + imagen + ";" + stock + ";" + categoria;
     }
 }
