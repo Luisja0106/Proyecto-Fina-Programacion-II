@@ -51,7 +51,7 @@ public class ProductoLista extends Listas<Productos> {
                 if (datos.length >= 6) {
                     Productos p = new Productos(datos[0], datos[1], datos[2],
                             Float.parseFloat(datos[3]), datos[4], Integer.parseInt(datos[5]));
-                    agg(p);
+                    addF(p);
                 }
             }
         } catch (Exception e) {
