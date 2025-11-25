@@ -10,6 +10,7 @@
   -fx-border-color:black;
   -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25),0,0,4,4);
 }
+/* NOTE: left */
 .left_square {
   -fx-background-color: #BEB4B4;
   -fx-background-radius: 24px;
@@ -20,3 +21,26 @@
 #left_square_title {
   -fx-font-size: 48px;
 }
+#cbFiltro {
+  -fx-background-color: white;
+  -fx-border-radius: black;
+}
+/* NOTE: middle */
+
+.scroll_pane {
+  -fx-background-color :#e8d8d3;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+}
+.scroll_pane > .viewport {
+  -fx-background-color : #e8d8d3;
+}
+
+
+.grid {
+  -fx-background-color: #CBB5AF ;
+  -fx-border-color: black;
+  -fx-background-radius: 24px;
+  -fx-border-radius: 24px;
+}
+
