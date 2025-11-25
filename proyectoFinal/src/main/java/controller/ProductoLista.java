@@ -26,6 +26,39 @@ public class ProductoLista extends Listas<Productos> {
         return null;
     }
 
+    public void setGuardarProductosTxt() {
+        if (getEsVacia()) return;
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARCHIVO_DB))) {
+            Nodo<Productos> actual = cabecera;
+            do {
+                bw.write(actual.info.toCsv());
+                bw.newLine();
+                actual = actual.sig;
+            } while (actual != cabecera);
+        } catch (IOException e) {
+            System.err.println("Error al guardar: " + e.getMessage());
+        }
+    }
+
+    public void setCargarProductosTxt() {
+        File archivo = new File(ARCHIVO_DB);
+        if (!archivo.exists()) return;
+        setVaciar();
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(";");
+                if (datos.length >= 6) {
+                    Productos p = new Productos(datos[0], datos[1], datos[2],
+                            Float.parseFloat(datos[3]), datos[4], Integer.parseInt(datos[5]));
+                    agg(p);
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Error al cargar: " + e.getMessage());
+        }
+    }
+
     public boolean eliminarProducto(String id) {
         if (getEsVacia()) return false;
         Nodo<Productos> actual = cabecera;
