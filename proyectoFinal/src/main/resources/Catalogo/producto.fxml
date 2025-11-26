@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -11,28 +12,32 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="349.0" prefWidth="275.0" spacing="10.0" styleClass="background" stylesheets="@producto.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.ProductController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" spacing="5.0" styleClass="background" stylesheets="@producto.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.ProductController">
    <children>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="202.0" prefWidth="275.0" styleClass="marco">
          <children>
-            <ImageView fx:id="imgProducto" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgProducto" fitHeight="178.0" fitWidth="238.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </StackPane>
       <Label fx:id="txtNom" text="nombre">
          <font>
-            <Font size="28.0" />
+            <Font size="30.0" />
          </font>
       </Label>
       <Label fx:id="txtPrecio" layoutX="122.0" layoutY="222.0" text="\$$$">
          <font>
-            <Font size="28.0" />
+            <Font size="30.0" />
          </font>
       </Label>
+      <Region prefHeight="79.0" prefWidth="355.0" />
       <HBox prefHeight="23.0" prefWidth="275.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="177.0" styleClass="carrito">
+            <HBox alignment="CENTER" prefHeight="28.0" prefWidth="177.0" styleClass="carrito">
                <children>
-                  <Button fx:id="btnCarrito" mnemonicParsing="false" onAction="#addCarrito" prefHeight="35.0" prefWidth="135.0" styleClass="cart_button" text="agregar al carrito" />
+                  <Button fx:id="btnCarrito" mnemonicParsing="false" onAction="#addCarrito" prefHeight="35.0" prefWidth="135.0" styleClass="cart_button" text="agregar al carrito">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Imagenes/agregar-al-carrito-de-compras.png" />
@@ -40,17 +45,22 @@
                   </ImageView>
                </children>
             </HBox>
-            <Region prefHeight="27.0" prefWidth="39.0" />
-            <Button fx:id="btnAddFav" graphicTextGap="0.0" mnemonicParsing="false" onAction="#addFavs" styleClass="hearth_button" text="♡">
+            <Region prefHeight="39.0" prefWidth="36.0" />
+            <Button fx:id="btnAddFav" graphicTextGap="0.0" mnemonicParsing="false" onAction="#addFavs" prefHeight="39.0" prefWidth="50.0" styleClass="hearth_button" text="♡">
                <font>
                   <Font size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
          <padding>
             <Insets left="10.0" />
          </padding>
       </HBox>
-      <Region prefHeight="69.0" prefWidth="275.0" />
    </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
 </VBox>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -17,9 +18,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.CatalogoController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1254.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.CatalogoController">
    <children>
-      <BorderPane prefHeight="1254.0" prefWidth="1280.0" styleClass="background" stylesheets="@CatalogoCSS.css">
+        <BorderPane prefHeight="1254.0" prefWidth="1280.0" styleClass="background" stylesheets="@CatalogoCSS.css">
          <top>
             <HBox prefHeight="103.0" prefWidth="1280.0" spacing="15.0" styleClass="top" stylesheets="@CatalogoCSS.css" BorderPane.alignment="CENTER">
                <children>
@@ -27,16 +28,19 @@
                      <image>
                         <Image url="@../Imagenes/logo-placeholder-image.png" />
                      </image></ImageView>
-                  <Region prefHeight="103.0" prefWidth="223.0" />
-                  <StackPane prefHeight="103.0" prefWidth="721.0">
+                  <Region prefHeight="103.0" prefWidth="545.0" />
+                  <StackPane prefHeight="103.0" prefWidth="805.0">
                      <children>
-                        <TextField fx:id="buscador" minWidth="-Infinity" prefHeight="40.0" prefWidth="650.0" promptText="Buscar">
+                        <TextField fx:id="buscador" minWidth="-Infinity" prefHeight="40.0" prefWidth="997.0" promptText="Buscar">
                            <padding>
                               <Insets left="10.0" right="30.0" />
                            </padding>
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
                         </TextField>
                         <ImageView fitHeight="25.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
                            <image>
@@ -51,7 +55,7 @@
                         <Insets />
                      </HBox.margin>
                   </StackPane>
-                  <Region prefHeight="103.0" prefWidth="108.0">
+                  <Region prefHeight="103.0" prefWidth="170.0">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -109,12 +113,30 @@
                         </HBox>
                         <VBox alignment="CENTER_LEFT" spacing="10.0">
                            <children>
-                              <RadioButton fx:id="rbIEMS" mnemonicParsing="false" text="IEMS (In Ear Monitors)" />
-                              <RadioButton fx:id="rbAuriculares" mnemonicParsing="false" text="Auriculares" />
-                              <RadioButton fx:id="rbTWS" mnemonicParsing="false" text="TWS (True Wireless)" />
-                              <RadioButton fx:id="rbDAC" mnemonicParsing="false" text="DACs (Digital to Analog Converter)" />
-                              <RadioButton fx:id="rbDisco" mnemonicParsing="false" text="Discos  Vinilos" />
-                              <RadioButton fx:id="rbTocaDisco" mnemonicParsing="false" text="Toca Discos" />
+                              <RadioButton fx:id="rbIEMS" mnemonicParsing="false" text="IEMS (In Ear Monitors)">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="rbAuriculares" mnemonicParsing="false" text="Auriculares">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="rbTWS" mnemonicParsing="false" text="TWS (True Wireless)">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="rbDAC" mnemonicParsing="false" text="DACs (Digital to Analog Converter)">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="rbDisco" mnemonicParsing="false" text="Discos  Vinilos">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="rbTocaDisco" mnemonicParsing="false" text="Toca Discos">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
                            </children>
                            <padding>
                               <Insets left="20.0" />
@@ -127,13 +149,19 @@
                         </Label>
                         <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="315.0" spacing="2.0">
                            <children>
-                              <TextField fx:id="txtPrecioMin" promptText="Valor Minimo" />
+                              <TextField fx:id="txtPrecioMin" promptText="Valor Minimo">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextField>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="txtPrecioMax" promptText="Valor Maximo" />
+                              <TextField fx:id="txtPrecioMax" promptText="Valor Maximo">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextField>
                            </children>
                         </HBox>
                         <HBox prefHeight="10.0" prefWidth="295.0" spacing="50.0">
@@ -143,7 +171,10 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbFiltroOrdenar" prefWidth="150.0" />
+                              <ComboBox fx:id="cbFiltroOrdenar" prefWidth="150.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ComboBox>
                            </children>
                         </HBox>
                      </children>
@@ -155,12 +186,21 @@
             </VBox>
          </left>
          <center>
-            <ScrollPane fx:id="center" prefHeight="1505.0" prefWidth="869.0" styleClass="scroll_pane" stylesheets="@CatalogoCSS.css" BorderPane.alignment="CENTER">
+            <ScrollPane fx:id="center" hbarPolicy="NEVER" prefHeight="1505.0" prefWidth="869.0" styleClass="scroll_pane" stylesheets="@CatalogoCSS.css" vbarPolicy="NEVER">
                <content>
                   <VBox>
                      <children>
                         <Region prefHeight="20.0" prefWidth="200.0" />
-                        <TilePane fx:id="tlObjetos" hgap="3.0" prefHeight="1090.0" prefWidth="869.0" styleClass="grid" vgap="3.0" />
+                        <HBox>
+                           <children>
+                              <Region prefHeight="1090.0" prefWidth="211.0" />
+                              <TilePane fx:id="tlObjetos" hgap="40.0" prefColumns="3" prefHeight="1090.0" prefRows="3" prefWidth="1025.0" styleClass="grid" vgap="20.0">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </TilePane>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </content>

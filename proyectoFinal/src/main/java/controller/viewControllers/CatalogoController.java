@@ -78,7 +78,7 @@ public class CatalogoController {
       FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_PRODUCTOS_VIEW));
       VBox tarjeta = loader.load();
       ProductController controller = loader.getController();
-      controller.setProducto("Kz castor bass", 5000000, "llksjlfkjsld");
+      controller.setProducto("Kz castor bass", 5000000, "/Imagenes/KZ-castor-bass.jpg");
       tlObjetos.getChildren().add(tarjeta);
     } catch (IOException e) {
       InputDialog.error("error", "error: " + e.getMessage());
