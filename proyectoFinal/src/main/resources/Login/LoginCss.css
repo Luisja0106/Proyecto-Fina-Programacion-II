@@ -1,3 +1,15 @@
+.input_field:focused,
+.input_field_password:focused,
+.password_button:focused,
+.password_container:focused,
+.login_button:focused {
+    -fx-effect: none;
+    -fx-background-insets: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-color: black;
+}
+
 .login_container {
   -fx-background-color: #A6A1A0;
 }
@@ -37,6 +49,10 @@
 .input_field:focused {
   -fx-background-color: white;
   -fx-effect: none;
+  -fx-border-color: black;
+  -fx-background-insets: 0;
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
 }
 
 .password_container {

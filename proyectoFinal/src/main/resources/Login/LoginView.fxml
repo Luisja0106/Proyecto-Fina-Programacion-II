@@ -60,7 +60,7 @@
                   <Insets left="40.0" right="40.0" />
                </VBox.margin>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#iniciar" prefHeight="28.0" prefWidth="107.0" styleClass="login_button" text="Iniciar Sesión">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#iniciar" prefHeight="28.0" prefWidth="107.0" styleClass="login_button" text="Iniciar Sesión">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

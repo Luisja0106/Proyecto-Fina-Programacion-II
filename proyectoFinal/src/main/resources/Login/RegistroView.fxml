@@ -125,7 +125,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" onAction="#Crear" prefHeight="28.0" prefWidth="107.0" styleClass="login_button" text="Crear cuenta">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#Crear" prefHeight="28.0" prefWidth="107.0" styleClass="login_button" text="Crear cuenta">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
