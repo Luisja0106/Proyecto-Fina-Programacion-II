@@ -27,18 +27,21 @@ public class ListaUsers {
     if (nuevo == null) {
       return false;
     }
+    if (!crearTxt(nuevo)) {
+      InputDialog.error("ha ocurrido un error", "Ha ocurrido un error");
+      return false;
+    }
     users.addF(nuevo);
     InputDialog.information("Cuenta creada", "La cuenta se ha creado correctamente");
     return true;
   }
 
+  public boolean importarCuenta(Usuarios user) {
+    return users.addF(user);
+  }
+
   private Usuarios crearUser(String user, String password, String correo) {
     Usuarios nuevo = new Usuarios(user, false, correo, password);
-    if (!crearTxt(nuevo)) {
-      InputDialog.error("ha ocurrido un error", "Ha ocurrido un error");
-      return null;
-    }
-    ;
     return nuevo;
   }
 
