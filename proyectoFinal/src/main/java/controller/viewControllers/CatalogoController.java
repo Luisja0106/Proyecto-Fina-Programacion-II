@@ -2,8 +2,11 @@ package controller.viewControllers;
 
 import java.io.IOException;
 
+import application.App;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -16,6 +19,14 @@ import utils.InputDialog;
 import utils.Paths;
 
 public class CatalogoController {
+  @FXML
+  private Button btnCart;
+
+  @FXML
+  private Button btnExit;
+
+  @FXML
+  private Button btnUser;
 
   @FXML
   private TextField buscador;
@@ -55,6 +66,21 @@ public class CatalogoController {
   @FXML
   private TilePane tlObjetos;
 
+  @FXML
+  void cart(ActionEvent event) {
+    InputDialog.information("Dirigiendose al carrito", "Dirigiendose al carrito");
+  }
+
+  @FXML
+  void exit(ActionEvent event) {
+    App.app.setScene(Paths.GESTIONAR_LOGIN_VIEW);
+  }
+
+  @FXML
+  void user(ActionEvent event) {
+    InputDialog.information("Ingresando al perfil", "Ingresando al perfil");
+  }
+
   public void initialize() {
     ToggleGroup filtro = new ToggleGroup();
     rbDAC.setToggleGroup(filtro);
@@ -78,7 +104,7 @@ public class CatalogoController {
       FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_PRODUCTOS_VIEW));
       VBox tarjeta = loader.load();
       ProductController controller = loader.getController();
-      controller.setProducto("Kz castor bass", 5000000, "llksjlfkjsld");
+      controller.setProducto("Kz castor bass", 5000000, "/Imagenes/KZ-castor-bass.jpg");
       tlObjetos.getChildren().add(tarjeta);
     } catch (IOException e) {
       InputDialog.error("error", "error: " + e.getMessage());

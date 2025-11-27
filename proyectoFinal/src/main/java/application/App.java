@@ -31,6 +31,7 @@ public class App extends Application {
       StackPane root = loader.load(); // se crea el stackPane y se le asignan los elementos correspondientes
       Scene scene = new Scene(root); // se sube todo a una scena
       stageWindow.setScene(scene); // se abre la escena en la ventana o stage actual.
+      stageWindow.setMaximized(true);
       stageWindow.show(); // se muestra
     } catch (IOException Exception) {
       Exception.printStackTrace();
