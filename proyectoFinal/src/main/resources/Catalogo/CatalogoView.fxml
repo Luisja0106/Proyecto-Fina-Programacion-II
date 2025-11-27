@@ -103,7 +103,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="98.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="66.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Imagenes/filtrar.png" />
                                  </image>
