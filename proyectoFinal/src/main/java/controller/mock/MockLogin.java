@@ -1,6 +1,6 @@
 package controller.mock;
 
-import controller.LoginInterface;
+import controller.login.LoginInterface;
 import model.User;
 
 public class MockLogin implements LoginInterface {

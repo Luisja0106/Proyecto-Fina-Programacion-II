@@ -1,14 +1,13 @@
 package controller.viewControllers;
 
 import application.App;
-import controller.mock.MockLogin;
+import controller.login.ListaUsers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import model.User;
 import utils.InputDialog;
 import utils.Paths;
 
@@ -41,8 +40,7 @@ public class RegistroController {
   @FXML
   private VBox logo_square;
 
-  private MockLogin login = new MockLogin();
-  private User user = new User();
+  private ListaUsers users = new ListaUsers();
 
   @FXML
   void Crear(ActionEvent event) {
@@ -52,14 +50,9 @@ public class RegistroController {
       InputDialog.error("Error las contraseñas no coinciden", "Las contraseñas no coinciden");
       return;
     }
-    // TODO: actualizar este metodo cuando se tenga la clase user y login
-    User u = user.createUser(lblUser.getText(), password, lblCorreo.getText());
-    if (login.createAccount(u)) {
-      InputDialog.information("cuenta Creada de forma satisfactoria", "Se ha creado la cuenta");
-    } else {
-      InputDialog.error("ha ocurrido un error", "Ha ocurrido un error intente de nuevo");
-    }
-
+    if (!verification())
+      return;
+    users.crearCuenta(lblUser.getText(), password, lblCorreo.getText());
   }
 
   @FXML
@@ -75,6 +68,25 @@ public class RegistroController {
   @FXML
   void mostrarRepe(ActionEvent event) {
     switchHide(btnMostrarPrepe, lblrepePHide, lblrepePUnHide);
+  }
+
+  private boolean verification() {
+    // se guarda la contraseña
+    String password = (lblrepePUnHide.isVisible()) ? lblrepePUnHide.getText() : lblrepePHide.getText();
+    String passRepead = (lblnewPUnhide.isVisible()) ? lblnewPUnhide.getText() : lblnewPHide.getText();
+    // se verifica que no existan campos vacios
+    if (password.isEmpty() || password.isBlank() || passRepead.isEmpty() || passRepead.isBlank()
+        || lblUser.getText().isBlank() || lblUser.getText().isEmpty() || lblCorreo.getText().isEmpty()
+        || lblCorreo.getText().isBlank()) {
+      InputDialog.warning("Campos vacios", "Favor llene toda la informacion");
+      return false;
+    }
+    // se verifca que el correo tenga la estructura correcta
+    if (!lblCorreo.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
+      InputDialog.warning("Correo Invalido", "Favor ingrese un correo valido");
+      return false;
+    }
+    return true;
   }
 
   private void switchHide(Button btn, PasswordField hide, TextField unHide) { // meotod para swichear la visibilidad de
