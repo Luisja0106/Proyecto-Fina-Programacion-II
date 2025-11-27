@@ -164,14 +164,14 @@
                                  </cursor></TextField>
                            </children>
                         </HBox>
-                        <HBox prefHeight="10.0" prefWidth="295.0" spacing="50.0">
+                        <HBox prefHeight="10.0" prefWidth="295.0" spacing="10.0">
                            <children>
-                              <Label prefHeight="25.0" prefWidth="169.0" text="Ordenar Por">
+                              <Label prefHeight="25.0" prefWidth="177.0" text="Ordenar Por">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="cbFiltroOrdenar" prefWidth="150.0">
+                              <ComboBox fx:id="cbFiltroOrdenar" prefHeight="24.0" prefWidth="173.0">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></ComboBox>

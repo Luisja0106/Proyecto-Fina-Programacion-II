@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Story+Script&display=swap');
 .background {
   -fx-background-color:#BD9D93;
   -fx-border-radius: 24px;
@@ -24,4 +25,17 @@
 }
 .hearth_button {
   -fx-background-color: transparent;
+}
+Label {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 28px;
+  -fx-font-weight: bold;
+  -fx-font-style: italic;
+}
+#cartBtnContainer:hover {
+  -fx-background-color: #2f955a;
+  -fx-border-color: #2f955a;
+}
+#favIcon {
+  -fx-fill: #BFC0C2;
 }

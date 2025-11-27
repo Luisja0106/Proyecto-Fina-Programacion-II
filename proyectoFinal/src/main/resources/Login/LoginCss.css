@@ -2,6 +2,7 @@
 .input_field_password:focused,
 .password_button:focused,
 .password_container:focused,
+.login_container:focused,
 .login_button:focused {
     -fx-effect: none;
     -fx-background-insets: 0;

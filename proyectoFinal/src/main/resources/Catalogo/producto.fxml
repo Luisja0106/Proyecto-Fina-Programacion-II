@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -16,12 +17,12 @@
    <children>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="202.0" prefWidth="275.0" styleClass="marco">
          <children>
-            <ImageView fx:id="imgProducto" fitHeight="178.0" fitWidth="238.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgProducto" fitHeight="253.0" fitWidth="398.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </StackPane>
       <Label fx:id="txtNom" text="nombre">
          <font>
-            <Font size="30.0" />
+            <Font name="Oswald Regular" size="30.0" />
          </font>
       </Label>
       <Label fx:id="txtPrecio" layoutX="122.0" layoutY="222.0" text="\$$$">
@@ -32,7 +33,7 @@
       <Region prefHeight="79.0" prefWidth="355.0" />
       <HBox prefHeight="23.0" prefWidth="275.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="28.0" prefWidth="177.0" styleClass="carrito">
+            <HBox fx:id="cartBtnContainer" alignment="CENTER" prefHeight="28.0" prefWidth="177.0" styleClass="carrito">
                <children>
                   <Button fx:id="btnCarrito" mnemonicParsing="false" onAction="#addCarrito" prefHeight="35.0" prefWidth="135.0" styleClass="cart_button" text="agregar al carrito">
                      <cursor>
@@ -46,13 +47,16 @@
                </children>
             </HBox>
             <Region prefHeight="39.0" prefWidth="36.0" />
-            <Button fx:id="btnAddFav" graphicTextGap="0.0" mnemonicParsing="false" onAction="#addFavs" prefHeight="39.0" prefWidth="50.0" styleClass="hearth_button" text="♡">
+            <Button fx:id="btnAddFav" graphicTextGap="0.0" mnemonicParsing="false" onAction="#addFavs" prefHeight="39.0" prefWidth="50.0" styleClass="hearth_button">
                <font>
                   <Font size="20.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <FontAwesomeIconView fx:id="favIcon" glyphName="HEART_ALT" size="40" tabSize="20" />
+               </graphic>
             </Button>
          </children>
          <padding>
