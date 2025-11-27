@@ -6,6 +6,11 @@
   -fx-background-color: #BA9288;
   -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25), 0, 0, 0, -4);
 }
+.btnBar {
+  -fx-font-size: 30px;
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+}
 #buscador {
   -fx-border-color:black;
   -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25),0,0,4,4);

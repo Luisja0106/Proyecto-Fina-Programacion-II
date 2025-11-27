@@ -39,3 +39,9 @@ Label {
 #favIcon {
   -fx-fill: #BFC0C2;
 }
+#btnCarrito {
+  -fx-font-size: 16px;
+}
+#cartIcon {
+  -fx-fill: #BFC0C2;
+}

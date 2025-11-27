@@ -33,6 +33,9 @@ public class ProductController {
   @FXML
   private FontAwesomeIconView favIcon;
 
+  @FXML
+  private FontAwesomeIconView cartIcon;
+
   private boolean isInFav = false;
 
   @FXML

@@ -5,7 +5,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -33,17 +32,20 @@
       <Region prefHeight="79.0" prefWidth="355.0" />
       <HBox prefHeight="23.0" prefWidth="275.0">
          <children>
-            <HBox fx:id="cartBtnContainer" alignment="CENTER" prefHeight="28.0" prefWidth="177.0" styleClass="carrito">
+            <HBox fx:id="cartBtnContainer" alignment="CENTER" prefHeight="54.0" prefWidth="222.0" styleClass="carrito">
                <children>
-                  <Button fx:id="btnCarrito" mnemonicParsing="false" onAction="#addCarrito" prefHeight="35.0" prefWidth="135.0" styleClass="cart_button" text="agregar al carrito">
+                  <Button fx:id="btnCarrito" mnemonicParsing="false" onAction="#addCarrito" prefHeight="35.0" prefWidth="169.0" styleClass="cart_button" text="agregar al carrito">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></Button>
-                  <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Imagenes/agregar-al-carrito-de-compras.png" />
-                     </image>
-                  </ImageView>
+                     </cursor>
+                     <font>
+                        <Font name="DejaVu Sans ExtraLight" size="13.0" />
+                     </font></Button>
+                  <FontAwesomeIconView fx:id="cartIcon" glyphName="CART_ARROW_DOWN" size="30">
+                     <HBox.margin>
+                        <Insets right="2.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
                </children>
             </HBox>
             <Region prefHeight="39.0" prefWidth="36.0" />
