@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import utils.InputDialog;
+import java.io.File;
 
 public class ProductController {
 
@@ -60,7 +61,11 @@ public class ProductController {
   public void setProducto(String nom, float precio, String ruta) {
     txtNom.setText(nom);
     txtPrecio.setText("$" + precio);
-    Image img = new Image(getClass().getResource(ruta).toExternalForm());
-    imgProducto.setImage(img);
+
+    File file = new File(ruta);
+    if (file.exists()) {
+        Image img = new Image(file.toURI().toString());
+        imgProducto.setImage(img);
+    }
   }
 }
