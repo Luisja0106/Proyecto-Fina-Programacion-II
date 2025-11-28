@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 import com.google.gson.Gson;
 
 //archivos locales
+import model.Nodo;
 import model.Usuarios;
 import utils.InputDialog;
 
@@ -19,7 +20,7 @@ public class Login implements LoginInterface {
 
   @Override
   public boolean login(String username, String password, String correo) {
-    if (!verificaciones()) {
+    if (!verificaciones(username, correo, password)) {
       return false;
     }
     return true;
@@ -52,10 +53,10 @@ public class Login implements LoginInterface {
       while ((line = br.readLine()) != null) {
         content.append(line);
       }
-      Gson gson = new Gson();
-      String json = content.toString();
-      Usuarios aux = gson.fromJson(json, Usuarios.class);
-      lista.importarCuenta(aux);
+      Gson gson = new Gson(); // lector de json
+      String json = content.toString(); // se construye toda la info en una String
+      Usuarios aux = gson.fromJson(json, Usuarios.class); // se crea un User
+      lista.importarCuenta(aux); // se importa a la lista
       InputDialog.information("DB cargada", "Data base Cargada");
       return aux;
     } catch (IOException e) {
@@ -65,9 +66,31 @@ public class Login implements LoginInterface {
   }
 
   // metodo que verfica los datos
-  private boolean verificaciones() {
-    // TODO: hacer el metodo que verfique que la cuenta exista y se loguee, usando
-    // while y esas cosas
-    return false;
+  private boolean verificaciones(String user, String correo, String password) {
+    if (lista.getUsers().getEsVacia()) {
+      InputDialog.error("Cuenta no encontrada", "Cuenta no encontrada favor crear una");
+      return false;
+    }
+    Nodo<Usuarios> aux = lista.getUsers().cabecera;
+    boolean found = false;
+    do {
+      if (aux.info.getCorreo().equals(correo)) {
+        found = true;
+        break;
+      }
+      aux = aux.sig;
+    } while (aux != lista.getUsers().cabecera);
+    if (!found) {
+      InputDialog.warning("No se ha encontrado", "No se ha encontrado el correo ingresado");
+      return false;
+    }
+    if (!aux.info.getNombre().equals(user)) {
+      InputDialog.warning("error", "Error, el usuario ingresado no coincide con el usuario registrado a el correo");
+      return false;
+    }
+    if (!aux.info.getPassword().equals(password)) {
+      InputDialog.warning("Contraseña incorrecta", "Ha ingresado una contraseña incorrecta");
+    }
+    return true;
   }
 }

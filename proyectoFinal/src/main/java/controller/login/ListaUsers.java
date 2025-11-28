@@ -19,6 +19,11 @@ public class ListaUsers {
   public ListaUsers() {
   }
 
+  // getter
+  public Listas<Usuarios> getUsers() {
+    return users;
+  }
+
   public boolean crearCuenta(String user, String password, String correo) {
     if (!verificacionesCrear(user, password, correo)) { // verificiaciones de seguridad
       return false;
