@@ -62,7 +62,7 @@
                         <Font size="12.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Debe ser mayor 7 caracteres, tener una mayus, y un simbolo" wrappingWidth="289.310546875">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Debe ser mayor 7 caracteres, tener una mayuscula, y un numero" wrappingWidth="289.310546875">
                      <VBox.margin>
                         <Insets left="40.0" />
                      </VBox.margin>
