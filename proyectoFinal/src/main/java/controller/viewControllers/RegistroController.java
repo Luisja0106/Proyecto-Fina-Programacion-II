@@ -42,6 +42,10 @@ public class RegistroController {
 
   private ListaUsers users = new ListaUsers();
 
+  public void setUsers(ListaUsers users) {
+    users = this.users;
+  }
+
   @FXML
   void Crear(ActionEvent event) {
     String password = (lblrepePUnHide.isVisible()) ? lblrepePUnHide.getText() : lblrepePHide.getText();
@@ -53,6 +57,7 @@ public class RegistroController {
     if (!verification())
       return;
     users.crearCuenta(lblUser.getText(), password, lblCorreo.getText());
+    App.app.setScene(Paths.GESTIONAR_LOGIN_VIEW);
   }
 
   @FXML

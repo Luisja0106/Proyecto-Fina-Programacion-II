@@ -18,6 +18,10 @@ public class Login implements LoginInterface {
 
   private ListaUsers lista = new ListaUsers();
 
+  public ListaUsers getLista() {
+    return lista;
+  }
+
   @Override
   public boolean login(String username, String password, String correo) {
     if (!verificaciones(username, correo, password)) {
@@ -40,7 +44,7 @@ public class Login implements LoginInterface {
         }
       }
 
-    } catch (Exception e) {
+    } catch (IOException e) {
       System.out.println(e.getMessage());
     }
   }
@@ -57,7 +61,6 @@ public class Login implements LoginInterface {
       String json = content.toString(); // se construye toda la info en una String
       Usuarios aux = gson.fromJson(json, Usuarios.class); // se crea un User
       lista.importarCuenta(aux); // se importa a la lista
-      InputDialog.information("DB cargada", "Data base Cargada");
       return aux;
     } catch (IOException e) {
       System.out.println(e.getMessage());
@@ -65,31 +68,31 @@ public class Login implements LoginInterface {
     }
   }
 
-  // metodo que verfica los datos
-  private boolean verificaciones(String user, String correo, String password) {
-    if (lista.getUsers().getEsVacia()) {
-      InputDialog.error("Cuenta no encontrada", "Cuenta no encontrada favor crear una");
-      return false;
-    }
+  private Usuarios buscarCorreo(String correo) {
     Nodo<Usuarios> aux = lista.getUsers().cabecera;
-    boolean found = false;
     do {
       if (aux.info.getCorreo().equals(correo)) {
-        found = true;
-        break;
+        return aux.info;
       }
       aux = aux.sig;
     } while (aux != lista.getUsers().cabecera);
-    if (!found) {
+    return null;
+  }
+
+  // metodo que verfica los datos
+  private boolean verificaciones(String user, String correo, String password) {
+    Usuarios aux = buscarCorreo(correo);
+    if (aux == null) {
       InputDialog.warning("No se ha encontrado", "No se ha encontrado el correo ingresado");
       return false;
     }
-    if (!aux.info.getNombre().equals(user)) {
+    if (!aux.getNombre().equals(user)) {
       InputDialog.warning("error", "Error, el usuario ingresado no coincide con el usuario registrado a el correo");
       return false;
     }
-    if (!aux.info.getPassword().equals(password)) {
+    if (!aux.getPassword().equals(password)) {
       InputDialog.warning("Contraseña incorrecta", "Ha ingresado una contraseña incorrecta");
+      return false;
     }
     return true;
   }
