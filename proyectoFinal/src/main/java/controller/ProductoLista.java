@@ -15,6 +15,52 @@ public class ProductoLista extends Listas<Productos> {
     setCargarProductosTxt();
   }
 
+  // constructor auxiliar para crear listas temporales saltandose el txt
+  public ProductoLista(boolean cargarDatos) {
+        super();
+        if(cargarDatos) setCargarProductosTxt();
+
+  }
+
+    /**
+     * Crea una nueva lista de productos con los elementos ordenados (dependiendo de los parametros)
+     * no modifica el txt original.
+     */
+    public ProductoLista getListaFiltrada(float minPrecio, float maxPrecio, String filtroCategoria, String orden) {
+
+        ProductoLista listaTemp = new ProductoLista(false);
+
+        if (getEsVacia()) return listaTemp;
+
+        Nodo<Productos> actual = cabecera;
+        do {
+            Productos p = actual.info;
+            boolean pasaFiltro = true;
+
+            // Filtro de Categoría
+            if (filtroCategoria != null && !filtroCategoria.isEmpty()) {
+                if (p.getCategoria() == null || !p.getCategoria().equalsIgnoreCase(filtroCategoria)) {
+                    pasaFiltro = false;
+                }
+            }
+
+            // Filtro de Precio
+            if (minPrecio >= 0 && p.getPrecio() < minPrecio) pasaFiltro = false;
+            if (maxPrecio >= 0 && p.getPrecio() > maxPrecio) pasaFiltro = false;
+
+            if (pasaFiltro) {
+                listaTemp.addF(p);
+            }
+
+            actual = actual.sig;
+        } while (actual != cabecera);
+
+        // 3. Ordenamos la lista temporal resultante
+        listaTemp.ordenarLista(orden);
+
+        return listaTemp;
+    }
+
   public Nodo<Productos> buscarPorId(String id) {
     if (getEsVacia())
       return null;

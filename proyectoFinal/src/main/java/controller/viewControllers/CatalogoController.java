@@ -3,6 +3,7 @@ package controller.viewControllers;
 import java.io.IOException;
 
 import application.App;
+import controller.ProductoLista;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import model.Nodo;
+import model.Productos;
 import utils.InputDialog;
 import utils.Paths;
 
@@ -81,6 +84,8 @@ public class CatalogoController {
     InputDialog.information("Ingresando al perfil", "Ingresando al perfil");
   }
 
+  private ProductoLista catalogoDefault = new ProductoLista();
+
   public void initialize() {
     ToggleGroup filtro = new ToggleGroup();
     rbDAC.setToggleGroup(filtro);
@@ -90,13 +95,20 @@ public class CatalogoController {
     rbTWS.setToggleGroup(filtro);
     rbTocaDisco.setToggleGroup(filtro);
     cbFiltroOrdenar.getItems().addAll("A-Z", "Z-A", "Menor Precio", "Mayor Precio");
-    for (int i = 0; i < 20; i++) {
-      addGrig();
-    }
+    actualizarCatalogo();
   }
 
   public void cargarProducto() {
     // TODO: Configrmar como se van a agregar los productos
+  }
+
+  public void actualizarCatalogo() {
+    ProductoLista listaFiltrada = catalogoDefault.getListaFiltrada(0, 100000, "", "A-Z");
+    Nodo<Productos> actual = listaFiltrada.cabecera;
+    do {
+        addProductsToGrig(actual.info);
+        actual = actual.sig;
+    } while (actual != listaFiltrada.cabecera);
   }
 
   private void addGrig() {
@@ -109,6 +121,18 @@ public class CatalogoController {
     } catch (IOException e) {
       InputDialog.error("error", "error: " + e.getMessage());
     }
+  }
+
+  private void addProductsToGrig(Productos producto) {
+      try {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_PRODUCTOS_VIEW));
+          VBox tarjeta = loader.load();
+          ProductController controller = loader.getController();
+          controller.setProducto(producto.getNombre(), producto.getPrecio(), producto.getImagen());
+          tlObjetos.getChildren().add(tarjeta);
+      } catch (IOException e) {
+          InputDialog.error("error", "error: " + e.getMessage());
+      }
   }
   // TODO: metodo para agg a la grid en un futuro
   // private void addGrid(Productos produ){
