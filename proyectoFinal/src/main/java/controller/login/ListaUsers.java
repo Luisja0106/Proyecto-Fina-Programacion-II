@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class ListaUsers {
-  private Listas<Usuarios> users = new Listas();
+  private Listas<Usuarios> users = new Listas<>();
 
   public ListaUsers() {
   }
