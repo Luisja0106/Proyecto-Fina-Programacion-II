@@ -18,6 +18,10 @@ public class Login implements LoginInterface {
 
   private ListaUsers lista = new ListaUsers();
 
+  public Login() {
+    super();
+  }
+
   public ListaUsers getLista() {
     return lista;
   }
@@ -32,7 +36,7 @@ public class Login implements LoginInterface {
 
   // metodo publico que carga los usuarios desde una carpeta usando txt
   public void dataBase() {
-    Path directorio = Paths.get("../DataBase");
+    Path directorio = Paths.get("../DataBase/Users");
     if (!Files.exists(directorio)) {
       return;
     }

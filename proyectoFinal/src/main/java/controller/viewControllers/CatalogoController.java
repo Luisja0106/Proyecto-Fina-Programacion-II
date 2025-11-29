@@ -147,28 +147,30 @@ public class CatalogoController {
 
   }
 
-  private void addGrig() {
+  // private void addGrig() {
+  // try {
+  // FXMLLoader loader = new
+  // FXMLLoader(getClass().getResource(Paths.GESTIONAR_PRODUCTOS_VIEW));
+  // VBox tarjeta = loader.load();
+  // ProductController controller = loader.getController();
+  // controller.setProducto("Kz castor bass", 5000000,
+  // "/Imagenes/KZ-castor-bass.jpg");
+  // tlObjetos.getChildren().add(tarjeta);
+  // } catch (IOException e) {
+  // InputDialog.error("error", "error: " + e.getMessage());
+  // }
+  // }
+
+  private void addProductsToGrig(Productos producto) {
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_PRODUCTOS_VIEW));
       VBox tarjeta = loader.load();
       ProductController controller = loader.getController();
-      controller.setProducto("Kz castor bass", 5000000, "/Imagenes/KZ-castor-bass.jpg");
+      controller.setProducto(producto.getNombre(), producto.getPrecio(), producto.getImagen());
       tlObjetos.getChildren().add(tarjeta);
     } catch (IOException e) {
       InputDialog.error("error", "error: " + e.getMessage());
     }
-  }
-
-  private void addProductsToGrig(Productos producto) {
-      try {
-          FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_PRODUCTOS_VIEW));
-          VBox tarjeta = loader.load();
-          ProductController controller = loader.getController();
-          controller.setProducto(producto.getNombre(), producto.getPrecio(), producto.getImagen());
-          tlObjetos.getChildren().add(tarjeta);
-      } catch (IOException e) {
-          InputDialog.error("error", "error: " + e.getMessage());
-      }
   }
   // TODO: metodo para agg a la grid en un futuro
   // private void addGrid(Productos produ){
