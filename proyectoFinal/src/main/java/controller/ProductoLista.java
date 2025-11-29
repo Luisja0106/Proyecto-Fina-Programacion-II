@@ -114,6 +114,22 @@ public class ProductoLista extends Listas<Productos> {
     }
   }
 
+  public ProductoLista getBusqueda(String dato) { // metodo que buscar un producto por nombre
+    String nombre = dato.toLowerCase();
+    ProductoLista lista = new ProductoLista(false);
+    if (getEsVacia())
+      return lista;
+
+    Nodo<Productos> actual = cabecera;
+    do {
+      if (actual.info.getNombre().toLowerCase().contains(nombre)) {
+        lista.addF(actual.info);
+      }
+      actual = actual.sig;
+    } while (actual != cabecera);
+    return lista;
+  }
+
   public void setCargarProductosTxt() {
     File archivo = createFile();
     if (!archivo.exists()) {
