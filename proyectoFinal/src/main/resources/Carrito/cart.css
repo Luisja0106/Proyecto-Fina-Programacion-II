@@ -1,0 +1,12 @@
+.background {
+  -fx-background-color: #DCD0CD;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+}
+.background > .viewport {
+  -fx-background-color: #DCD0CD;
+}
+/* NOTE: TOP BAR */
+.top_bar {
+  -fx-background-color: #BA9288;
+}
