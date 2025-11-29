@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Story+Script&display=swap');
 .background {
   -fx-background-color: #DCD0CD;
   -fx-background-insets: 0;
@@ -9,4 +10,15 @@
 /* NOTE: TOP BAR */
 .top_bar {
   -fx-background-color: #BA9288;
+}
+.btn_bar {
+  -fx-font-size: 30px;
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+}
+.left_title {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 100px;
+  -fx-font-weight: bold;
+  -fx-font-style: italic;
 }
