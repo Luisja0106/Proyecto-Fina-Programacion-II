@@ -95,6 +95,13 @@ public class CatalogoController {
     rbTWS.setToggleGroup(filtro);
     rbTocaDisco.setToggleGroup(filtro);
     cbFiltroOrdenar.getItems().addAll("A-Z", "Z-A", "Menor Precio", "Mayor Precio");
+    cbFiltroOrdenar.setValue("A-Z");
+
+    //listeners
+    filtro.selectedToggleProperty().addListener((observable, oldValue, newValue) -> actualizarCatalogo());
+    cbFiltroOrdenar.valueProperty().addListener((observable, oldValue, newValue) -> actualizarCatalogo());
+    txtPrecioMax.setOnAction(cambio -> actualizarCatalogo());
+    txtPrecioMin.setOnAction(cambio -> actualizarCatalogo());
     actualizarCatalogo();
   }
 
@@ -103,12 +110,41 @@ public class CatalogoController {
   }
 
   public void actualizarCatalogo() {
-    ProductoLista listaFiltrada = catalogoDefault.getListaFiltrada(0, 100000, "", "A-Z");
-    Nodo<Productos> actual = listaFiltrada.cabecera;
-    do {
-        addProductsToGrig(actual.info);
-        actual = actual.sig;
-    } while (actual != listaFiltrada.cabecera);
+
+
+      tlObjetos.getChildren().clear();  //Se limpia el grid
+
+      String categoria = ""; // se asigna categoria
+      if (rbIEMS.isSelected()) categoria = "IEMs";
+      else if (rbAuriculares.isSelected()) categoria = "Auriculares";
+      else if (rbTWS.isSelected()) categoria = "TWS";
+      else if (rbDAC.isSelected()) categoria = "DACs";
+      else if (rbDisco.isSelected()) categoria = "Vinilos";
+      else if (rbTocaDisco.isSelected()) categoria = "Toca discos";
+      float min = -1, max = -1;  //se asignan valores default para el precio min y max
+      try {
+          if (!txtPrecioMin.getText().isEmpty()) min = Float.parseFloat(txtPrecioMin.getText());
+          if (!txtPrecioMax.getText().isEmpty()) max = Float.parseFloat(txtPrecioMax.getText());
+      } catch (NumberFormatException e) {
+          System.out.println("Formato de precio inválido");
+      }
+
+      String orden = cbFiltroOrdenar.getValue(); // se asigna el orden (Default: A-Z)
+
+      //Filtramos la lista
+      ProductoLista listaFiltrada = catalogoDefault.getListaFiltrada(min, max, categoria, orden);
+
+      if (!listaFiltrada.getEsVacia()) {
+          Nodo<Productos> actual = listaFiltrada.cabecera;
+          do {
+              addProductsToGrig(actual.info);
+              actual = actual.sig;
+          } while (actual != listaFiltrada.cabecera);
+      } else {
+          Label vacio = new Label("No hay resultados con estos filtros.");
+          tlObjetos.getChildren().add(vacio);
+      }
+
   }
 
   private void addGrig() {
