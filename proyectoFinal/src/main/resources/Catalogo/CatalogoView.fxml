@@ -30,32 +30,34 @@
                         <Image url="@../Imagenes/logo-placeholder-image.png" />
                      </image></ImageView>
                   <Region prefHeight="103.0" prefWidth="545.0" />
-                  <StackPane prefHeight="103.0" prefWidth="805.0">
+                  <HBox>
                      <children>
                         <TextField fx:id="buscador" minWidth="-Infinity" prefHeight="40.0" prefWidth="997.0" promptText="Buscar">
                            <padding>
                               <Insets left="10.0" right="30.0" />
                            </padding>
-                           <StackPane.margin>
-                              <Insets />
-                           </StackPane.margin>
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
+                           <HBox.margin>
+                              <Insets top="30.0" />
+                           </HBox.margin>
                         </TextField>
-                        <ImageView fitHeight="25.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
-                           <image>
-                              <Image url="@../Imagenes/busqueda-de-lupa.png" />
-                           </image>
-                        </ImageView>
+                        <StackPane alignment="CENTER_RIGHT" prefHeight="103.0" prefWidth="101.0">
+                           <children>
+                              <Button fx:id="btnBuscar" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#buscar" prefHeight="58.0" prefWidth="77.0" styleClass="btnBar" text="">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Button fx:id="btnCancelarBusqueda" alignment="TOP_LEFT" layoutX="945.0" layoutY="43.0" mnemonicParsing="false" onAction="#cancelarBusqueda" prefHeight="38.0" prefWidth="62.0" styleClass="btnBar" text="X" visible="false">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </StackPane>
                      </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </StackPane>
+                  </HBox>
                   <Region prefHeight="103.0" prefWidth="52.0">
                      <HBox.margin>
                         <Insets />
@@ -138,6 +140,7 @@
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></RadioButton>
+                              <RadioButton fx:id="rbTodos" mnemonicParsing="false" text="Todos los productos" />
                            </children>
                            <padding>
                               <Insets left="20.0" />
