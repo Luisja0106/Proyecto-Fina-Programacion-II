@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="background" stylesheets="@Perfil.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <BorderPane>
+               <top>
+                  <HBox prefHeight="77.0" prefWidth="1453.0" styleClass="top_bar" BorderPane.alignment="CENTER" />
+               </top>
+               <left>
+                  <StackPane prefHeight="891.0" prefWidth="749.0" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="20.0" right="20.0" top="20.0" />
+                     </BorderPane.margin>
+                     <children>
+                        <VBox prefHeight="891.0" prefWidth="500.0" styleClass="profile" />
+                     </children>
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </StackPane>
+               </left>
+               <right>
+                  <ScrollPane prefHeight="931.0" prefWidth="684.0" styleClass="scroll_pane" BorderPane.alignment="CENTER">
+                     <content>
+                        <StackPane prefHeight="936.0" prefWidth="648.0">
+                           <children>
+                              <VBox prefHeight="896.0" prefWidth="669.0" styleClass="wishlist">
+                                 <StackPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </StackPane.margin>
+                              </VBox>
+                           </children>
+                        </StackPane>
+                     </content>
+                  </ScrollPane>
+               </right>
+            </BorderPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

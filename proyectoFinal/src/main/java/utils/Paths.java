@@ -7,4 +7,5 @@ public class Paths {
   public static final String GESTIONAR_PRODUCTOS_VIEW = "/Catalogo/producto.fxml";
   public static final String GESTIONAR_CARRITO_VIEW = "/Carrito/cart.fxml";
   public static final String GESTIONAR_CARRITO_PRODUCTO_VIEW = "/Carrito/productoCart.fxml";
+  public static final String GESTIONAR_PERFIL_VIEW = "/Perfil/Perfil.fxml";
 }
