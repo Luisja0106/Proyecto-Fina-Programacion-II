@@ -6,20 +6,28 @@ import application.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import utils.InputDialog;
 import utils.Paths;
 
 public class CarritoController {
+  @FXML
+  private Button btnPagar;
+  @FXML
+  private TilePane TlProdu;
 
   @FXML
   void goToHome(ActionEvent event) {
     App.app.setScene(Paths.GESTIONAR_CATALOGO_VIEW);
   }
 
+  // TODO: Metodo de pago
   @FXML
-  private TilePane TlProdu;
+  void pagar(ActionEvent event) {
+
+  }
 
   private void addGrid() {
     try {
@@ -36,9 +44,22 @@ public class CarritoController {
   }
 
   public void initialize() {
+    btnPagar.setOnMouseEntered(e -> btnPagar.setText("P a g a r"));
+    btnPagar.setOnMouseExited(e -> btnPagar.setText("Pagar"));
     for (int i = 0; i < 20; i++) {
       addGrid();
     }
+  }
+
+  @FXML
+  void goToLogin(ActionEvent event) {
+    App.app.setScene(Paths.GESTIONAR_LOGIN_VIEW);
+  }
+
+  // TODO: metodo para ingresar al perfil
+  @FXML
+  void goToProfile(ActionEvent event) {
+    InputDialog.information("Dirigiendose al perfil", "Entrando al perfil");
   }
 
 }

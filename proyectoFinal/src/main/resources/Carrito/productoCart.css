@@ -39,7 +39,15 @@
   -fx-border-color: transparent;
   -fx-font-size: 20px;
 }
+.btnTrash .glyph-icon:hover {
+    -fx-fill: white;
+}
+.btnFav .glyph-icon:hover {
+    -fx-fill: pink;
+}
 #btnAddProdu:hover {
-  -fx-fill-text: pink;
-
+  -fx-text-fill: green;
+}
+#btnQuitProdu:hover {
+  -fx-text-fill: red;
 }

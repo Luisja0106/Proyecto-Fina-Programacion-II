@@ -26,16 +26,16 @@
                   <Label fx:id="lblinfo" prefHeight="200.0" prefWidth="294.0" text="Label" wrapText="true" />
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button fx:id="btnDelete" mnemonicParsing="false" prefHeight="106.0" prefWidth="53.0">
+                        <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#eliminar" prefHeight="106.0" prefWidth="53.0" styleClass="btnTrash">
                            <graphic>
-                              <FontAwesomeIconView glyphName="TRASH" size="30">
+                              <FontAwesomeIconView glyphName="TRASH" size="30" styleClass="btnRmProdu">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></FontAwesomeIconView>
                            </graphic></Button>
-                        <Button fx:id="btnFav" mnemonicParsing="false" prefHeight="98.0" prefWidth="53.0">
+                        <Button fx:id="btnFav" mnemonicParsing="false" onAction="#favorito" prefHeight="98.0" prefWidth="53.0" styleClass="btnFav">
                            <graphic>
-                              <FontAwesomeIconView glyphName="HEART" size="30" />
+                              <FontAwesomeIconView glyphName="HEART" size="30" styleClass="btnFav" />
                            </graphic>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -56,12 +56,12 @@
                      <children>
                         <HBox prefHeight="61.0" prefWidth="114.0" styleClass="cantidad_box">
                            <children>
-                              <Button fx:id="btnAddProdu" mnemonicParsing="false" prefHeight="45.0" prefWidth="38.0" text="-">
+                              <Button fx:id="btnQuitProdu" mnemonicParsing="false" onAction="#reducir" prefHeight="45.0" prefWidth="38.0" text="-">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>
                               <Label fx:id="lblcant" alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="36.0" text="1" />
-                              <Button fx:id="btnQuitProdu" layoutX="11.0" layoutY="11.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="38.0" text="+">
+                              <Button fx:id="btnAddProdu" layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onAction="#añadir" prefHeight="45.0" prefWidth="38.0" text="+">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>

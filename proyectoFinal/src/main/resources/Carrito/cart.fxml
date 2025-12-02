@@ -27,7 +27,7 @@
                      </image>
                   </ImageView>
                   <Region prefHeight="103.0" prefWidth="1558.0" />
-                  <Button mnemonicParsing="false" prefHeight="108.0" prefWidth="91.0" styleClass="btn_bar" text="">
+                  <Button mnemonicParsing="false" onAction="#goToProfile" prefHeight="108.0" prefWidth="91.0" styleClass="btn_bar" text="">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
@@ -35,7 +35,7 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button layoutX="486.0" layoutY="10.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="79.0" styleClass="btn_bar" text="">
+                  <Button layoutX="486.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="102.0" prefWidth="79.0" styleClass="btn_bar" text="">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
@@ -96,7 +96,7 @@
                         </HBox>
                         <StackPane prefHeight="150.0" prefWidth="200.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="486.0" styleClass="btn_pagar" text="Pagar">
+                              <Button fx:id="btnPagar" mnemonicParsing="false" onAction="#pagar" prefHeight="88.0" prefWidth="486.0" styleClass="btn_pagar" text="Pagar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Button>
