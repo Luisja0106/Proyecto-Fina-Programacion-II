@@ -12,7 +12,7 @@
   -fx-background-color: #BA9288;
 }
 .btn_bar {
-  -fx-font-size: 30px;
+  -fx-font-size: 40px;
   -fx-background-color: transparent;
   -fx-border-color: transparent;
 }
@@ -21,4 +21,45 @@
   -fx-font-size: 100px;
   -fx-font-weight: bold;
   -fx-font-style: italic;
+}
+.ventas {
+  -fx-border-color: black;
+  -fx-border-radius: 16px;
+  -fx-background-color: #D0B8B2;
+  -fx-border-radius:16px;
+}
+.info_ventas {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 70px;
+  -fx-font-weight: bold;
+  -fx-font-style: italic;
+  -fx-text-fill: #655D5D;
+}
+.info_ventas_Pagar {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 70px;
+  -fx-font-weight: bold;
+  -fx-font-style: italic;
+  -fx-text-fill: black;
+}
+.btn_pagar {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 70px;
+  -fx-text-fill: black;
+  -fx-background-color:#C37364;
+  -fx-border-radius: 16px;
+  -fx-background-radius: 16px;
+}
+.btn_pagar:hover {
+  -fx-background-color:#e6d5d0;
+  -fx-border-color: black;
+  -fx-border-radius: 16px;
+  -fx-background-radius: 16px;
+}
+.precios {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 70px;
+  -fx-font-weight: bold;
+  -fx-font-style: italic;
+  -fx-text-fill: black;
 }

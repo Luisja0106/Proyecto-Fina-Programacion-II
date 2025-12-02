@@ -52,14 +52,63 @@
                               <Insets left="40.0" />
                            </padding>
                         </Label>
-                        <TilePane prefHeight="286.0" prefWidth="292.0" />
+                        <TilePane fx:id="TlProdu" prefColumns="2" prefHeight="832.0" prefRows="1" prefWidth="958.0" />
                      </children>
                   </VBox>
                </content>
+               <BorderPane.margin>
+                  <Insets left="30.0" />
+               </BorderPane.margin>
             </ScrollPane>
          </left>
          <right>
-            <AnchorPane prefHeight="1151.0" prefWidth="932.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="1151.0" prefWidth="926.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="TOP_CENTER" layoutX="47.0" layoutY="189.0" prefHeight="652.0" prefWidth="810.0" spacing="20.0" styleClass="ventas">
+                     <children>
+                        <HBox>
+                           <children>
+                              <Label styleClass="info_ventas" text="Productos" />
+                              <Region prefHeight="111.0" prefWidth="330.0" />
+                              <Label styleClass="precios" text="\$$$" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="11.0" layoutY="11.0">
+                           <children>
+                              <Label styleClass="info_ventas" text="Envio" />
+                              <Region prefHeight="111.0" prefWidth="444.0" />
+                              <Label styleClass="precios" text="\$$$" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="11.0" layoutY="27.0" prefHeight="81.0" prefWidth="808.0">
+                           <children>
+                              <Label styleClass="info_ventas" text="Descuento" />
+                              <Region prefHeight="111.0" prefWidth="316.0" />
+                              <Label styleClass="precios" text="\$$$" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="11.0" layoutY="273.0" prefHeight="91.0" prefWidth="808.0">
+                           <children>
+                              <Label styleClass="info_ventas_Pagar" text="Total" underline="true" />
+                              <Region prefHeight="111.0" prefWidth="450.0" />
+                              <Label styleClass="precios" text="\$$$" />
+                           </children>
+                        </HBox>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="88.0" prefWidth="486.0" styleClass="btn_pagar" text="Pagar">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                           </children>
+                        </StackPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="40.0" left="30.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
          </right>
       </BorderPane>
    </children>
