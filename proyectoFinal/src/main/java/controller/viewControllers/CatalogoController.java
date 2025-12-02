@@ -80,7 +80,7 @@ public class CatalogoController {
 
   @FXML
   void cart(ActionEvent event) {
-    InputDialog.information("Dirigiendose al carrito", "Dirigiendose al carrito");
+    App.app.setScene(Paths.GESTIONAR_CARRITO_VIEW);
   }
 
   @FXML

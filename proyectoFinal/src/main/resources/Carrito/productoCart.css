@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Story+Script&display=swap');
+.background {
+  -fx-background-color: #D2BAB4;
+  -fx-border-color: black;
+  -fx-border-radius: 16px;
+  -fx-background-radius: 16px;
+}
+.image_square {
+  -fx-background-color: white;
+  -fx-border-color: black;
+  -fx-border-radius: 16px;
+  -fx-background-radius: 16px;
+} 
+#lblName {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 30px;
+}
+#lblinfo {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 20px;
+}
+#btnDelete, #btnFav {
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+}
+#lblPrecio {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 30px;
+}
+.cantidad_box {
+  -fx-background-color: #DED0CC;
+  -fx-border-color: black;
+  -fx-border-radius: 24px;
+  -fx-background-radius: 24px;
+}
+#btnAddProdu, #btnQuitProdu, #lblcant {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+  -fx-font-size: 20px;
+}
+.btnTrash .glyph-icon:hover {
+    -fx-fill: white;
+}
+.btnFav .glyph-icon:hover {
+    -fx-fill: pink;
+}
+#btnAddProdu:hover {
+  -fx-text-fill: green;
+}
+#btnQuitProdu:hover {
+  -fx-text-fill: red;
+}
