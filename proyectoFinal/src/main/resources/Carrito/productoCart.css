@@ -39,3 +39,7 @@
   -fx-border-color: transparent;
   -fx-font-size: 20px;
 }
+#btnAddProdu:hover {
+  -fx-fill-text: pink;
+
+}

@@ -52,7 +52,7 @@
                               <Insets left="40.0" />
                            </padding>
                         </Label>
-                        <TilePane fx:id="TlProdu" prefColumns="2" prefHeight="832.0" prefRows="1" prefWidth="958.0" />
+                        <TilePane fx:id="TlProdu" prefColumns="2" prefHeight="832.0" prefRows="1" prefWidth="958.0" vgap="30.0" />
                      </children>
                   </VBox>
                </content>
@@ -64,7 +64,7 @@
          <right>
             <AnchorPane prefHeight="1151.0" prefWidth="926.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox alignment="TOP_CENTER" layoutX="47.0" layoutY="189.0" prefHeight="652.0" prefWidth="810.0" spacing="20.0" styleClass="ventas">
+                  <VBox alignment="TOP_CENTER" layoutX="71.0" layoutY="129.0" prefHeight="652.0" prefWidth="810.0" spacing="20.0" styleClass="ventas">
                      <children>
                         <HBox>
                            <children>
