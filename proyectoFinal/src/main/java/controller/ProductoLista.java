@@ -100,7 +100,7 @@ public class ProductoLista extends Listas<Productos> {
 
   private File createFile() {
     try {
-      Path ruta = Paths.get("../DataBase/Productos");
+      Path ruta = Paths.get("DataBase", "Productos");
       if (!Files.exists(ruta)) {
         Files.createDirectory(ruta);
       }
@@ -143,7 +143,7 @@ public class ProductoLista extends Listas<Productos> {
         String[] datos = linea.split(";");
         if (datos.length >= 6) {
           Productos p = new Productos(datos[0], datos[1], datos[2],
-              Float.parseFloat(datos[3]), "../" + datos[4], Integer.parseInt(datos[5]), datos[6]);
+              Float.parseFloat(datos[3]), datos[4], Integer.parseInt(datos[5]), datos[6]);
           addF(p);
         }
       }
