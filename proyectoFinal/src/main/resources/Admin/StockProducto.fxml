@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="666.0" styleClass="wishlist_background" stylesheets="@wishlistProducto.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.ProductoWishController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="666.0" styleClass="wishlist_background" stylesheets="@StockProducto.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.AdminProductController">
    <children>
       <StackPane prefHeight="145.0" prefWidth="154.0" styleClass="img_square">
          <children>
@@ -35,7 +35,7 @@
                   <Button fx:id="btnPlus" mnemonicParsing="false" onAction="#addProdu" prefHeight="57.0" prefWidth="62.0" text="+" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#aggCarrito" styleClass="btn_stock" text="Agregar al carrito">
+            <Button mnemonicParsing="false" onAction="#actualizarStock" styleClass="btn_stock" text="Actualizar Stock">
                <VBox.margin>
                   <Insets top="15.0" />
                </VBox.margin>

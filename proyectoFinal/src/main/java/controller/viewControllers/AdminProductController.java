@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class ProductoWishController {
+public class AdminProductController {
 
   @FXML
   private Button btnMinus;
@@ -31,18 +31,6 @@ public class ProductoWishController {
   private Label lblPrice;
 
   @FXML
-  void addProdu(ActionEvent event) {
-    int cant = Integer.parseInt(lblCant.getText());
-    cant++;
-    lblCant.setText(String.valueOf(cant));
-  }
-
-  @FXML
-  void aggCarrito(ActionEvent event) {
-    // TODO: logica Agregar productos al carrito
-  }
-
-  @FXML
   void QutProduct(ActionEvent event) {
     // NOTE: Añadir logica de eliminar producto teniendo en cuenta que no puede ser
     // menor que 0
@@ -50,6 +38,19 @@ public class ProductoWishController {
     cant--;
     cant = (cant <= 0) ? 0 : cant;
     lblCant.setText(String.valueOf(cant));
+  }
+
+  @FXML
+  void addProdu(ActionEvent event) {
+    int cant = Integer.parseInt(lblCant.getText());
+    cant++;
+    lblCant.setText(String.valueOf(cant));
+  }
+
+  @FXML
+  void actualizarStock(ActionEvent event) {
+    // TODO: logica actuaizar Stock
+
   }
 
   public void setProducto(String name, String info, float price, int cant, String ruta) {
@@ -60,4 +61,5 @@ public class ProductoWishController {
     Image img = new Image(getClass().getResource(ruta).toExternalForm());
     imgProdu.setImage(img);
   }
+
 }
