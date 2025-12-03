@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Story+Script&display=swap');
+.background {
+  -fx-background-color: #D7C8C6;
+}
+.scroll_pane {
+  -fx-background-color :transparent;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+}
+.scroll_pane > .viewport {
+  -fx-background-color : transparent;
+}
+.top_bar {
+  -fx-background-color: #B89186;
+}
+.top_bar .button {
+  -fx-background-color: transparent;
+}
+.title {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 40px;
+  -fx-font-weight: bold;
+}

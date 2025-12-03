@@ -52,7 +52,7 @@ public class AdminController {
 
   @FXML
   void goToHistory(ActionEvent event) {
-    // TODO: link history
+    App.app.setScene(Paths.GESTIONAR_HISTORIAL_VIEW);
   }
 
   @FXML
@@ -62,7 +62,7 @@ public class AdminController {
 
   @FXML
   void goToProfile(ActionEvent event) {
-    App.app.setScene(Paths.GESTIONAR_ADMIN_VIEW);
+    App.app.setScene(Paths.GESTIONAR_PERFIL_VIEW);
   }
 
   @FXML

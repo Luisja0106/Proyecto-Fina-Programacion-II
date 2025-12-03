@@ -57,8 +57,7 @@ public class PerfilController {
 
   @FXML
   void goToHistory(ActionEvent event) {
-    // TODO: link history
-
+    App.app.setScene(Paths.GESTIONAR_HISTORIAL_VIEW);
   }
 
   @FXML

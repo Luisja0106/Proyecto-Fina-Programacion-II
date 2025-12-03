@@ -11,4 +11,6 @@ public class Paths {
   public static final String GESTIONAR_WISHLIST_VIEW = "/Perfil/wishlistProducto.fxml";
   public static final String GESTIONAR_ADMIN_VIEW = "/Admin/Admin.fxml";
   public static final String GESTIONAR_STOCKADMIN_VIEW = "/Admin/StockProducto.fxml";
+  public static final String GESTIONAR_HISTORIAL_VIEW = "/Historial/historial.fxml";
+  public static final String GESTIONAR_HISTORIALPRODU_VIEW = "/Historial/historialProductos.fxml";
 }
