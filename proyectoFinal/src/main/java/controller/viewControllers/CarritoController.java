@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
+import model.Productos;
 import utils.InputDialog;
 import utils.Paths;
 
@@ -51,15 +52,33 @@ public class CarritoController {
     }
   }
 
+  private void addGrid(Productos produ) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_CARRITO_PRODUCTO_VIEW));
+      HBox tarjeta = loader.load();
+      ProductoCarritoController controller = loader.getController();
+      /*
+       * Note: aqui en el segundo paramatro deberia ir la info del del producto pero
+       * creo
+       * que la categoria tambien quedaria bien
+       */
+      controller.setProductos(produ.getNombre(), produ.getCategoria(),
+          produ.getPrecio(), 1, produ.getImagen());
+      TlProdu.getChildren().add(tarjeta);
+    } catch (IOException e) {
+      e.printStackTrace();
+      InputDialog.error("error", "error" + e.getMessage());
+    }
+  }
+
   @FXML
   void goToLogin(ActionEvent event) {
     App.app.setScene(Paths.GESTIONAR_LOGIN_VIEW);
   }
 
-  // TODO: metodo para ingresar al perfil
   @FXML
   void goToProfile(ActionEvent event) {
-    InputDialog.information("Dirigiendose al perfil", "Entrando al perfil");
+    App.app.setScene(Paths.GESTIONAR_PERFIL_VIEW);
   }
 
 }
