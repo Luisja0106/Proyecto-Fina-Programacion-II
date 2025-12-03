@@ -24,7 +24,7 @@
                <children>
                   <ImageView fitHeight="96.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                      <image>
-                        <Image url="@../Imagenes/logo-placeholder-image.png" />
+                        <Image url="@../Imagenes/vinyl.png" />
                      </image>
                   </ImageView>
                   <Region prefHeight="100.0" prefWidth="966.0" HBox.hgrow="ALWAYS" />
@@ -60,7 +60,10 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-               </children></HBox>
+               </children>
+               <padding>
+                  <Insets left="8.0" />
+               </padding></HBox>
          </top>
          <center>
             <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
