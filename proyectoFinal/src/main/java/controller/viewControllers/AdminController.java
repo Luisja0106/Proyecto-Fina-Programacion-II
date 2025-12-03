@@ -6,48 +6,43 @@ import application.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import utils.InputDialog;
 import utils.Paths;
 
-public class PerfilController {
+public class AdminController {
 
   @FXML
-  private ComboBox<?> cbOptions;
+  private Label Stock;
 
   @FXML
-  private TextField lblCVV;
+  private TextField lblCategoria;
 
   @FXML
-  private TextField lblCiudad;
+  private TextField lblNom;
 
   @FXML
-  private TextField lblContacto;
+  private TextField lblPrecio;
 
   @FXML
-  private TextField lblDireccion;
-
-  @FXML
-  private TextField lblFechaExp;
-
-  @FXML
-  private TextField lblNomEnvio;
-
-  @FXML
-  private TextField lblNomTar;
-
-  @FXML
-  private TextField lblNumTar;
+  private TextField lblSKU;
 
   @FXML
   private VBox productos;
 
   @FXML
-  void goToAdmin(ActionEvent event) {
-    App.app.setScene(Paths.GESTIONAR_ADMIN_VIEW);
+  void AggProdu(ActionEvent event) {
+
+  }
+
+  @FXML
+  void aumentarStock(ActionEvent event) {
+    int cant = Integer.parseInt(Stock.getText());
+    cant++;
+    Stock.setText(String.valueOf(cant));
   }
 
   @FXML
@@ -58,7 +53,6 @@ public class PerfilController {
   @FXML
   void goToHistory(ActionEvent event) {
     // TODO: link history
-
   }
 
   @FXML
@@ -67,15 +61,25 @@ public class PerfilController {
   }
 
   @FXML
-  void guardarPerfil(ActionEvent event) {
+  void goToProfile(ActionEvent event) {
+    App.app.setScene(Paths.GESTIONAR_ADMIN_VIEW);
+  }
 
+  @FXML
+  void reducirStock(ActionEvent event) {
+    // NOTE: Añadir logica de eliminar producto teniendo en cuenta que no puede ser
+    // menor que 0
+    int cant = Integer.parseInt(Stock.getText());
+    cant--;
+    cant = (cant <= 0) ? 0 : cant;
+    Stock.setText(String.valueOf(cant));
   }
 
   private void addGrid() {
     try {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_WISHLIST_VIEW));
+      FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_STOCKADMIN_VIEW));
       HBox tarjeta = loader.load();
-      ProductoWishController controller = loader.getController();
+      AdminProductController controller = loader.getController();
       controller.setProducto("Kz Castor Bass",
           "Los kz son unos in-ear especializados en el audion profundo con bajos definidos", 50000, 1,
           "/Imagenes/KZ-castor-bass.jpg");
