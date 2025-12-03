@@ -27,9 +27,9 @@
                   <Insets />
                </StackPane.margin>
                <children>
-                  <ImageView fitHeight="110.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="132.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Imagenes/logo-placeholder-image.png" />
+                        <Image url="@../Imagenes/brand.png" />
                      </image>
                   </ImageView>
                   <TextField fx:id="lblUser" minWidth="-Infinity" promptText="Usuario" styleClass="input_field">

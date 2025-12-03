@@ -22,7 +22,7 @@
                <children>
                   <ImageView fitHeight="111.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                      <image>
-                        <Image url="@../Imagenes/logo-placeholder-image.png" />
+                        <Image url="@../Imagenes/vinyl.png" />
                      </image>
                   </ImageView>
                   <Region prefHeight="111.0" prefWidth="992.0" HBox.hgrow="ALWAYS" />
@@ -43,6 +43,12 @@
                      </cursor>
                   </Button>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="9.0" />
+               </padding>
             </HBox>
          </top>
          <center>

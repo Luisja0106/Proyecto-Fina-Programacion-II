@@ -23,12 +23,16 @@
                <top>
                   <HBox prefHeight="103.0" prefWidth="1280.0" styleClass="top_bar" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="93.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-                           <image>
-                              <Image url="@../Imagenes/logo-placeholder-image.png" />
-                           </image>
-                        </ImageView>
-                        <Region prefHeight="103.0" prefWidth="1558.0" HBox.hgrow="ALWAYS" />
+                        <StackPane HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fitHeight="93.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/vinyl.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <Region prefHeight="103.0" prefWidth="1482.0" HBox.hgrow="ALWAYS" />
                         <Button mnemonicParsing="false" onAction="#goToProfile" prefHeight="108.0" prefWidth="91.0" styleClass="btn_bar" text="" HBox.hgrow="ALWAYS">
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -45,6 +49,9 @@
                            </cursor>
                         </Button>
                      </children>
+                     <padding>
+                        <Insets left="8.0" />
+                     </padding>
                   </HBox>
                </top>
                <left>

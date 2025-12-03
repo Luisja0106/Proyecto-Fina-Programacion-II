@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.AdminController">
@@ -21,11 +22,18 @@
          <top>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="top_bar" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="96.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-                     <image>
-                        <Image url="@../Imagenes/logo-placeholder-image.png" />
-                     </image>
-                  </ImageView>
+                  <StackPane>
+                     <children>
+                        <ImageView fitHeight="72.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/vinyl.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets right="3.0" />
+                     </padding>
+                  </StackPane>
                   <Region prefHeight="100.0" prefWidth="966.0" HBox.hgrow="ALWAYS" />
                   <Button mnemonicParsing="false" onAction="#goToProfile" prefHeight="100.0" prefWidth="72.0" styleClass="btnBar" HBox.hgrow="ALWAYS">
                      <graphic>
