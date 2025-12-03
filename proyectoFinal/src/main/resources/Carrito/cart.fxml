@@ -57,7 +57,7 @@
                                     <Insets left="40.0" />
                                  </padding>
                               </Label>
-                              <TilePane fx:id="TlProdu" prefColumns="2" prefHeight="832.0" prefRows="1" prefWidth="958.0" vgap="30.0" VBox.vgrow="ALWAYS" />
+                              <TilePane fx:id="TlProdu" alignment="TOP_CENTER" prefColumns="2" prefHeight="832.0" prefRows="1" prefWidth="958.0" tileAlignment="TOP_RIGHT" vgap="30.0" VBox.vgrow="ALWAYS" />
                            </children>
                         </VBox>
                      </content>

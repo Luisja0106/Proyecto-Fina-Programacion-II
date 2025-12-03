@@ -3,12 +3,12 @@
   -fx-background-color: #D7C8C5;
 }
 .scroll_pane {
-  -fx-background-color :#D7C8C5;
+  -fx-background-color :transparent;
   -fx-background-insets: 0;
   -fx-padding: 0;
 }
 .scroll_pane > .viewport {
-  -fx-background-color : #D7C8C5;
+  -fx-background-color : transparent;
 }
 .top_bar {
   -fx-background-color:#AF857A;
