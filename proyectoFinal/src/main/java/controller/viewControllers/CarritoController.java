@@ -56,10 +56,9 @@ public class CarritoController {
     App.app.setScene(Paths.GESTIONAR_LOGIN_VIEW);
   }
 
-  // TODO: metodo para ingresar al perfil
   @FXML
   void goToProfile(ActionEvent event) {
-    InputDialog.information("Dirigiendose al perfil", "Entrando al perfil");
+    App.app.setScene(Paths.GESTIONAR_PERFIL_VIEW);
   }
 
 }

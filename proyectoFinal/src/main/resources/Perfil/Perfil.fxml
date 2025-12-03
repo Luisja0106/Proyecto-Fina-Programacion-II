@@ -1,54 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.PerfilController">
    <children>
-      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="background" stylesheets="@Perfil.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <BorderPane>
-               <top>
-                  <HBox prefHeight="77.0" prefWidth="1453.0" styleClass="top_bar" BorderPane.alignment="CENTER" />
-               </top>
-               <left>
-                  <StackPane prefHeight="891.0" prefWidth="749.0" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets bottom="20.0" right="20.0" top="20.0" />
-                     </BorderPane.margin>
+      <BorderPane prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@Perfil.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="top_bar" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="96.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../Imagenes/logo-placeholder-image.png" />
+                     </image>
+                  </ImageView>
+                  <Region prefHeight="100.0" prefWidth="966.0" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#goToAdmin" prefHeight="100.0" prefWidth="72.0" styleClass="btnBar" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="DOLLAR" size="40" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button layoutX="1120.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToHistory" prefHeight="100.0" prefWidth="72.0" styleClass="btnBar" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="CALENDAR" size="40" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button layoutX="1192.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToCart" prefHeight="100.0" prefWidth="72.0" styleClass="btnBar" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="SHOPPING_CART" size="40" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button graphicTextGap="0.0" layoutX="1227.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="100.0" prefWidth="72.0" styleClass="btnBar" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="HOME" size="40" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children></HBox>
+         </top>
+         <center>
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <children>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <children>
-                        <VBox prefHeight="891.0" prefWidth="500.0" styleClass="profile" />
-                     </children>
-                     <StackPane.margin>
-                        <Insets />
-                     </StackPane.margin>
-                     <padding>
-                        <Insets left="40.0" />
-                     </padding>
-                  </StackPane>
-               </left>
-               <right>
-                  <ScrollPane prefHeight="931.0" prefWidth="684.0" styleClass="scroll_pane" BorderPane.alignment="CENTER">
-                     <content>
-                        <StackPane prefHeight="936.0" prefWidth="648.0">
+                        <VBox alignment="TOP_CENTER" layoutX="109.0" layoutY="74.0" prefHeight="472.0" prefWidth="416.0" styleClass="profile" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="103.0" AnchorPane.topAnchor="72.0">
                            <children>
-                              <VBox prefHeight="896.0" prefWidth="669.0" styleClass="wishlist">
-                                 <StackPane.margin>
-                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                 </StackPane.margin>
-                              </VBox>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="407.0" styleClass="perfil_text" text="Perfil" VBox.vgrow="ALWAYS" />
+                              <HBox prefHeight="328.0" prefWidth="387.0" spacing="12.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox prefHeight="307.0" prefWidth="194.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox prefHeight="99.0" prefWidth="187.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label text="Contacto" VBox.vgrow="ALWAYS" />
+                                                <TextField fx:id="lblContacto" prefHeight="42.0" prefWidth="187.0" promptText="Email o telefono" VBox.vgrow="ALWAYS" />
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" prefHeight="306.0" prefWidth="192.0" spacing="4.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label text="Direccion de envio" VBox.vgrow="ALWAYS" />
+                                                <TextField fx:id="lblNomEnvio" prefHeight="60.0" prefWidth="187.0" promptText="Nombre" VBox.vgrow="ALWAYS" />
+                                                <TextField fx:id="lblDireccion" layoutX="10.0" layoutY="26.0" prefHeight="45.0" prefWidth="187.0" promptText="Direccion" VBox.vgrow="ALWAYS">
+                                                   <VBox.margin>
+                                                      <Insets top="8.0" />
+                                                   </VBox.margin>
+                                                </TextField>
+                                                <HBox prefHeight="63.0" prefWidth="187.0" spacing="4.0" VBox.vgrow="ALWAYS">
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                   <children>
+                                                      <ComboBox fx:id="cbOptions" prefHeight="43.0" prefWidth="193.0" HBox.hgrow="ALWAYS" />
+                                                      <TextField fx:id="lblCiudad" prefHeight="46.0" prefWidth="138.0" promptText="Ciudad" HBox.hgrow="ALWAYS" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </VBox>
+                                          <Region prefHeight="280.0" prefWidth="187.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="366.0" prefWidth="203.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox prefHeight="82.0" prefWidth="196.0">
+                                             <children>
+                                                <Label text="Metodo de pago" VBox.vgrow="ALWAYS" />
+                                                <TextField fx:id="lblNumTar" prefHeight="35.0" prefWidth="196.0" promptText="Numero de tarjeta" VBox.vgrow="ALWAYS" />
+                                             </children>
+                                          </VBox>
+                                          <HBox prefHeight="38.0" prefWidth="196.0" spacing="4.0">
+                                             <children>
+                                                <TextField fx:id="lblFechaExp" prefHeight="43.0" prefWidth="128.0" promptText="Fecha de Expedicion" HBox.hgrow="ALWAYS">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="lblCVV" prefHeight="43.0" prefWidth="63.0" promptText="CVV" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="12.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <TextField fx:id="lblNomTar" prefHeight="44.0" prefWidth="196.0" promptText="Nombre de la tarjeta">
+                                             <VBox.margin>
+                                                <Insets top="8.0" />
+                                             </VBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#guardarPerfil" prefHeight="58.0" prefWidth="356.0" text="GUARDAR" VBox.vgrow="ALWAYS">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                            </children>
-                        </StackPane>
-                     </content>
-                  </ScrollPane>
-               </right>
-            </BorderPane>
-         </children>
-      </StackPane>
+                           <padding>
+                              <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="TOP_CENTER" layoutX="132.0" layoutY="72.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="472.0" prefWidth="408.0" styleClass="wishlist" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="103.0" AnchorPane.topAnchor="72.0">
+                           <children>
+                              <Label alignment="CENTER" styleClass="wishlist_text" text="Lista de Deseos" />
+                              <VBox fx:id="productos" prefHeight="391.0" prefWidth="379.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>

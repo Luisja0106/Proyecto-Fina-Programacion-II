@@ -23,23 +23,23 @@
                <top>
                   <HBox prefHeight="103.0" prefWidth="1280.0" styleClass="top_bar" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="93.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="93.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                            <image>
                               <Image url="@../Imagenes/logo-placeholder-image.png" />
                            </image>
                         </ImageView>
-                        <Region prefHeight="103.0" prefWidth="1558.0" />
-                        <Button mnemonicParsing="false" onAction="#goToProfile" prefHeight="108.0" prefWidth="91.0" styleClass="btn_bar" text="">
+                        <Region prefHeight="103.0" prefWidth="1558.0" HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onAction="#goToProfile" prefHeight="108.0" prefWidth="91.0" styleClass="btn_bar" text="" HBox.hgrow="ALWAYS">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#goToHome" prefHeight="116.0" prefWidth="123.0" styleClass="btn_bar" text="">
+                        <Button mnemonicParsing="false" onAction="#goToHome" prefHeight="116.0" prefWidth="123.0" styleClass="btn_bar" text="" HBox.hgrow="ALWAYS">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutX="486.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="102.0" prefWidth="79.0" styleClass="btn_bar" text="">
+                        <Button layoutX="486.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="102.0" prefWidth="79.0" styleClass="btn_bar" text="" HBox.hgrow="ALWAYS">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -52,12 +52,12 @@
                      <content>
                         <VBox prefHeight="992.0" prefWidth="958.0">
                            <children>
-                              <Label prefHeight="126.0" prefWidth="962.0" styleClass="left_title" text="Tus Productos:">
+                              <Label prefHeight="126.0" prefWidth="962.0" styleClass="left_title" text="Tus Productos:" VBox.vgrow="ALWAYS">
                                  <padding>
                                     <Insets left="40.0" />
                                  </padding>
                               </Label>
-                              <TilePane fx:id="TlProdu" prefColumns="2" prefHeight="832.0" prefRows="1" prefWidth="958.0" vgap="30.0" />
+                              <TilePane fx:id="TlProdu" prefColumns="2" prefHeight="832.0" prefRows="1" prefWidth="958.0" vgap="30.0" VBox.vgrow="ALWAYS" />
                            </children>
                         </VBox>
                      </content>
@@ -71,35 +71,35 @@
                      <children>
                         <VBox alignment="TOP_CENTER" layoutX="71.0" layoutY="129.0" prefHeight="652.0" prefWidth="810.0" spacing="20.0" styleClass="ventas">
                            <children>
-                              <HBox>
+                              <HBox VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label styleClass="info_ventas" text="Productos" />
-                                    <Region prefHeight="111.0" prefWidth="330.0" />
-                                    <Label styleClass="precios" text="\$$$" />
+                                    <Label styleClass="info_ventas" text="Productos" HBox.hgrow="ALWAYS" />
+                                    <Region prefHeight="111.0" prefWidth="330.0" HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="precios" text="\$$$" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
-                              <HBox layoutX="11.0" layoutY="11.0">
+                              <HBox layoutX="11.0" layoutY="11.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label styleClass="info_ventas" text="Envio" />
-                                    <Region prefHeight="111.0" prefWidth="444.0" />
-                                    <Label styleClass="precios" text="\$$$" />
+                                    <Label styleClass="info_ventas" text="Envio" HBox.hgrow="ALWAYS" />
+                                    <Region prefHeight="111.0" prefWidth="444.0" HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="precios" text="\$$$" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
-                              <HBox layoutX="11.0" layoutY="27.0" prefHeight="81.0" prefWidth="808.0">
+                              <HBox layoutX="11.0" layoutY="27.0" prefHeight="81.0" prefWidth="808.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label styleClass="info_ventas" text="Descuento" />
-                                    <Region prefHeight="111.0" prefWidth="316.0" />
-                                    <Label styleClass="precios" text="\$$$" />
+                                    <Label styleClass="info_ventas" text="Descuento" HBox.hgrow="ALWAYS" />
+                                    <Region prefHeight="111.0" prefWidth="316.0" HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="precios" text="\$$$" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
-                              <HBox layoutX="11.0" layoutY="273.0" prefHeight="91.0" prefWidth="808.0">
+                              <HBox layoutX="11.0" layoutY="273.0" prefHeight="91.0" prefWidth="808.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label styleClass="info_ventas_Pagar" text="Total" underline="true" />
-                                    <Region prefHeight="111.0" prefWidth="450.0" />
-                                    <Label styleClass="precios" text="\$$$" />
+                                    <Label styleClass="info_ventas_Pagar" text="Total" underline="true" HBox.hgrow="ALWAYS" />
+                                    <Region prefHeight="111.0" prefWidth="450.0" HBox.hgrow="ALWAYS" />
+                                    <Label styleClass="precios" text="\$$$" HBox.hgrow="ALWAYS" />
                                  </children>
                               </HBox>
-                              <StackPane prefHeight="150.0" prefWidth="200.0">
+                              <StackPane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <Button fx:id="btnPagar" mnemonicParsing="false" onAction="#pagar" prefHeight="88.0" prefWidth="486.0" styleClass="btn_pagar" text="Pagar">
                                        <cursor>
