@@ -22,209 +22,202 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.CatalogoController">
    <children>
-      <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1254.0" prefWidth="1900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-              <BorderPane prefHeight="1254.0" prefWidth="1280.0" styleClass="background" stylesheets="@CatalogoCSS.css">
-               <top>
-                  <HBox prefHeight="103.0" prefWidth="1280.0" spacing="15.0" styleClass="top" stylesheets="@CatalogoCSS.css" BorderPane.alignment="CENTER">
+       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1254.0" prefWidth="1900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <BorderPane prefHeight="1254.0" prefWidth="1280.0" styleClass="background" stylesheets="@CatalogoCSS.css">
+         <top>
+            <HBox prefHeight="103.0" prefWidth="1280.0" spacing="15.0" styleClass="top" stylesheets="@CatalogoCSS.css" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="86.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Imagenes/logo-placeholder-image.png" />
+                     </image></ImageView>
+                  <Region prefHeight="103.0" prefWidth="545.0" />
+                  <HBox>
                      <children>
-                        <ImageView fitHeight="86.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Imagenes/logo-placeholder-image.png" />
-                           </image>
-                        </ImageView>
-                        <Region prefHeight="103.0" prefWidth="545.0" />
-                        <StackPane prefHeight="103.0" prefWidth="805.0">
+                        <TextField fx:id="buscador" minWidth="-Infinity" prefHeight="40.0" prefWidth="997.0" promptText="Buscar">
+                           <padding>
+                              <Insets left="10.0" right="30.0" />
+                           </padding>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                           <HBox.margin>
+                              <Insets top="30.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <StackPane alignment="CENTER_RIGHT" prefHeight="103.0" prefWidth="101.0">
                            <children>
-                              <TextField fx:id="buscador" minWidth="-Infinity" prefHeight="40.0" prefWidth="997.0" promptText="Buscar">
-                                 <padding>
-                                    <Insets left="10.0" right="30.0" />
-                                 </padding>
-                                 <StackPane.margin>
-                                    <Insets />
-                                 </StackPane.margin>
+                              <Button fx:id="btnBuscar" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#buscar" prefHeight="58.0" prefWidth="77.0" styleClass="btnBar" text="">
                                  <cursor>
-                                    <Cursor fx:constant="TEXT" />
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Button fx:id="btnCancelarBusqueda" alignment="TOP_LEFT" layoutX="945.0" layoutY="43.0" mnemonicParsing="false" onAction="#cancelarBusqueda" prefHeight="38.0" prefWidth="62.0" styleClass="btnBar" text="X" visible="false">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
                                  </cursor>
-                              </TextField>
-                              <ImageView fitHeight="25.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                              </Button>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <Region prefHeight="103.0" prefWidth="52.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Region>
+                  <HBox alignment="CENTER" prefHeight="103.0" prefWidth="223.0">
+                     <children>
+                        <Button fx:id="btnUser" mnemonicParsing="false" onAction="#user" prefHeight="103.0" prefWidth="91.0" styleClass="btnBar" text="" HBox.hgrow="ALWAYS">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnCart" mnemonicParsing="false" onAction="#cart" prefHeight="103.0" prefWidth="14.0" styleClass="btnBar" text="">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exit" prefHeight="103.0" prefWidth="76.0" styleClass="btnBar" text="">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="1.0" />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" />
+               </BorderPane.margin>
+            </HBox>
+         </top>
+         <left>
+            <VBox prefHeight="1329.0" prefWidth="357.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Region prefHeight="20.0" prefWidth="377.0" />
+                  <VBox minWidth="-Infinity" prefHeight="577.0" prefWidth="337.0" spacing="15.0" styleClass="left_square">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="66.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Imagenes/busqueda-de-lupa.png" />
+                                    <Image url="@../Imagenes/filtrar.png" />
                                  </image>
                               </ImageView>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </StackPane>
-                        <Region prefHeight="103.0" prefWidth="52.0">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Region>
-                        <HBox alignment="CENTER" prefHeight="103.0" prefWidth="223.0">
-                           <children>
-                              <Button fx:id="btnUser" mnemonicParsing="false" onAction="#user" prefHeight="103.0" prefWidth="91.0" styleClass="btnBar" text="" HBox.hgrow="ALWAYS">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Button fx:id="btnCart" mnemonicParsing="false" onAction="#cart" prefHeight="103.0" prefWidth="14.0" styleClass="btnBar" text="">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exit" prefHeight="103.0" prefWidth="76.0" styleClass="btnBar" text="">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
+                              <Label fx:id="left_square_title" alignment="CENTER" contentDisplay="CENTER" text="Filtros" />
+                              <Region prefHeight="100.0" prefWidth="60.0" />
                            </children>
                         </HBox>
-                     </children>
-                     <opaqueInsets>
-                        <Insets bottom="1.0" />
-                     </opaqueInsets>
-                     <BorderPane.margin>
-                        <Insets bottom="20.0" />
-                     </BorderPane.margin>
-                  </HBox>
-               </top>
-               <left>
-                  <VBox prefHeight="1329.0" prefWidth="357.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Region prefHeight="20.0" prefWidth="377.0" />
-                        <VBox minWidth="-Infinity" prefHeight="577.0" prefWidth="337.0" spacing="15.0" styleClass="left_square">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </VBox.margin>
+                        <VBox alignment="CENTER_LEFT" spacing="10.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <ImageView fitHeight="66.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Imagenes/filtrar.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label fx:id="left_square_title" alignment="CENTER" contentDisplay="CENTER" text="Filtros" />
-                                    <Region prefHeight="100.0" prefWidth="60.0" />
-                                 </children>
-                              </HBox>
-                              <VBox alignment="CENTER_LEFT" spacing="10.0">
-                                 <children>
-                                    <RadioButton fx:id="rbIEMS" mnemonicParsing="false" text="IEMS (In Ear Monitors)">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </RadioButton>
-                                    <RadioButton fx:id="rbAuriculares" mnemonicParsing="false" text="Auriculares">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </RadioButton>
-                                    <RadioButton fx:id="rbTWS" mnemonicParsing="false" text="TWS (True Wireless)">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </RadioButton>
-                                    <RadioButton fx:id="rbDAC" mnemonicParsing="false" text="DACs (Digital to Analog Converter)">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </RadioButton>
-                                    <RadioButton fx:id="rbDisco" mnemonicParsing="false" text="Discos  Vinilos">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </RadioButton>
-                                    <RadioButton fx:id="rbTocaDisco" mnemonicParsing="false" text="Toca Discos">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </RadioButton>
-                                 </children>
-                                 <padding>
-                                    <Insets left="20.0" />
-                                 </padding>
-                              </VBox>
-                              <Label text="Precio">
+                              <RadioButton fx:id="rbIEMS" mnemonicParsing="false" text="IEMS (In Ear Monitors)">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="rbAuriculares" mnemonicParsing="false" text="Auriculares">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="rbTWS" mnemonicParsing="false" text="TWS (True Wireless)">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="rbDAC" mnemonicParsing="false" text="DACs (Digital to Analog Converter)">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="rbDisco" mnemonicParsing="false" text="Discos  Vinilos">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="rbTocaDisco" mnemonicParsing="false" text="Toca Discos">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="rbTodos" mnemonicParsing="false" text="Todos los productos" />
+                           </children>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </VBox>
+                        <Label text="Precio">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="315.0" spacing="2.0">
+                           <children>
+                              <TextField fx:id="txtPrecioMin" promptText="Valor Minimo">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextField>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
-                              </Label>
-                              <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="315.0" spacing="2.0">
-                                 <children>
-                                    <TextField fx:id="txtPrecioMin" promptText="Valor Minimo">
-                                       <cursor>
-                                          <Cursor fx:constant="TEXT" />
-                                       </cursor>
-                                    </TextField>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="-">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Text>
-                                    <TextField fx:id="txtPrecioMax" promptText="Valor Maximo">
-                                       <cursor>
-                                          <Cursor fx:constant="TEXT" />
-                                       </cursor>
-                                    </TextField>
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="10.0" prefWidth="295.0" spacing="10.0">
-                                 <children>
-                                    <Label prefHeight="25.0" prefWidth="177.0" text="Ordenar Por">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <ComboBox fx:id="cbFiltroOrdenar" prefHeight="24.0" prefWidth="173.0">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </ComboBox>
-                                 </children>
-                              </HBox>
+                              </Text>
+                              <TextField fx:id="txtPrecioMax" promptText="Valor Maximo">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextField>
                            </children>
-                           <padding>
-                              <Insets left="20.0" right="20.0" />
-                           </padding>
-                        </VBox>
+                        </HBox>
+                        <HBox prefHeight="10.0" prefWidth="295.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="177.0" text="Ordenar Por">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbFiltroOrdenar" prefHeight="24.0" prefWidth="173.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></ComboBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <ScrollPane fx:id="center" hbarPolicy="NEVER" prefHeight="1505.0" prefWidth="869.0" styleClass="scroll_pane" stylesheets="@CatalogoCSS.css" vbarPolicy="NEVER">
+               <content>
+                  <VBox>
+                     <children>
+                        <Region prefHeight="20.0" prefWidth="200.0" />
+                        <HBox>
+                           <children>
+                              <Region prefHeight="1090.0" prefWidth="211.0" />
+                              <TilePane fx:id="tlObjetos" hgap="40.0" prefColumns="3" prefHeight="1090.0" prefRows="3" prefWidth="1025.0" styleClass="grid" vgap="20.0">
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </TilePane>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-               </left>
-               <center>
-                  <ScrollPane fx:id="center" hbarPolicy="NEVER" prefHeight="1505.0" prefWidth="869.0" styleClass="scroll_pane" stylesheets="@CatalogoCSS.css" vbarPolicy="NEVER">
-                     <content>
-                        <VBox>
-                           <children>
-                              <Region prefHeight="20.0" prefWidth="200.0" />
-                              <HBox>
-                                 <children>
-                                    <Region prefHeight="1090.0" prefWidth="211.0" />
-                                    <TilePane fx:id="tlObjetos" hgap="40.0" prefColumns="3" prefHeight="1090.0" prefRows="3" prefWidth="1025.0" styleClass="grid" vgap="20.0">
-                                       <padding>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                       </padding>
-                                    </TilePane>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </content>
-                     <BorderPane.margin>
-                        <Insets />
-                     </BorderPane.margin>
-                  </ScrollPane>
-               </center>
-            </BorderPane>
-         </children>
-      </StackPane>
+               </content>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+            </children>
+       </StackPane>
    </children>
 </AnchorPane>

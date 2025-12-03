@@ -1,7 +1,7 @@
 package controller.viewControllers;
 
 import application.App;
-import controller.mock.MockLogin;
+import controller.login.Login;
 import utils.InputDialog;
 import utils.Paths;
 import javafx.event.ActionEvent;
@@ -29,17 +29,17 @@ public class LoginController {
   private VBox logo_square;
   @FXML
   private TextField lblPasswordUnHide;
-  private MockLogin login = new MockLogin();
+  private Login login = new Login();
 
   @FXML
   void iniciar(ActionEvent event) {
     if (!verificaciones())
       return;
     String user = lblUser.getText();
+    String correo = lblCorreo.getText();
     String pass = (lblPasswordHide.getText().isEmpty()) ? lblPasswordUnHide.getText() : lblPasswordHide.getText();
-    boolean resu = login.login(user, pass);
+    boolean resu = login.login(user, pass, correo);
     if (!resu) {
-      InputDialog.information("Error datos invalidos", "Favor ingrese ingrese datos validos");
       return;
     }
     App.app.setScene(Paths.GESTIONAR_CATALOGO_VIEW);
@@ -93,6 +93,7 @@ public class LoginController {
   }
 
   public void initialize() {
+    login.dataBase();
     lblPasswordUnHide.setVisible(false);
   }
 }

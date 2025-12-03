@@ -3,6 +3,7 @@ package controller.viewControllers;
 import java.io.IOException;
 
 import application.App;
+import controller.ProductoLista;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,10 +16,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import model.Nodo;
+import model.Productos;
 import utils.InputDialog;
 import utils.Paths;
 
 public class CatalogoController {
+
+  @FXML
+  private Button btnBuscar;
+
+  @FXML
+  private Button btnCancelarBusqueda;
   @FXML
   private Button btnCart;
 
@@ -45,6 +54,9 @@ public class CatalogoController {
 
   @FXML
   private RadioButton rbDAC;
+
+  @FXML
+  private RadioButton rbTodos;
 
   @FXML
   private RadioButton rbDisco;
@@ -81,7 +93,10 @@ public class CatalogoController {
     App.app.setScene(Paths.GESTIONAR_PERFIL_VIEW);
   }
 
+  private ProductoLista catalogoDefault = new ProductoLista();
+
   public void initialize() {
+    // filtro
     ToggleGroup filtro = new ToggleGroup();
     rbDAC.setToggleGroup(filtro);
     rbIEMS.setToggleGroup(filtro);
@@ -89,37 +104,123 @@ public class CatalogoController {
     rbDisco.setToggleGroup(filtro);
     rbTWS.setToggleGroup(filtro);
     rbTocaDisco.setToggleGroup(filtro);
+    rbTodos.setToggleGroup(filtro);
     cbFiltroOrdenar.getItems().addAll("A-Z", "Z-A", "Menor Precio", "Mayor Precio");
-    for (int i = 0; i < 20; i++) {
-      addGrig();
-    }
+    cbFiltroOrdenar.setValue("A-Z");
+
+    // listeners
+    filtro.selectedToggleProperty().addListener((observable, oldValue, newValue) -> actualizarCatalogo());
+    cbFiltroOrdenar.valueProperty().addListener((observable, oldValue, newValue) -> actualizarCatalogo());
+    buscador.textProperty().addListener((observable, oldValue, newValue) -> buscarProductos(newValue));
+    txtPrecioMax.setOnAction(cambio -> actualizarCatalogo());
+    txtPrecioMin.setOnAction(cambio -> actualizarCatalogo());
+    actualizarCatalogo();
+    rbTodos.setVisible(false);
+  }
+
+  @FXML
+  void buscar(ActionEvent event) {
+    buscarProductos(buscador.getText());
+    btnCancelarBusqueda.setVisible(true);
+    btnBuscar.setVisible(false);
+  }
+
+  @FXML
+  void cancelarBusqueda(ActionEvent event) {
+    btnBuscar.setVisible(true);
+    btnCancelarBusqueda.setVisible(false);
+    buscador.setText("");
+    tlObjetos.getChildren().clear();
+    Nodo<Productos> actual = catalogoDefault.cabecera;
+    do {
+      addProductsToGrig(actual.info);
+      actual = actual.sig;
+    } while (actual != catalogoDefault.cabecera);
   }
 
   public void cargarProducto() {
     // TODO: Configrmar como se van a agregar los productos
   }
 
-  private void addGrig() {
+  public void actualizarCatalogo() {
+    rbTodos.setVisible(true);
+    tlObjetos.getChildren().clear(); // Se limpia el grid
+
+    String categoria = ""; // se asigna categoria
+    if (rbIEMS.isSelected())
+      categoria = "IEMs";
+    else if (rbAuriculares.isSelected())
+      categoria = "Auriculares";
+    else if (rbTWS.isSelected())
+      categoria = "TWS";
+    else if (rbDAC.isSelected())
+      categoria = "DACs";
+    else if (rbDisco.isSelected())
+      categoria = "Vinilos";
+    else if (rbTocaDisco.isSelected())
+      categoria = "Toca discos";
+    float min = -1, max = -1; // se asignan valores default para el precio min y max
     try {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_PRODUCTOS_VIEW));
+      if (!txtPrecioMin.getText().isEmpty())
+        min = Float.parseFloat(txtPrecioMin.getText());
+      if (!txtPrecioMax.getText().isEmpty())
+        max = Float.parseFloat(txtPrecioMax.getText());
+    } catch (NumberFormatException e) {
+      System.out.println("Formato de precio inválido");
+    }
+
+    String orden = cbFiltroOrdenar.getValue(); // se asigna el orden (Default: A-Z)
+
+    // Filtramos la lista
+    ProductoLista listaFiltrada = catalogoDefault.getListaFiltrada(min, max, categoria, orden);
+
+    if (!listaFiltrada.getEsVacia()) {
+      Nodo<Productos> actual = listaFiltrada.cabecera;
+      do {
+        addProductsToGrig(actual.info);
+        actual = actual.sig;
+      } while (actual != listaFiltrada.cabecera);
+    } else {
+      Label vacio = new Label("No hay resultados con estos filtros.");
+      tlObjetos.getChildren().add(vacio);
+    }
+
+  }
+
+  private void addProductsToGrig(Productos producto) { // metodo para cargar las targetas al grid
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_PRODUCTOS_VIEW)); // se crea el producto
+                                                                                                  // y el controller
       VBox tarjeta = loader.load();
       ProductController controller = loader.getController();
-      controller.setProducto("Kz castor bass", 5000000, "/Imagenes/KZ-castor-bass.jpg");
-      tlObjetos.getChildren().add(tarjeta);
+      controller.setProducto(producto.getNombre(), producto.getPrecio(), producto.getImagen()); // se le pasa el
+                                                                                                // producto
+      tlObjetos.getChildren().add(tarjeta); // se asigna a la grid
     } catch (IOException e) {
       InputDialog.error("error", "error: " + e.getMessage());
     }
   }
-  // TODO: metodo para agg a la grid en un futuro
-  // private void addGrid(Productos produ){
-  // try {
-  // FXMLLoader loader = new FXMLLoader(Paths.GESTIONAR_PRODUCTOS_VIEW);
-  // Vbox tarjeta = loader.load();
-  // ProductController controller = loader.getController();
-  // controller.setProducto(produ.getNom(), produ.getPrecio(), produ.getRuta());
-  // tlObjetos.getChildren().add(tarjeta);
-  // }catch(IOException e){
-  //
-  // }
-  // }
+
+  private void buscarProductos(String dato) {
+    if (tlObjetos.getChildren().isEmpty()) {
+      btnCancelarBusqueda.setVisible(true);
+      btnBuscar.setVisible(false);
+      return;
+    }
+    if (dato.length() < 3 || dato == null) { // busquedas de 3 carateres o mas
+      return;
+    }
+    ProductoLista lista = catalogoDefault.getBusqueda(dato);
+    if (lista.getEsVacia()) {
+      return;
+    }
+    btnCancelarBusqueda.setVisible(true);
+    btnBuscar.setVisible(false);
+    tlObjetos.getChildren().clear();
+    Nodo<Productos> actual = lista.cabecera;
+    do {
+      addProductsToGrig(actual.info);
+      actual = actual.sig;
+    } while (actual != lista.cabecera);
+  }
 }
