@@ -50,6 +50,8 @@ public class AdminProductos {
     }
     Productos nuevo = new Productos(id, nombre, user.getNombre(), precio, imagen, stock, categoria);
     user.getProductos().addF(nuevo);
+    ProductoLista.getInstancia().addF(nuevo);
+    ProductoLista.getInstancia().setGuardarProductosTxt();
     return true;
   }
 
