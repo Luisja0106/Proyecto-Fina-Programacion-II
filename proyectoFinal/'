@@ -5,7 +5,6 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import utils.Paths;
@@ -29,23 +28,14 @@ public class App extends Application {
   public void setScene(String paths) { // metodo que carga la scena de forma dinamica.
     FXMLLoader loader = new FXMLLoader(getClass().getResource(paths)); // se crea el controlador de cada scena
     try {
-      AnchorPane root = loader.load(); // se crea el stackPane y se le asignan los elementos correspondientes
+      StackPane root = loader.load(); // se crea el stackPane y se le asignan los elementos correspondientes
       Scene scene = new Scene(root); // se sube todo a una scena
       stageWindow.setScene(scene); // se abre la escena en la ventana o stage actual.
-      stageWindow.setMaximized(true);
+      // stageWindow.setMaximized(true);
       stageWindow.show(); // se muestra
     } catch (IOException Exception) {
       Exception.printStackTrace();
     }
   }
-
-    @Override
-    public void stop() throws Exception { //metodo para limpiar el carrito al momemnto de salir
-        controller.CarritoLista limpiador = new controller.CarritoLista();
-        limpiador.vaciarCarritoTotalmente();
-        System.out.println("Carrito vaciado y base de datos limpiada al cerrar la app.");
-
-        super.stop();
-    }
 
 }

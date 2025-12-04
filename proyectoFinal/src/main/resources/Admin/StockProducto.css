@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Story+Script&display=swap');
+.wishlist_background {
+  -fx-background-color: #B56E64;
+  -fx-border-color: black;
+  -fx-border-radius: 18px;
+  -fx-background-radius: 18px;
+}
+.img_square {
+  -fx-background-color: white;
+  -fx-border-color: black;
+  -fx-border-radius: 18px;
+  -fx-background-radius: 18px;
+}
+.title {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 30px;
+}
+.info {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 20px;
+  -fx-text-fill: #3A393F;
+}
+.price {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 20px;
+  -fx-text-fill: black;
+}
+.amount {
+-fx-background-color:#C7BDBF;
+-fx-border-color: black;
+-fx-border-radius: 24px;
+-fx-background-radius: 24px;
+}
+.amount .button {
+-fx-background-color:transparent;
+}
+.btn_stock {
+-fx-background-color:#2C2F37;
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 20px;
+  -fx-text-fill: #A6AAB1;
+  -fx-background-radius: 15px;
+  -fx-border-radius: 15px;
+}
+.btn_stock:hover {
+  -fx-background-color: #2f955a;
+  -fx-border-width: 0;
+}
+#btnPlus:hover {
+  -fx-text-fill: #2f955a;
+}
+#btnMinus:hover {
+  -fx-text-fill: red;
+}

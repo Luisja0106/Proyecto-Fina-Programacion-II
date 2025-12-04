@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Story+Script&display=swap');
+.background {
+  -fx-background-color: #D7C8C5;
+}
+.scroll_pane {
+  -fx-background-color :transparent;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+}
+.scroll_pane > .viewport {
+  -fx-background-color : transparent;
+}
+.top_bar {
+  -fx-background-color:#AF857A;
+}
+.profile, .wishlist {
+  -fx-background-color: #C17062;
+  -fx-border-color: black;
+  -fx-border-radius:24px;
+  -fx-background-radius:24px;
+  -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25),0,0,-9,-9);
+}
+.perfil_text, .wishlist_text {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 40px;
+  -fx-font-weight: bold;
+}
+.profile .text-field, .combo-box {
+  -fx-background-color: #D8C9C6;
+  -fx-border-color: black;
+  -fx-border-radius: 4px;
+  -fx-background-radius: 4px;
+  -fx-effect: innershadow(gaussian, rgba(0,0,0,0.25),0,0,4,4);
+  -fx-prompt-text-fill:#7E7876;
+}
+.profile .button {
+  -fx-background-color: #D8C9C6;
+  -fx-border-color: black;
+  -fx-border-radius: 4px;
+  -fx-background-radius: 4px;
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 20px;
+  -fx-font-weight: bold;
+}
+.btnBar {
+  -fx-background-color: transparent;
+}
+.stock {
+  -fx-border-color: black;
+  -fx-background-color: #D8C9C6;
+  -fx-border-radius: 24px;
+  -fx-background-radius: 24px;
+}
+.stock .button {
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+}
+.stock_plus:hover {
+  -fx-text-fill: #2f955a;
+}
+.stock_minus:hover {
+  -fx-text-fill: red;
+}
