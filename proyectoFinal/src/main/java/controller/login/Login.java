@@ -36,7 +36,7 @@ public class Login implements LoginInterface {
 
   // metodo publico que carga los usuarios desde una carpeta usando txt
   public void dataBase() {
-    Path directorio = Paths.get("../DataBase/Users");
+    Path directorio = Paths.get("DataBase", "Users");
     if (!Files.exists(directorio)) {
       return;
     }

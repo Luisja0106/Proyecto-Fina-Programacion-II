@@ -43,16 +43,16 @@
 511;Sony LinkBuds Fit;Sony;199.0;Images/TWS/Sony_LinkBudsFit.png;12;TWS
 512;Sony WF-1000XM5;Sony;299.0;Images/TWS/Sony_WF-1000XM5.png;20;TWS
 513;Sony WF-C510;Sony;60.0;Images/TWS/Sony_WF-C510.png;25;TWS
-601;Bad Bunny - DTMF;Rimas;30.0;Images/Vinyl/BadBunny_dtmf.png;10;Vinilos
-602;Silk Sonic - An Evening;Atlantic;35.0;Images/Vinyl/BrunoMars_AnEveningWithSilkSonic.png;8;Vinilos
-603;Evangelion Final OST;King Records;50.0;Images/Vinyl/Evangelion_FinalSoundtrack.png;5;Vinilos
-604;Imagine Dragons - Evolve;Interscope;25.0;Images/Vinyl/ImagineDragon_Evolve.png;12;Vinilos
-605;Joji - Piss In The Wind;88rising;28.0;Images/Vinyl/Joji_PissInTheWind.png;10;Vinilos
-606;Minecraft Vol Alpha;Ghostly;35.0;Images/Vinyl/Minecraft_C418.png;15;Vinilos
-607;Natalia Lafourcade - Raíz;Sony Music;30.0;Images/Vinyl/NataliaLafourcade_HastaLaRaiz.png;7;Vinilos
-608;Persona 3 Reload OST;Atlus;60.0;Images/Vinyl/P3R_Soundtrack.png;5;Vinilos
-609;Persona 4 Golden OST;Atlus;55.0;Images/Vinyl/P4G_Soundtrack.png;5;Vinilos
-610;Queen - Bohemian Rhapsody;Virgin;40.0;Images/Vinyl/Queen_BohemianRhapsody.png;20;Vinilos
-611;Tame Impala - Currents;Interscope;35.0;Images/Vinyl/TameImpala_Currents.png;15;Vinilos
-612;Zelda - Hero of Time;Iam8bit;45.0;Images/Vinyl/tLoZ_HeroOfTime.png;8;Vinilos
-613;Tyler Creator - Chromakopia;Columbia;32.0;Images/Vinyl/TTC_Chromakopia.png;10;Vinilos
+601;Bad Bunny - DTMF;TT Lab;30.0;Images/Vinyl/BadBunny_dtmf.png;10;Vinilos
+602;Silk Sonic - An Evening;TT Lab;35.0;Images/Vinyl/BrunoMars_AnEveningWithSilkSonic.png;8;Vinilos
+603;Evangelion Final OST;TT Lab;50.0;Images/Vinyl/Evangelion_FinalSoundtrack.png;5;Vinilos
+604;Imagine Dragons - Evolve;TT Lab;25.0;Images/Vinyl/ImagineDragon_Evolve.png;12;Vinilos
+605;Joji - Piss In The Wind;TT Lab;28.0;Images/Vinyl/Joji_PissInTheWind.png;10;Vinilos
+606;Minecraft Vol Alpha;TT Lab;35.0;Images/Vinyl/Minecraft_C418.png;15;Vinilos
+607;Natalia Lafourcade - Raíz;TT Lab;30.0;Images/Vinyl/NataliaLafourcade_HastaLaRaiz.png;7;Vinilos
+608;Persona 3 Reload OST;TT Lab;60.0;Images/Vinyl/P3R_Soundtrack.png;5;Vinilos
+609;Persona 4 Golden OST;TT Lab;55.0;Images/Vinyl/P4G_Soundtrack.png;5;Vinilos
+610;Queen - Bohemian Rhapsody;TT Lab;40.0;Images/Vinyl/Queen_BohemianRhapsody.png;20;Vinilos
+611;Tame Impala - Currents;TT Lab;35.0;Images/Vinyl/TameImpala_Currents.png;15;Vinilos
+612;Zelda - Hero of Time;TT Lab;45.0;Images/Vinyl/tLoZ_HeroOfTime.png;8;Vinilos
+613;Tyler Creator - Chromakopia;TT Lab;32.0;Images/Vinyl/TTC_Chromakopia.png;10;Vinilos

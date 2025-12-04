@@ -59,7 +59,7 @@ public class ListaUsers {
         return false;
       }
       // se crea la carpeta
-      Path directorio = Paths.get("../DataBase/Users");
+      Path directorio = Paths.get("DataBase", "Users");
       if (!Files.exists(directorio)) {
         Files.createDirectory(directorio);
       }

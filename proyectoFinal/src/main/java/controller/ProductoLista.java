@@ -100,7 +100,7 @@ public class ProductoLista extends Listas<Productos> {
 
   private File createFile() {
     try {
-      Path ruta = Paths.get("../DataBase/Productos");
+      Path ruta = Paths.get("DataBase", "Productos");
       if (!Files.exists(ruta)) {
         Files.createDirectory(ruta);
       }
