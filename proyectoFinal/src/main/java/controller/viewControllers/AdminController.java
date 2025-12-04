@@ -57,7 +57,11 @@ public class AdminController {
       int stock = Integer.parseInt(lblstock.getText());
       admin.addLista(nombre, precio, imagen, cate, stock);
     }
-    setGrid(UserSession.getInstance().getUser());
+    Nodo<Productos> aux = UserSession.getInstance().getUser().getProductos().cabecera;
+    do {
+      addGrid(aux.info);
+      aux = aux.sig;
+    } while (aux != UserSession.getInstance().getUser().getProductos().cabecera);
   }
 
   @FXML
@@ -88,7 +92,7 @@ public class AdminController {
     App.app.setScene(Paths.GESTIONAR_PERFIL_VIEW);
   }
 
-  private void addGrid(Productos produ) {
+  private void addGrid(Productos produ) { // metodo para añadir a la grid
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_STOCKADMIN_VIEW));
       HBox tarjeta = loader.load();

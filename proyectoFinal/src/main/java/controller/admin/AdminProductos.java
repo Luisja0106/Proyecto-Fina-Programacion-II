@@ -75,7 +75,8 @@ public class AdminProductos {
       }
       aux = aux.sig;
     } while (aux != todos.cabecera);
-    return String.valueOf(x++);
+    x++;
+    return String.valueOf(x);
   }
 
   private boolean comprobaciones(String id, String nombre) {
