@@ -56,7 +56,8 @@ public class RegistroController {
     }
     if (!verification())
       return;
-    users.crearCuenta(lblUser.getText(), password, lblCorreo.getText());
+    if (!users.crearCuenta(lblUser.getText(), password, lblCorreo.getText()))
+      return;
     App.app.setScene(Paths.GESTIONAR_LOGIN_VIEW);
   }
 

@@ -2,6 +2,7 @@ package controller.login;
 
 //librerias
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -17,6 +18,7 @@ import utils.InputDialog;
 public class Login implements LoginInterface {
 
   private ListaUsers lista = new ListaUsers();
+  private final String Folder = "DataBase" + File.separator + "Usuarios";
 
   public Login() {
     super();
@@ -36,7 +38,7 @@ public class Login implements LoginInterface {
 
   // metodo publico que carga los usuarios desde una carpeta usando txt
   public void dataBase() {
-    Path directorio = Paths.get("../DataBase/Users");
+    Path directorio = Paths.get(Folder);
     if (!Files.exists(directorio)) {
       return;
     }
@@ -75,7 +77,7 @@ public class Login implements LoginInterface {
   public Usuarios buscarCorreo(String correo) {
     Nodo<Usuarios> aux = lista.getUsers().cabecera;
     do {
-      if (aux.info.getCorreo().equals(correo)) {
+      if (aux.info.getCorreo().equalsIgnoreCase(correo)) {
         return aux.info;
       }
       aux = aux.sig;
