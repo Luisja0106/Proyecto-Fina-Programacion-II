@@ -38,4 +38,13 @@ public class App extends Application {
     }
   }
 
+    @Override
+    public void stop() throws Exception { //metodo para limpiar el carrito al momemnto de salir
+        controller.CarritoLista limpiador = new controller.CarritoLista();
+        limpiador.vaciarCarritoTotalmente();
+        System.out.println("Carrito vaciado y base de datos limpiada al cerrar la app.");
+
+        super.stop();
+    }
+
 }
