@@ -12,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import utils.InputDialog;
 import utils.Paths;
+import utils.UserSession;
 
 public class PerfilController {
 
@@ -47,6 +48,7 @@ public class PerfilController {
 
   @FXML
   void goToAdmin(ActionEvent event) {
+    UserSession.getInstance().getUser().setAdmin(true);
     App.app.setScene(Paths.GESTIONAR_ADMIN_VIEW);
   }
 

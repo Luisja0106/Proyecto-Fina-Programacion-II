@@ -2,15 +2,17 @@ package controller.admin;
 
 import controller.Listas;
 import controller.ProductoLista;
-import model.Admin;
 import model.Nodo;
 import model.Productos;
+import model.Usuarios;
 import utils.InputDialog;
+import utils.UserSession;
 
 public class AdminProductos {
-  private Admin user;
+  private static Usuarios user;
 
   public AdminProductos() {
+    user = UserSession.getInstance().getUser();
     setLista();
   }
 
@@ -20,8 +22,10 @@ public class AdminProductos {
 
   // metodo para cargar la lista personal del admin
   public boolean setLista() {
-    if (!isAdmin()) // verificaciones de que sea admin
+    if (!isAdmin()) { // verificaciones de que sea admin
+      InputDialog.error("no es admin", "No admin");
       return false;
+    }
     ProductoLista todos = new ProductoLista(true);
     Nodo<Productos> aux = todos.cabecera;
     Listas<Productos> productos = new Listas<>();
@@ -32,8 +36,10 @@ public class AdminProductos {
       }
       aux = aux.sig;
     } while (aux != todos.cabecera);
-    if (!productos.getEsVacia())
+    if (productos.getEsVacia()) {
+      InputDialog.error("no productos", "No produ");
       return false;
+    }
     user.setProductos(productos);
     return true;
   }

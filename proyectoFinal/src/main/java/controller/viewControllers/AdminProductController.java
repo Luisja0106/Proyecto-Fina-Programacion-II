@@ -58,8 +58,8 @@ public class AdminProductController {
     lblInfo.setText(info);
     lblPrice.setText("$" + price);
     lblCant.setText(String.valueOf(cant));
-    Image img = new Image(getClass().getResource(ruta).toExternalForm());
-    imgProdu.setImage(img);
+    // Image img = new Image(getClass().getResource(ruta).toExternalForm());
+    // imgProdu.setImage(img);
   }
 
 }

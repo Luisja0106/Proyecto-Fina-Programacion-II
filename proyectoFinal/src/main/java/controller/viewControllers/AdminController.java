@@ -7,7 +7,6 @@ import controller.admin.AdminProductos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -16,6 +15,7 @@ import model.Nodo;
 import model.Productos;
 import utils.InputDialog;
 import utils.Paths;
+import utils.UserSession;
 
 public class AdminController {
 
@@ -84,6 +84,10 @@ public class AdminController {
   }
 
   private void setGrid(Admin user) {
+    if (!admin.setLista()) {
+      InputDialog.error("error", "return");
+      return;
+    }
     Nodo<Productos> aux = user.getProductos().cabecera;
     do {
       addGrid(aux.info);
@@ -92,5 +96,6 @@ public class AdminController {
   }
 
   public void initialize() {
+    setGrid(UserSession.getInstance().getUser());
   }
 }

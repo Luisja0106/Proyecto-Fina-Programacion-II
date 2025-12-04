@@ -10,6 +10,14 @@ public class Admin {
   private Listas<Productos> productos;
 
   // metodo constructor
+  public Admin(String nombre, boolean isAdmin, String correo, String password, Listas<Productos> productos) {
+    this.nombre = nombre;
+    this.isAdmin = isAdmin;
+    this.correo = correo;
+    this.password = password;
+    this.productos = productos;
+  }
+
   public Admin(String nombre, boolean isAdmin, String correo, String password) {
     this.nombre = nombre;
     this.isAdmin = isAdmin;
