@@ -28,6 +28,11 @@ public class CarritoLista extends Listas<Productos> {
         setGuardarCarritoTxt();
     }
 
+    public void vaciarCarritoTotalmente() {
+        setVaciar();
+        setGuardarCarritoTxt();
+    }
+
     /**
      * Elimina el producto del carrito y actualiza el TXT
      */
