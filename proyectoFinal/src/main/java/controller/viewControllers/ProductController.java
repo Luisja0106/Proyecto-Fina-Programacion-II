@@ -1,4 +1,8 @@
 package controller.viewControllers;
+import controller.ProductoLista;
+import controller.CarritoLista;
+import model.Nodo;
+import model.Productos;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -40,9 +44,27 @@ public class ProductController {
   private boolean isInFav = false;
 
   @FXML
-  void addCarrito(ActionEvent event) {
-    InputDialog.information("Se ha añadido al carrito", "El producto se ha añadido al carrito satisfactoriamente");
+  public void addCarrito(ActionEvent event) {
 
+      String nombreBusqueda = txtNom.getText();
+
+      if (nombreBusqueda == null || nombreBusqueda.isEmpty()) {
+          InputDialog.error("Error", "No se puede identificar el nombre del producto.");
+          return;
+      }
+      ProductoLista catalogo = new ProductoLista();
+
+      Nodo<Productos> nodoEncontrado = catalogo.buscarPorNombre(nombreBusqueda);
+      if (nodoEncontrado != null) {
+          Productos productoCompleto = nodoEncontrado.info;
+
+          CarritoLista gestorCarrito = new CarritoLista();
+          gestorCarrito.agregarAlCarrito(productoCompleto);
+
+          InputDialog.information("Añadido", "Se agregó '" + nombreBusqueda + "' al carrito.");
+      } else {
+          InputDialog.error("Error", "No se encontró el producto en la base de datos.");
+      }
   }
 
   @FXML
