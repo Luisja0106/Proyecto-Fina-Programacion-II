@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import utils.InputDialog;
@@ -17,7 +18,18 @@ import controller.CarritoLista;
 import model.Nodo;
 
 public class CarritoController {
-  @FXML
+    @FXML
+    private Label lblSubtotal;
+    @FXML
+    private Label lblEnvio;
+    @FXML
+    private Label lblDescuento;
+    @FXML
+    private Label lblTotal;
+
+    private final double COSTO_ENVIO_BASE = 15.0;
+
+    @FXML
   private Button btnPagar;
   @FXML
   private TilePane TlProdu;
@@ -44,15 +56,10 @@ public class CarritoController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_CARRITO_PRODUCTO_VIEW));
             HBox tarjeta = loader.load();
-
             ProductoCarritoController controller = loader.getController();
-
             String descripcionGenerada = p.getNomVendedor() + " - " + p.getCategoria();
-
             controller.setProductos(p);
-
             TlProdu.getChildren().add(tarjeta);
-
         } catch (IOException e) {
             e.printStackTrace();
             InputDialog.error("Error al cargar tarjeta", "No se pudo cargar el producto: " + p.getNombre());
@@ -68,11 +75,43 @@ public class CarritoController {
             return;
         }
 
-        Nodo<Productos> actual = carrito.cabecera;
-        do {
-            cargarTarjetaProducto(actual.info);
-            actual = actual.sig;
-        } while (actual != carrito.cabecera);
+        // Variables para el cálculo
+        double subtotal = 0;
+        int cantidadProductos = 0;
+
+        if (!carrito.getEsVacia()) {
+            Nodo<Productos> actual = carrito.cabecera;
+            do {
+                cargarTarjetaProducto(actual.info);
+                int cantidad = actual.info.getStock();
+                subtotal += actual.info.getPrecio() * cantidad;
+                cantidadProductos += cantidad;
+                actual = actual.sig;
+            } while (actual != carrito.cabecera);
+        }
+        actualizarResumen(subtotal, cantidadProductos);
+    }
+
+    private void actualizarResumen(double subtotal, int cantidad) {
+        double envio = (cantidad > 0) ? COSTO_ENVIO_BASE : 0; //
+        double descuento = 0;
+        double total = 0;
+
+
+        if (cantidad > 3) {
+            descuento = subtotal * 0.10;
+
+            lblDescuento.setStyle("-fx-text-fill: #27ae60;"); // Verde
+        } else {
+            lblDescuento.setStyle("-fx-text-fill: black;"); // Color normal
+        }
+
+        total = subtotal + envio - descuento;
+
+        lblSubtotal.setText(String.format("$ %.2f", subtotal));
+        lblEnvio.setText(String.format("$ %.2f", envio));
+        lblDescuento.setText(String.format("-$ %.2f", descuento));
+        lblTotal.setText(String.format("$ %.2f", total));
     }
 
   @FXML

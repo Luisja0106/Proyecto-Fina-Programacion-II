@@ -53,8 +53,7 @@ public class ProductoCarritoController {
       lblinfo.setText(info);
 
       lblPrecio.setText("$" + p.getPrecio());
-
-      lblcant.setText("1");
+      lblcant.setText(String.valueOf(p.getStock()));
 
       File file = new File(p.getImagen());
       if (file.exists()) {
@@ -63,21 +62,22 @@ public class ProductoCarritoController {
       }
   }
 
-  // TODO: Metodo para aumentar la cantidad de un mismo producto
+
   @FXML
   void añadir(ActionEvent event) {
-    int cant = Integer.parseInt(lblcant.getText());
-    cant++;
-    lblcant.setText(String.valueOf(cant));
+      CarritoLista sumar = new CarritoLista();
+      sumar.agregarAlCarrito(this.productoActual);
+
+      App.app.setScene(Paths.GESTIONAR_CARRITO_VIEW);
   }
 
-  // TODO: Metodo para eliminar una cantidad de un mismo producto
+
   @FXML
   void reducir(ActionEvent event) {
-    int cant = Integer.parseInt(lblcant.getText());
-    cant--;
-    if (cant <= 0) this.eliminar(event);
-    lblcant.setText(String.valueOf(cant));
+      CarritoLista restar = new CarritoLista();
+      restar.reducirCantidad(this.productoActual.getId());
+
+      App.app.setScene(Paths.GESTIONAR_CARRITO_VIEW);
   }
 
   // TODO: Metodo para eliminar un prodcuto del carrito

@@ -20,12 +20,53 @@ public class CarritoLista extends Listas<Productos> {
     }
 
     /**
-     * El producto se agrega al carrito y al txt
+     * El producto se agrega al carrito y al txt.
+     * Tambien usa el field de stock como cantidad en el contexto del carrito
      */
     public void agregarAlCarrito(Productos p) {
+        boolean existe = false;
 
-        this.addF(p);
+        if (!getEsVacia()) {
+            Nodo<Productos> actual = cabecera;
+            do {
+                if (actual.info.getId().equals(p.getId())) {
+
+                    actual.info.setStock(actual.info.getStock() + 1);
+                    existe = true;
+                    break;
+                }
+                actual = actual.sig;
+            } while (actual != cabecera);
+        }
+
+        if (!existe) {
+            // Esto modifica la propiedad stock del objeto para el contexto del carrito
+            p.setStock(1);
+            addF(p);
+        }
         setGuardarCarritoTxt();
+    }
+
+    public void reducirCantidad(String id) {
+        if (getEsVacia()) return;
+
+        Nodo<Productos> actual = cabecera;
+        do {
+            if (actual.info.getId().equals(id)) {
+                int cantidadActual = actual.info.getStock();
+
+                if (cantidadActual > 1) {
+                    // Si hay más de 1, restamos y guardamos
+                    actual.info.setStock(cantidadActual - 1);
+                    setGuardarCarritoTxt();
+                } else {
+                    // Si queda 1 y restamos, se elimina del carrito
+                    eliminarDelCarrito(id);
+                }
+                break;
+            }
+            actual = actual.sig;
+        } while (actual != cabecera);
     }
 
     public void vaciarCarritoTotalmente() {
