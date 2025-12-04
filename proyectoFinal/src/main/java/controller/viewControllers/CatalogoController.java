@@ -80,7 +80,7 @@ public class CatalogoController {
 
   @FXML
   void cart(ActionEvent event) {
-    InputDialog.information("Dirigiendose al carrito", "Dirigiendose al carrito");
+    App.app.setScene(Paths.GESTIONAR_CARRITO_VIEW);
   }
 
   @FXML
@@ -90,7 +90,7 @@ public class CatalogoController {
 
   @FXML
   void user(ActionEvent event) {
-    InputDialog.information("Ingresando al perfil", "Ingresando al perfil");
+    App.app.setScene(Paths.GESTIONAR_PERFIL_VIEW);
   }
 
   private ProductoLista catalogoDefault = new ProductoLista();

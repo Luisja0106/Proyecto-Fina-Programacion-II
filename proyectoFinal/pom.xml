@@ -57,6 +57,19 @@
                     <mainClass>application.App</mainClass>
                 </configuration>
             </plugin>
+            <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>3.1.0</version> <configuration>
+        <mainClass>application.App</mainClass> <executable>java</executable>
+        <arguments>
+            <argument>-Xmx2048m</argument>
+            <argument>-classpath</argument>
+            <classpath/>
+            <argument>${mainClass}</argument>
+        </arguments>
+    </configuration>
+</plugin>
         </plugins>
     </build>
 

@@ -57,4 +57,26 @@ public class Listas<T> {
 
     return cont;
   }
+
+  public void eliminar(Nodo<T> nodoAEliminar) {
+    if (getEsVacia() || nodoAEliminar == null) {
+      return;
+    }
+
+    if (cabecera == cabecera.sig) {
+      cabecera = null;
+      return;
+    }
+
+    Nodo<T> anterior = nodoAEliminar.ant;
+    Nodo<T> siguiente = nodoAEliminar.sig;
+
+    anterior.sig = siguiente;
+    siguiente.ant = anterior;
+
+    if (nodoAEliminar == cabecera) {
+      cabecera = siguiente;
+    }
+
+  }
 }

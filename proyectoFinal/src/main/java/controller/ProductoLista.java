@@ -7,15 +7,14 @@ import java.nio.file.Paths;
 
 import model.Nodo;
 import model.Productos;
-import utils.InputDialog;
 
 public class ProductoLista extends Listas<Productos> {
 
   private final String ARCHIVO_DB = "productos_db.txt";
+  private static ProductoLista instancia;
 
   public ProductoLista() {
     super(); // Inicializa la lista vacía
-
     // carga el txt al inicio de la clase
     setCargarProductosTxt();
   }
@@ -26,6 +25,13 @@ public class ProductoLista extends Listas<Productos> {
     if (cargarDatos)
       setCargarProductosTxt();
 
+  }
+
+  public static ProductoLista getInstancia() {
+    if (instancia == null) {
+      instancia = new ProductoLista();
+    }
+    return instancia;
   }
 
   /**
@@ -71,12 +77,12 @@ public class ProductoLista extends Listas<Productos> {
     return listaTemp;
   }
 
-  public Nodo<Productos> buscarPorId(String id) {
+  public Nodo<Productos> buscarPorNombre(String nom) {
     if (getEsVacia())
       return null;
     Nodo<Productos> actual = cabecera;
     do {
-      if (actual.info.getId().equals(id))
+      if (actual.info.getNombre().equals(nom))
         return actual;
       actual = actual.sig;
     } while (actual != cabecera);
@@ -100,7 +106,7 @@ public class ProductoLista extends Listas<Productos> {
 
   private File createFile() {
     try {
-      Path ruta = Paths.get("../DataBase/Productos");
+      Path ruta = Paths.get("DataBase", "Productos");
       if (!Files.exists(ruta)) {
         Files.createDirectory(ruta);
       }
@@ -133,7 +139,6 @@ public class ProductoLista extends Listas<Productos> {
   public void setCargarProductosTxt() {
     File archivo = createFile();
     if (!archivo.exists()) {
-      InputDialog.error("file no encontrado", "file no encontrado");
       return;
     }
     setVaciar();
@@ -143,7 +148,7 @@ public class ProductoLista extends Listas<Productos> {
         String[] datos = linea.split(";");
         if (datos.length >= 6) {
           Productos p = new Productos(datos[0], datos[1], datos[2],
-              Float.parseFloat(datos[3]), "../" + datos[4], Integer.parseInt(datos[5]), datos[6]);
+              Float.parseFloat(datos[3]), datos[4], Integer.parseInt(datos[5]), datos[6]);
           addF(p);
         }
       }

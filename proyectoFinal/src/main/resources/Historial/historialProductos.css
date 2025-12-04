@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Story+Script&display=swap');
+.background {
+  -fx-background-color:#D2BCB6; 
+  -fx-border-color: black;
+  -fx-border-radius: 16px;
+  -fx-background-radius: 16px;
+}
+.image_container {
+  -fx-background-color:white; 
+  -fx-border-color: black;
+  -fx-border-radius: 16px;
+  -fx-background-radius: 16px;
+}
+.lblNombre {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 14px;
+  -fx-font-weight: bold;
+}
+#lblInfo, .datos {
+  -fx-font-family: "Oswald", sans-serif;
+  -fx-font-size: 15px;
+}
+.btn {
+  -fx-background-color:transparent; 
+}
