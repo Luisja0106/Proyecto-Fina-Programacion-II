@@ -11,7 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.Productos;
-import java.io.File;
+import java.io.InputStream;
+
 import controller.CarritoLista;
 import utils.InputDialog;
 import utils.Paths;
@@ -45,95 +46,93 @@ public class ProductoCarritoController {
   @FXML
   private Label lblinfo;
 
-
   private Productos productoActual;
 
   public void setProductos(Productos p) {
-      this.productoActual = p;
+    this.productoActual = p;
 
-      lblName.setText(p.getNombre());
-      String info = p.getNomVendedor() + " - " + p.getCategoria();
-      lblinfo.setText(info);
+    lblName.setText(p.getNombre());
+    String info = p.getNomVendedor() + " - " + p.getCategoria();
+    lblinfo.setText(info);
 
-      lblPrecio.setText("$" + p.getPrecio());
-      lblcant.setText(String.valueOf(p.getStock()));
+    lblPrecio.setText("$" + p.getPrecio());
+    lblcant.setText(String.valueOf(p.getStock()));
 
-      File file = new File(p.getImagen());
-      if (file.exists()) {
-          Image img = new Image(file.toURI().toString());
-          imgProducto.setImage(img);
-      }
+    InputStream file = getClass().getResourceAsStream("/" + p.getImagen());
+    if (file != null) {
+      Image img = new Image(file);
+      imgProducto.setImage(img);
+    }
 
-      WishLista wishManager = new WishLista();
-      boolean estaEnWishlist = wishManager.existeEnWishList(p.getId());
-      actualizarIconoFavorito(estaEnWishlist);
+    WishLista wishManager = new WishLista();
+    boolean estaEnWishlist = wishManager.existeEnWishList(p.getId());
+    actualizarIconoFavorito(estaEnWishlist);
   }
-
 
   @FXML
   void añadir(ActionEvent event) {
-      CarritoLista sumar = new CarritoLista();
-      sumar.agregarAlCarrito(this.productoActual);
+    CarritoLista sumar = new CarritoLista();
+    sumar.agregarAlCarrito(this.productoActual);
 
-      App.app.setScene(Paths.GESTIONAR_CARRITO_VIEW);
+    App.app.setScene(Paths.GESTIONAR_CARRITO_VIEW);
   }
-
 
   @FXML
   void reducir(ActionEvent event) {
-      CarritoLista restar = new CarritoLista();
-      restar.reducirCantidad(this.productoActual.getId());
+    CarritoLista restar = new CarritoLista();
+    restar.reducirCantidad(this.productoActual.getId());
 
-      App.app.setScene(Paths.GESTIONAR_CARRITO_VIEW);
+    App.app.setScene(Paths.GESTIONAR_CARRITO_VIEW);
   }
 
   @FXML
   void eliminar(ActionEvent event) {
-      if (this.productoActual == null) return;
+    if (this.productoActual == null)
+      return;
 
-      CarritoLista carritoManager = new CarritoLista();
-      boolean eliminado = carritoManager.eliminarDelCarrito(this.productoActual.getId());
+    CarritoLista carritoManager = new CarritoLista();
+    boolean eliminado = carritoManager.eliminarDelCarrito(this.productoActual.getId());
 
-      if (eliminado) {
-          App.app.setScene(Paths.GESTIONAR_CARRITO_VIEW);
-      } else {
-          InputDialog.error("Error", "No se pudo eliminar el producto.");
-      }
+    if (eliminado) {
+      App.app.setScene(Paths.GESTIONAR_CARRITO_VIEW);
+    } else {
+      InputDialog.error("Error", "No se pudo eliminar el producto.");
+    }
   }
 
-    @FXML
-    void favorito(ActionEvent event) {
-        if (this.productoActual == null) return;
+  @FXML
+  void favorito(ActionEvent event) {
+    if (this.productoActual == null)
+      return;
 
-        WishLista wishManager = new WishLista();
+    WishLista wishManager = new WishLista();
 
+    boolean existe = wishManager.existeEnWishList(this.productoActual.getId());
 
-        boolean existe = wishManager.existeEnWishList(this.productoActual.getId());
+    if (existe) {
 
-        if (existe) {
+      wishManager.eliminarDeWishList(this.productoActual.getId());
+      actualizarIconoFavorito(false);
 
-            wishManager.eliminarDeWishList(this.productoActual.getId());
-            actualizarIconoFavorito(false);
+    } else {
 
-        } else {
-
-            wishManager.agregarAWishList(this.productoActual);
-            actualizarIconoFavorito(true);
-            InputDialog.information("Wishlist", "Producto guardado en tu lista de deseos.");
-        }
+      wishManager.agregarAWishList(this.productoActual);
+      actualizarIconoFavorito(true);
+      InputDialog.information("Wishlist", "Producto guardado en tu lista de deseos.");
     }
+  }
 
-    private void actualizarIconoFavorito(boolean activo) {
-        if (btnFav.getGraphic() instanceof FontAwesomeIconView) {
-            FontAwesomeIconView icon = (FontAwesomeIconView) btnFav.getGraphic();
+  private void actualizarIconoFavorito(boolean activo) {
+    if (btnFav.getGraphic() instanceof FontAwesomeIconView) {
+      FontAwesomeIconView icon = (FontAwesomeIconView) btnFav.getGraphic();
 
-            if (activo) {
-                icon.setGlyphName(FontAwesomeIcon.HEART.name());
-                icon.setStyle("-fx-fill:#c00b0b;"); // Rojo
-            } else {
-                icon.setGlyphName(FontAwesomeIcon.HEART.name());
-                icon.setStyle("-fx-fill:black;");
-            }
-        }
+      if (activo) {
+        icon.setGlyphName(FontAwesomeIcon.HEART.name());
+        icon.setStyle("-fx-fill:#c00b0b;"); // Rojo
+      } else {
+        icon.setGlyphName(FontAwesomeIcon.HEART.name());
+        icon.setStyle("-fx-fill:black;");
+      }
     }
+  }
 }

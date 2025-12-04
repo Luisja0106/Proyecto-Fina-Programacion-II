@@ -14,6 +14,7 @@ import utils.InputDialog;
 import utils.Paths;
 
 import java.io.File;
+import java.io.InputStream;
 
 public class ProductoWishController {
 
@@ -40,7 +41,7 @@ public class ProductoWishController {
 
   private Productos productoActual;
 
-    @FXML
+  @FXML
   void addProdu(ActionEvent event) {
     int cant = Integer.parseInt(lblCant.getText());
     cant++;
@@ -49,47 +50,47 @@ public class ProductoWishController {
 
   @FXML
   void aggCarrito(ActionEvent event) {
-      if (this.productoActual == null) return;
+    if (this.productoActual == null)
+      return;
 
-      CarritoLista carrito = new CarritoLista();
-      carrito.agregarAlCarrito(this.productoActual);
+    CarritoLista carrito = new CarritoLista();
+    carrito.agregarAlCarrito(this.productoActual);
 
-      InputDialog.information("Carrito", "Producto movido al carrito.");
+    InputDialog.information("Carrito", "Producto movido al carrito.");
   }
 
   @FXML
   void QutProduct(ActionEvent event) {
-      int cant = Integer.parseInt(lblCant.getText());
-      cant--;
+    int cant = Integer.parseInt(lblCant.getText());
+    cant--;
 
-      if (cant <= 0) {
-          eliminarDeWishList();
-      }
-      lblCant.setText(String.valueOf(cant));
+    if (cant <= 0) {
+      eliminarDeWishList();
+    }
+    lblCant.setText(String.valueOf(cant));
   }
 
-    public void setDatosProducto(Productos p) {
-        this.productoActual = p;
-        lblName.setText(p.getNombre());
-        lblInfo.setText(p.getNomVendedor() + " - " + p.getCategoria());
-        lblPrice.setText("$" + p.getPrecio());
+  public void setDatosProducto(Productos p) {
+    this.productoActual = p;
+    lblName.setText(p.getNombre());
+    lblInfo.setText(p.getNomVendedor() + " - " + p.getCategoria());
+    lblPrice.setText("$" + p.getPrecio());
 
+    lblCant.setText("1");
 
-        lblCant.setText("1");
-
-        File file = new File(p.getImagen());
-        if (file.exists()) {
-            Image img = new Image(file.toURI().toString());
-            imgProdu.setImage(img);
-        }
+    InputStream file = getClass().getResourceAsStream("/" + p.getImagen());
+    if (file != null) {
+      Image img = new Image(file);
+      imgProdu.setImage(img);
     }
+  }
 
-    private void eliminarDeWishList() {
-        WishLista wl = new WishLista();
-        wl.eliminarDeWishList(this.productoActual.getId());
+  private void eliminarDeWishList() {
+    WishLista wl = new WishLista();
+    wl.eliminarDeWishList(this.productoActual.getId());
 
-        // Recargamos la vista de perfil para que desaparezca la tarjeta
-        App.app.setScene(Paths.GESTIONAR_PERFIL_VIEW);
-    }
+    // Recargamos la vista de perfil para que desaparezca la tarjeta
+    App.app.setScene(Paths.GESTIONAR_PERFIL_VIEW);
+  }
 
 }

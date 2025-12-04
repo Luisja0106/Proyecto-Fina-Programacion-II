@@ -138,10 +138,6 @@ public class CatalogoController {
     } while (actual != catalogoDefault.cabecera);
   }
 
-  public void cargarProducto() {
-    // TODO: Configrmar como se van a agregar los productos
-  }
-
   public void actualizarCatalogo() {
     rbTodos.setVisible(true);
     tlObjetos.getChildren().clear(); // Se limpia el grid
