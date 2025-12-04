@@ -1,11 +1,19 @@
 package controller.viewControllers;
 
+import application.App;
+import controller.CarritoLista;
+import controller.WishLista;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import model.Productos;
+import utils.InputDialog;
+import utils.Paths;
+
+import java.io.File;
 
 public class ProductoWishController {
 
@@ -30,7 +38,9 @@ public class ProductoWishController {
   @FXML
   private Label lblPrice;
 
-  @FXML
+  private Productos productoActual;
+
+    @FXML
   void addProdu(ActionEvent event) {
     int cant = Integer.parseInt(lblCant.getText());
     cant++;
@@ -39,25 +49,47 @@ public class ProductoWishController {
 
   @FXML
   void aggCarrito(ActionEvent event) {
-    // TODO: logica Agregar productos al carrito
+      if (this.productoActual == null) return;
+
+      CarritoLista carrito = new CarritoLista();
+      carrito.agregarAlCarrito(this.productoActual);
+
+      InputDialog.information("Carrito", "Producto movido al carrito.");
   }
 
   @FXML
   void QutProduct(ActionEvent event) {
-    // NOTE: Añadir logica de eliminar producto teniendo en cuenta que no puede ser
-    // menor que 0
-    int cant = Integer.parseInt(lblCant.getText());
-    cant--;
-    cant = (cant <= 0) ? 0 : cant;
-    lblCant.setText(String.valueOf(cant));
+      int cant = Integer.parseInt(lblCant.getText());
+      cant--;
+
+      if (cant <= 0) {
+          eliminarDeWishList();
+      }
+      lblCant.setText(String.valueOf(cant));
   }
 
-  public void setProducto(String name, String info, float price, int cant, String ruta) {
-    lblName.setText(name);
-    lblInfo.setText(info);
-    lblPrice.setText("$" + price);
-    lblCant.setText(String.valueOf(cant));
-    Image img = new Image(getClass().getResource(ruta).toExternalForm());
-    imgProdu.setImage(img);
-  }
+    public void setDatosProducto(Productos p) {
+        this.productoActual = p;
+        lblName.setText(p.getNombre());
+        lblInfo.setText(p.getNomVendedor() + " - " + p.getCategoria());
+        lblPrice.setText("$" + p.getPrecio());
+
+
+        lblCant.setText("1");
+
+        File file = new File(p.getImagen());
+        if (file.exists()) {
+            Image img = new Image(file.toURI().toString());
+            imgProdu.setImage(img);
+        }
+    }
+
+    private void eliminarDeWishList() {
+        WishLista wl = new WishLista();
+        wl.eliminarDeWishList(this.productoActual.getId());
+
+        // Recargamos la vista de perfil para que desaparezca la tarjeta
+        App.app.setScene(Paths.GESTIONAR_PERFIL_VIEW);
+    }
+
 }
