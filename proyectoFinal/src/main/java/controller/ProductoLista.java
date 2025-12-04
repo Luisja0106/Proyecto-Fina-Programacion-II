@@ -10,7 +10,8 @@ import model.Productos;
 
 public class ProductoLista extends Listas<Productos> {
 
-  private final String ARCHIVO_DB = "productos_db.txt";
+  private final String FOLDER_DB = "DataBase" + File.separator + "Productos";
+  private final String ARCHIVO_DB = FOLDER_DB + File.separator + "productos_db.txt";
   private static ProductoLista instancia;
 
   public ProductoLista() {
@@ -106,11 +107,11 @@ public class ProductoLista extends Listas<Productos> {
 
   private File createFile() {
     try {
-      Path ruta = Paths.get("DataBase", "Productos");
+      Path ruta = Paths.get(FOLDER_DB);
       if (!Files.exists(ruta)) {
         Files.createDirectory(ruta);
       }
-      Path file = ruta.resolve(ARCHIVO_DB);
+      Path file = Paths.get(ARCHIVO_DB);
       if (!Files.exists(file)) {
         Files.createFile(file);
       }
