@@ -11,7 +11,7 @@
   -fx-border-radius: 16px;
   -fx-background-radius: 16px;
 }
-#lblNombre {
+.lblNombre {
   -fx-font-family: "Oswald", sans-serif;
   -fx-font-size: 30px;
   -fx-font-weight: bold;
