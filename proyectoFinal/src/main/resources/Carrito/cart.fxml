@@ -15,8 +15,7 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.CarritoController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.viewControllers.CarritoController">
    <children>
       <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1254.0" prefWidth="1900.0">
          <children>
@@ -74,30 +73,30 @@
                            <children>
                               <HBox>
                                  <children>
-                                    <Label styleClass="info_ventas" text="Productos" />
-                                    <Region prefHeight="111.0" prefWidth="330.0" />
-                                    <Label fx:id="lblSubtotal" styleClass="precios" text="\$$$" />
+                                    <Label prefHeight="111.0" prefWidth="298.0" styleClass="info_ventas" text="Productos" />
+                                    <Region prefHeight="111.0" prefWidth="250.0" />
+                                    <Label fx:id="lblSubtotal" prefHeight="111.0" prefWidth="270.0" styleClass="precios" text="\$$$" />
                                  </children>
                               </HBox>
                               <HBox layoutX="11.0" layoutY="11.0">
                                  <children>
-                                    <Label styleClass="info_ventas" text="Envio" />
-                                    <Region prefHeight="111.0" prefWidth="444.0" />
-                                    <Label fx:id="lblEnvio" styleClass="precios" text="\$$$" />
+                                    <Label prefHeight="111.0" prefWidth="220.0" styleClass="info_ventas" text="Envio" />
+                                    <Region prefHeight="111.0" prefWidth="356.0" />
+                                    <Label fx:id="lblEnvio" prefHeight="111.0" prefWidth="292.0" styleClass="precios" text="\$$$" />
                                  </children>
                               </HBox>
                               <HBox layoutX="11.0" layoutY="27.0" prefHeight="81.0" prefWidth="808.0">
                                  <children>
-                                    <Label styleClass="info_ventas" text="Descuento" />
-                                    <Region prefHeight="111.0" prefWidth="316.0" />
-                                    <Label fx:id="lblDescuento" styleClass="precios" text="\$$$" />
+                                    <Label prefHeight="111.0" prefWidth="304.0" styleClass="info_ventas" text="Descuento" />
+                                    <Region prefHeight="111.0" prefWidth="222.0" />
+                                    <Label fx:id="lblDescuento" prefHeight="111.0" prefWidth="294.0" styleClass="precios" text="\$$$" />
                                  </children>
                               </HBox>
                               <HBox layoutX="11.0" layoutY="273.0" prefHeight="91.0" prefWidth="808.0">
                                  <children>
                                     <Label styleClass="info_ventas_Pagar" text="Total" underline="true" />
-                                    <Region prefHeight="111.0" prefWidth="450.0" />
-                                    <Label fx:id="lblTotal" styleClass="precios" text="\$$$" />
+                                    <Region prefHeight="111.0" prefWidth="366.0" />
+                                    <Label fx:id="lblTotal" prefHeight="111.0" prefWidth="276.0" styleClass="precios" text="\$$$" />
                                  </children>
                               </HBox>
                               <StackPane prefHeight="150.0" prefWidth="200.0">

@@ -5,6 +5,7 @@ import model.Nodo;
 import model.Usuarios;
 import utils.InputDialog;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,6 +16,7 @@ import com.google.gson.GsonBuilder;
 
 public class ListaUsers {
   private Listas<Usuarios> users = new Listas<>();
+  private final String Folder = "DataBase" + File.separator + "Usuarios";
 
   public ListaUsers() {
   }
@@ -59,7 +61,7 @@ public class ListaUsers {
         return false;
       }
       // se crea la carpeta
-      Path directorio = Paths.get("../DataBase/Users");
+      Path directorio = Paths.get(Folder);
       if (!Files.exists(directorio)) {
         Files.createDirectory(directorio);
       }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -53,10 +54,13 @@
                         </TextField>
                         <StackPane alignment="CENTER_RIGHT" prefHeight="103.0" prefWidth="101.0">
                            <children>
-                              <Button fx:id="btnBuscar" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#buscar" prefHeight="58.0" prefWidth="77.0" styleClass="btnBar" text="">
+                              <Button fx:id="btnBuscar" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#buscar" prefHeight="58.0" prefWidth="77.0" styleClass="btnBar">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
-                                 </cursor></Button>
+                                 </cursor>
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="SEARCH" />
+                                       </graphic></Button>
                               <Button fx:id="btnCancelarBusqueda" alignment="TOP_LEFT" layoutX="945.0" layoutY="43.0" mnemonicParsing="false" onAction="#cancelarBusqueda" prefHeight="38.0" prefWidth="62.0" styleClass="btnBar" text="X" visible="false">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -73,20 +77,29 @@
                   </Region>
                   <HBox alignment="CENTER" prefHeight="103.0" prefWidth="223.0">
                      <children>
-                        <Button fx:id="btnUser" mnemonicParsing="false" onAction="#user" prefHeight="103.0" prefWidth="91.0" styleClass="btnBar" text="" HBox.hgrow="ALWAYS">
+                        <Button fx:id="btnUser" mnemonicParsing="false" onAction="#user" prefHeight="103.0" prefWidth="91.0" styleClass="btnBar" HBox.hgrow="ALWAYS">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="USER" />
+                                 </graphic>
                         </Button>
-                        <Button fx:id="btnCart" mnemonicParsing="false" onAction="#cart" prefHeight="103.0" prefWidth="14.0" styleClass="btnBar" text="">
+                        <Button fx:id="btnCart" mnemonicParsing="false" onAction="#cart" prefHeight="103.0" prefWidth="14.0" styleClass="btnBar">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="SHOPPING_CART" />
+                                 </graphic>
                         </Button>
-                        <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exit" prefHeight="103.0" prefWidth="76.0" styleClass="btnBar" text="">
+                        <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exit" prefHeight="103.0" prefWidth="76.0" styleClass="btnBar">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="SIGN_OUT" />
+                                 </graphic>
                         </Button>
                      </children>
                   </HBox>

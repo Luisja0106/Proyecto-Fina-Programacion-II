@@ -25,7 +25,7 @@ public class AdminProductos {
     if (!isAdmin()) { // verificaciones de que sea admin
       return false;
     }
-    ProductoLista todos = new ProductoLista(true);
+    ProductoLista todos = new ProductoLista();
     Nodo<Productos> aux = todos.cabecera;
     Listas<Productos> productos = new Listas<>();
     do {
@@ -45,9 +45,9 @@ public class AdminProductos {
   // metodo para añadir un producto a la lista personal del admin
   public boolean addLista(String nombre, float precio, String imagen, String categoria, int stock) {
     String id = createId(categoria);
-    if (!comprobaciones(id, nombre)) {
-      return false;
-    }
+    // if (!comprobaciones(id, nombre)) {
+    // return false;
+    // }
     Productos nuevo = new Productos(id, nombre, user.getNombre(), precio, imagen, stock, categoria);
     user.getProductos().addF(nuevo);
     ProductoLista.getInstancia().addF(nuevo);
@@ -66,7 +66,7 @@ public class AdminProductos {
   }
 
   private String createId(String categoria) {
-    ProductoLista todos = new ProductoLista(true);
+    ProductoLista todos = new ProductoLista();
     Nodo<Productos> aux = todos.cabecera;
     int x = 0;
     do {
@@ -82,26 +82,27 @@ public class AdminProductos {
     return String.valueOf(x);
   }
 
-  private boolean comprobaciones(String id, String nombre) {
-    ProductoLista todos = new ProductoLista(true);
-    Nodo<Productos> aux = todos.cabecera;
-    do {
-      if (aux.info.getId().equals(id)) {
-        InputDialog.warning("Error ya se ha registrado ese id", "Error, ese ID ya ha sido registrado");
-        return false;
-      }
-      if (aux.info.getNombre().equals(nombre)) {
-        InputDialog.warning("Error ya se ha registrado un producto con ese nombre",
-            "Error, ese Nombre ya ha sido registrado");
-        return false;
-      }
-      aux = aux.sig;
-    } while (aux != todos.cabecera);
-    return true;
-  }
+  // private boolean comprobaciones(String id, String nombre) {
+  // ProductoLista todos = new ProductoLista();
+  // Nodo<Productos> aux = todos.cabecera;
+  // do {
+  // if (aux.info.getId().equals(id)) {
+  // InputDialog.warning("Error ya se ha registrado ese id", "Error, ese ID ya ha
+  // sido registrado");
+  // return false;
+  // }
+  // if (aux.info.getNombre().equals(nombre)) {
+  // InputDialog.warning("Error ya se ha registrado un producto con ese nombre",
+  // "Error, ese Nombre ya ha sido registrado");
+  // return false;
+  // }
+  // aux = aux.sig;
+  // } while (aux != todos.cabecera);
+  // return true;
+  // }
 
   private Nodo<Productos> buscarId(String id) {
-    ProductoLista todos = new ProductoLista(true);
+    ProductoLista todos = new ProductoLista();
     Nodo<Productos> aux = todos.cabecera;
     do {
       if (aux.info.getId().equals(id)) {

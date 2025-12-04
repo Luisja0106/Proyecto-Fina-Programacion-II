@@ -49,7 +49,9 @@ public class AdminController {
 
   @FXML
   void AggProdu(ActionEvent event) {
-    if (verificaciones()) {
+    try {
+      if (!verificaciones())
+        return;
       String nombre = lblNom.getText();
       float precio = Float.parseFloat(lblPrecio.getText());
       String imagen = imagenR;
@@ -64,6 +66,9 @@ public class AdminController {
         addGrid(aux.info);
         aux = aux.sig;
       } while (aux != user.getProductos().cabecera);
+
+    } catch (NumberFormatException e) {
+      InputDialog.warning("Datos invalidos", "Favor ingrese unos datos validos");
     }
   }
 
@@ -110,7 +115,7 @@ public class AdminController {
 
   private void setGrid(Admin user) {
     if (!admin.setLista()) {
-      InputDialog.error("error", "return");
+      productos.getChildren().clear();
       return;
     }
     Nodo<Productos> aux = user.getProductos().cabecera;

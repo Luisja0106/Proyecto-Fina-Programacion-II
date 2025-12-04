@@ -56,3 +56,5 @@
 611;Tame Impala - Currents;Interscope;35.0;Images/Vinyl/TameImpala_Currents.png;15;Vinilos
 612;Zelda - Hero of Time;Iam8bit;45.0;Images/Vinyl/tLoZ_HeroOfTime.png;8;Vinilos
 613;Tyler Creator - Chromakopia;Columbia;32.0;Images/Vinyl/TTC_Chromakopia.png;10;Vinilos
+1;sdf;luffy;3.0;/home/luffy/Documents/Estudios/Universidad/Semestre_3/Programacion_II/Imagenes/logoTest(1).png;1;sdf
+1;prueba;luffy;4.0;/home/luffy/Documents/Estudios/Universidad/Semestre_3/Programacion_II/Imagenes/logoTest(3).png;3;hola

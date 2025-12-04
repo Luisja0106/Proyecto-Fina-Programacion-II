@@ -1,0 +1,8 @@
+{
+  "tarjeta": 0,
+  "direccion": "",
+  "nombre": "luis",
+  "isAdmin": false,
+  "correo": "luis@correo.com",
+  "password": "Ab12345678..."
+}
