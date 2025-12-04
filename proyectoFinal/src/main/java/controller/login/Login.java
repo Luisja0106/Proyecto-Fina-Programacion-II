@@ -72,7 +72,7 @@ public class Login implements LoginInterface {
     }
   }
 
-  private Usuarios buscarCorreo(String correo) {
+  public Usuarios buscarCorreo(String correo) {
     Nodo<Usuarios> aux = lista.getUsers().cabecera;
     do {
       if (aux.info.getCorreo().equals(correo)) {

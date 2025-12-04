@@ -1,5 +1,8 @@
 package controller.viewControllers;
 
+import java.io.InputStream;
+
+import controller.admin.AdminProductos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -49,8 +52,7 @@ public class AdminProductController {
 
   @FXML
   void actualizarStock(ActionEvent event) {
-    // TODO: logica actuaizar Stock
-
+    // admin.modStock(this.id, Integer.parseInt(lblCant.getText()));
   }
 
   public void setProducto(String name, String info, float price, int cant, String ruta) {
@@ -58,8 +60,11 @@ public class AdminProductController {
     lblInfo.setText(info);
     lblPrice.setText("$" + price);
     lblCant.setText(String.valueOf(cant));
-    Image img = new Image(getClass().getResource(ruta).toExternalForm());
-    imgProdu.setImage(img);
+    InputStream rutaD = getClass().getResourceAsStream("/" + ruta);
+    if (rutaD != null) {
+      Image img = new Image(rutaD);
+      imgProdu.setImage(img);
+    }
   }
 
 }

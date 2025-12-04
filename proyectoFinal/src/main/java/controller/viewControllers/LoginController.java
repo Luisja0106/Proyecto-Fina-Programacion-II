@@ -44,6 +44,7 @@ public class LoginController {
       return;
     }
     UserSession.getInstance().setCorreoUsuario(correo);
+    UserSession.getInstance().setUser(login.buscarCorreo(correo));
     App.app.setScene(Paths.GESTIONAR_CATALOGO_VIEW);
   }
 

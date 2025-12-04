@@ -96,6 +96,10 @@
                                                 <Insets bottom="10.0" />
                                              </VBox.margin>
                                           </VBox>
+                                          <Button fx:id="btnImg" mnemonicParsing="false" onAction="#addImg" prefHeight="19.0" prefWidth="189.0" text="Agregar imagen">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></Button>
                                           <Region prefHeight="280.0" prefWidth="187.0" />
                                        </children>
                                     </VBox>
@@ -120,20 +124,12 @@
                               <VBox alignment="CENTER">
                                  <children>
                                     <Label text="Stock" VBox.vgrow="ALWAYS" />
-                                    <HBox prefHeight="0.0" prefWidth="387.0" VBox.vgrow="ALWAYS">
+                                    <HBox prefHeight="57.0" prefWidth="387.0" VBox.vgrow="ALWAYS">
                                        <children>
                                           <Region prefHeight="66.0" prefWidth="138.0" HBox.hgrow="ALWAYS" />
-                                          <HBox alignment="CENTER" prefHeight="34.0" prefWidth="144.0" styleClass="stock" HBox.hgrow="ALWAYS">
+                                          <HBox alignment="CENTER" prefHeight="44.0" prefWidth="134.0" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Button mnemonicParsing="false" onAction="#reducirStock" prefHeight="29.0" prefWidth="84.0" styleClass="stock_minus" text="-" HBox.hgrow="ALWAYS">
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor></Button>
-                                                <Label fx:id="Stock" text="1" HBox.hgrow="ALWAYS" />
-                                                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#aumentarStock" prefHeight="31.0" prefWidth="84.0" styleClass="stock_plus" text="+" HBox.hgrow="ALWAYS">
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor></Button>
+                                                <TextField fx:id="lblstock" />
                                              </children>
                                           </HBox>
                                           <Region prefHeight="66.0" prefWidth="134.0" HBox.hgrow="ALWAYS" />
