@@ -3,6 +3,7 @@ package controller.viewControllers;
 import java.io.IOException;
 
 import application.App;
+import controller.admin.AdminProductos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,13 +11,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.Admin;
+import model.Nodo;
+import model.Productos;
 import utils.InputDialog;
 import utils.Paths;
 
 public class AdminController {
 
   @FXML
-  private Label Stock;
+  private TextField lblStock;
 
   @FXML
   private TextField lblCategoria;
@@ -33,16 +37,17 @@ public class AdminController {
   @FXML
   private VBox productos;
 
+  AdminProductos admin = new AdminProductos();
+
   @FXML
   void AggProdu(ActionEvent event) {
+    String nombre = lblNom.getText();
+    float precio = Float.parseFloat(lblPrecio.getText());
+    String imagen = "/Imagenes/KZ-castor-bass.jpg";
+    String cate = lblCategoria.getText();
+    int stock = Integer.parseInt(lblStock.getText());
+    admin.addLista(nombre, precio, imagen, cate, stock);
 
-  }
-
-  @FXML
-  void aumentarStock(ActionEvent event) {
-    int cant = Integer.parseInt(Stock.getText());
-    cant++;
-    Stock.setText(String.valueOf(cant));
   }
 
   @FXML
@@ -65,24 +70,12 @@ public class AdminController {
     App.app.setScene(Paths.GESTIONAR_PERFIL_VIEW);
   }
 
-  @FXML
-  void reducirStock(ActionEvent event) {
-    // NOTE: Añadir logica de eliminar producto teniendo en cuenta que no puede ser
-    // menor que 0
-    int cant = Integer.parseInt(Stock.getText());
-    cant--;
-    cant = (cant <= 0) ? 0 : cant;
-    Stock.setText(String.valueOf(cant));
-  }
-
-  private void addGrid() {
+  private void addGrid(Productos produ) {
     try {
       FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_STOCKADMIN_VIEW));
       HBox tarjeta = loader.load();
       AdminProductController controller = loader.getController();
-      controller.setProducto("Kz Castor Bass",
-          "Los kz son unos in-ear especializados en el audion profundo con bajos definidos", 50000, 1,
-          "/Imagenes/KZ-castor-bass.jpg");
+      controller.setProducto(produ.getNombre(), "", produ.getPrecio(), produ.getStock(), produ.getImagen());
       productos.getChildren().add(tarjeta);
     } catch (IOException e) {
       e.printStackTrace();
@@ -90,9 +83,14 @@ public class AdminController {
     }
   }
 
+  private void setGrid(Admin user) {
+    Nodo<Productos> aux = user.getProductos().cabecera;
+    do {
+      addGrid(aux.info);
+      aux = aux.sig;
+    } while (aux != user.getProductos().cabecera);
+  }
+
   public void initialize() {
-    for (int i = 0; i < 20; i++) {
-      addGrid();
-    }
   }
 }
