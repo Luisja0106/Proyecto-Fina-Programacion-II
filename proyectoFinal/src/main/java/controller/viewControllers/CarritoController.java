@@ -125,8 +125,7 @@ public class CarritoController {
        * creo
        * que la categoria tambien quedaria bien
        */
-      controller.setProductos(produ.getNombre(), produ.getCategoria(),
-          produ.getPrecio(), 1, produ.getImagen());
+      controller.setProductos(produ);
       TlProdu.getChildren().add(tarjeta);
     } catch (IOException e) {
       e.printStackTrace();
