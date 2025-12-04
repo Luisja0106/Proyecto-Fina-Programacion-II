@@ -70,13 +70,13 @@ public class ProductoLista extends Listas<Productos> {
 
     return listaTemp;
   }
-
-  public Nodo<Productos> buscarPorId(String id) {
+  
+  public Nodo<Productos> buscarPorNombre(String nom) {
     if (getEsVacia())
       return null;
     Nodo<Productos> actual = cabecera;
     do {
-      if (actual.info.getId().equals(id))
+      if (actual.info.getNombre().equals(nom))
         return actual;
       actual = actual.sig;
     } while (actual != cabecera);
