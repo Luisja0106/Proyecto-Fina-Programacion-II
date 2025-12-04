@@ -1,4 +1,5 @@
 package controller.viewControllers;
+
 import controller.ProductoLista;
 import controller.CarritoLista;
 import model.Nodo;
@@ -15,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import utils.InputDialog;
 import java.io.File;
+import java.io.InputStream;
 
 public class ProductController {
 
@@ -46,25 +48,25 @@ public class ProductController {
   @FXML
   public void addCarrito(ActionEvent event) {
 
-      String nombreBusqueda = txtNom.getText();
+    String nombreBusqueda = txtNom.getText();
 
-      if (nombreBusqueda == null || nombreBusqueda.isEmpty()) {
-          InputDialog.error("Error", "No se puede identificar el nombre del producto.");
-          return;
-      }
-      ProductoLista catalogo = new ProductoLista();
+    if (nombreBusqueda == null || nombreBusqueda.isEmpty()) {
+      InputDialog.error("Error", "No se puede identificar el nombre del producto.");
+      return;
+    }
+    ProductoLista catalogo = new ProductoLista();
 
-      Nodo<Productos> nodoEncontrado = catalogo.buscarPorNombre(nombreBusqueda);
-      if (nodoEncontrado != null) {
-          Productos productoCompleto = nodoEncontrado.info;
+    Nodo<Productos> nodoEncontrado = catalogo.buscarPorNombre(nombreBusqueda);
+    if (nodoEncontrado != null) {
+      Productos productoCompleto = nodoEncontrado.info;
 
-          CarritoLista gestorCarrito = new CarritoLista();
-          gestorCarrito.agregarAlCarrito(productoCompleto);
+      CarritoLista gestorCarrito = new CarritoLista();
+      gestorCarrito.agregarAlCarrito(productoCompleto);
 
-          InputDialog.information("Añadido", "Se agregó '" + nombreBusqueda + "' al carrito.");
-      } else {
-          InputDialog.error("Error", "No se encontró el producto en la base de datos.");
-      }
+      InputDialog.information("Añadido", "Se agregó '" + nombreBusqueda + "' al carrito.");
+    } else {
+      InputDialog.error("Error", "No se encontró el producto en la base de datos.");
+    }
   }
 
   @FXML
@@ -84,10 +86,10 @@ public class ProductController {
     txtNom.setText(nom);
     txtPrecio.setText("$" + precio);
 
-    File file = new File(ruta);
-    if (file.exists()) {
-        Image img = new Image(file.toURI().toString());
-        imgProducto.setImage(img);
+    InputStream file = getClass().getResourceAsStream("/" + ruta);
+    if (file != null) {
+      Image img = new Image(file);
+      imgProducto.setImage(img);
     }
   }
 }

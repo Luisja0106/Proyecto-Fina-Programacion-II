@@ -70,7 +70,7 @@ public class ProductoLista extends Listas<Productos> {
 
     return listaTemp;
   }
-  
+
   public Nodo<Productos> buscarPorNombre(String nom) {
     if (getEsVacia())
       return null;
@@ -133,7 +133,6 @@ public class ProductoLista extends Listas<Productos> {
   public void setCargarProductosTxt() {
     File archivo = createFile();
     if (!archivo.exists()) {
-      InputDialog.error("file no encontrado", "file no encontrado");
       return;
     }
     setVaciar();
