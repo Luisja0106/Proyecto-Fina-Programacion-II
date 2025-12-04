@@ -115,7 +115,7 @@ public class AdminController {
 
   private void setGrid(Admin user) {
     if (!admin.setLista()) {
-      InputDialog.error("error", "return");
+      productos.getChildren().clear();
       return;
     }
     Nodo<Productos> aux = user.getProductos().cabecera;
