@@ -1,8 +1,12 @@
 package controller.viewControllers;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 import application.App;
+import controller.HistorialLista;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
+import model.Compra;
 import model.Productos;
 import utils.InputDialog;
 import utils.Paths;
@@ -40,9 +45,58 @@ public class CarritoController {
     App.app.setScene(Paths.GESTIONAR_CATALOGO_VIEW);
   }
 
-  // TODO: Metodo de pago
+
   @FXML
   void pagar(ActionEvent event) {
+      CarritoLista carrito = new CarritoLista();
+      if (carrito.getEsVacia()) {
+          InputDialog.error("Carrito Vacío", "No puedes pagar un carrito vacío.");
+          return;
+      }
+
+
+      StringBuilder detallesBuilder = new StringBuilder();
+      double subtotal = 0;
+      int cantidadTotalProductos = 0;
+
+      Nodo<Productos> actual = carrito.cabecera;
+      do {
+          Productos p = actual.info;
+          int cant = p.getStock(); // Recordamos que usamos stock como cantidad
+          double precioLinea = p.getPrecio() * cant;
+
+          subtotal += precioLinea;
+          cantidadTotalProductos += cant;
+
+          // Construimos el string: "Nombre x Cantidad"
+          detallesBuilder.append(p.getNombre()).append(" x ").append(cant).append("\n");
+
+          actual = actual.sig;
+      } while (actual != carrito.cabecera);
+
+
+      double envio = (cantidadTotalProductos > 0) ? 15.0 : 0;
+      double descuento = (cantidadTotalProductos > 3) ? subtotal * 0.10 : 0;
+      double total = subtotal + envio - descuento;
+
+      // se genera ID único y Fecha
+      String idCompra = "#" + UUID.randomUUID().toString().substring(0, 8); // Ej: #a1b2c3d4
+      String fecha = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+
+      Compra nuevaCompra = new Compra(idCompra, fecha, subtotal, envio, descuento, total, detallesBuilder.toString());
+
+      // se guarda en historial
+      HistorialLista historial = new HistorialLista();
+      historial.agregarCompra(nuevaCompra);
+
+      // se vacia el carrito
+      carrito.vaciarCarritoTotalmente();
+      actualizarResumen(0, 0); // Limpia los labels visuales
+      TlProdu.getChildren().clear(); // Limpia la vista de tarjetas
+
+      InputDialog.information("Compra Exitosa", "Se ha generado el recibo " + idCompra);
+
 
   }
 
