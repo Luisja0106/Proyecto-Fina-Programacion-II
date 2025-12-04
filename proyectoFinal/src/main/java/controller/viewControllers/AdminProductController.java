@@ -2,6 +2,7 @@ package controller.viewControllers;
 
 import java.io.InputStream;
 
+import controller.admin.AdminProductos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -51,8 +52,7 @@ public class AdminProductController {
 
   @FXML
   void actualizarStock(ActionEvent event) {
-    // TODO: logica actuaizar Stock
-
+    // admin.modStock(this.id, Integer.parseInt(lblCant.getText()));
   }
 
   public void setProducto(String name, String info, float price, int cant, String ruta) {

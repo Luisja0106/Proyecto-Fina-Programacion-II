@@ -43,13 +43,14 @@ public class AdminProductos {
   }
 
   // metodo para añadir un producto a la lista personal del admin
-  public void addLista(String nombre, float precio, String imagen, String categoria, int stock) {
+  public boolean addLista(String nombre, float precio, String imagen, String categoria, int stock) {
     String id = createId(categoria);
     if (!comprobaciones(id, nombre)) {
-      return;
+      return false;
     }
     Productos nuevo = new Productos(id, nombre, user.getNombre(), precio, imagen, stock, categoria);
     user.getProductos().addF(nuevo);
+    return true;
   }
 
   // metodo para elminar un producto de la lista personal del admin
@@ -109,32 +110,14 @@ public class AdminProductos {
     return null;
   }
 
-  public boolean aumentarStock(String id) {
+  public boolean modStock(String id, int cantN) {
     Nodo<Productos> nodo = buscarId(id);
     Productos produ = nodo.info;
     if (produ == null) {
       InputDialog.error("Ha ocurrido un error", "Ha ocurrido un error al modificar el stock del producto");
       return false;
     }
-    int cant = produ.getStock();
-    produ.setStock(cant++);
-    return true;
-  }
-
-  public boolean reducirStock(String id) {
-    Nodo<Productos> nodo = buscarId(id);
-    Productos produ = nodo.info;
-    if (produ == null) {
-      InputDialog.error("Ha ocurrido un error", "Ha ocurrido un error al modificar el stock del producto");
-      return false;
-    }
-    int cant = produ.getStock();
-    if (cant <= 0) {
-      InputDialog.error("Error, no se puede disminuir mas el stock",
-          "Error, no existen mas productos a elminar");
-      return false;
-    }
-    produ.setStock(cant--);
+    produ.setStock(cantN);
     return true;
   }
 }

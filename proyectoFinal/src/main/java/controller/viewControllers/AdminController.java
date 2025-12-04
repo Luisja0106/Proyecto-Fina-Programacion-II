@@ -55,13 +55,16 @@ public class AdminController {
       String imagen = imagenR;
       String cate = lblCategoria.getText();
       int stock = Integer.parseInt(lblstock.getText());
-      admin.addLista(nombre, precio, imagen, cate, stock);
+      if (!admin.addLista(nombre, precio, imagen, cate, stock))
+        return;
+      productos.getChildren().clear();
+      Admin user = UserSession.getInstance().getUser();
+      Nodo<Productos> aux = user.getProductos().cabecera;
+      do {
+        addGrid(aux.info);
+        aux = aux.sig;
+      } while (aux != user.getProductos().cabecera);
     }
-    Nodo<Productos> aux = UserSession.getInstance().getUser().getProductos().cabecera;
-    do {
-      addGrid(aux.info);
-      aux = aux.sig;
-    } while (aux != UserSession.getInstance().getUser().getProductos().cabecera);
   }
 
   @FXML
