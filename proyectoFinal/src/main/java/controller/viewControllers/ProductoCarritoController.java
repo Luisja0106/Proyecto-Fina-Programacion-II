@@ -1,6 +1,9 @@
 package controller.viewControllers;
 
 import application.App;
+import controller.WishLista;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -60,6 +63,10 @@ public class ProductoCarritoController {
           Image img = new Image(file.toURI().toString());
           imgProducto.setImage(img);
       }
+
+      WishLista wishManager = new WishLista();
+      boolean estaEnWishlist = wishManager.existeEnWishList(p.getId());
+      actualizarIconoFavorito(estaEnWishlist);
   }
 
 
@@ -80,7 +87,6 @@ public class ProductoCarritoController {
       App.app.setScene(Paths.GESTIONAR_CARRITO_VIEW);
   }
 
-  // TODO: Metodo para eliminar un prodcuto del carrito
   @FXML
   void eliminar(ActionEvent event) {
       if (this.productoActual == null) return;
@@ -95,9 +101,39 @@ public class ProductoCarritoController {
       }
   }
 
-  // TODO: Metodo para añadir un producto a favoritos
-  @FXML
-  void favorito(ActionEvent event) {
+    @FXML
+    void favorito(ActionEvent event) {
+        if (this.productoActual == null) return;
 
-  }
+        WishLista wishManager = new WishLista();
+
+
+        boolean existe = wishManager.existeEnWishList(this.productoActual.getId());
+
+        if (existe) {
+
+            wishManager.eliminarDeWishList(this.productoActual.getId());
+            actualizarIconoFavorito(false);
+
+        } else {
+
+            wishManager.agregarAWishList(this.productoActual);
+            actualizarIconoFavorito(true);
+            InputDialog.information("Wishlist", "Producto guardado en tu lista de deseos.");
+        }
+    }
+
+    private void actualizarIconoFavorito(boolean activo) {
+        if (btnFav.getGraphic() instanceof FontAwesomeIconView) {
+            FontAwesomeIconView icon = (FontAwesomeIconView) btnFav.getGraphic();
+
+            if (activo) {
+                icon.setGlyphName(FontAwesomeIcon.HEART.name());
+                icon.setStyle("-fx-fill:#c00b0b;"); // Rojo
+            } else {
+                icon.setGlyphName(FontAwesomeIcon.HEART.name());
+                icon.setStyle("-fx-fill:black;");
+            }
+        }
+    }
 }
