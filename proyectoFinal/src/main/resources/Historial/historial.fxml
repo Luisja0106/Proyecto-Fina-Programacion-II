@@ -52,12 +52,22 @@
             </HBox>
          </top>
          <center>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
                   <Label styleClass="title" text="Historial de Compras:" VBox.vgrow="ALWAYS" />
-                  <ScrollPane hbarPolicy="NEVER" prefHeight="517.0" prefWidth="1260.0" styleClass="scroll_pane" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="516.0" prefWidth="3.0" styleClass="scroll_pane" vbarPolicy="NEVER">
                      <content>
-                        <VBox fx:id="prodcutos" alignment="TOP_CENTER" prefHeight="520.0" prefWidth="1265.0" spacing="30.0" />
+                        <HBox>
+                           <children>
+                              <Region prefHeight="520.0" prefWidth="485.0" />
+                              <VBox fx:id="prodcutos" alignment="TOP_CENTER" prefHeight="520.0" prefWidth="540.0" spacing="30.0">
+                                 <padding>
+                                    <Insets right="40.0" />
+                                 </padding>
+                              </VBox>
+                              <Region prefHeight="520.0" prefWidth="233.0" />
+                           </children>
+                        </HBox>
                      </content>
                   </ScrollPane>
                </children>

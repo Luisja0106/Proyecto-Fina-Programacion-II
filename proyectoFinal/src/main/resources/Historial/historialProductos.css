@@ -13,12 +13,12 @@
 }
 .lblNombre {
   -fx-font-family: "Oswald", sans-serif;
-  -fx-font-size: 14px;
+  -fx-font-size: 24px;
   -fx-font-weight: bold;
 }
 #lblInfo, .datos {
   -fx-font-family: "Oswald", sans-serif;
-  -fx-font-size: 15px;
+  -fx-font-size: 25px;
 }
 .btn {
   -fx-background-color:transparent; 
