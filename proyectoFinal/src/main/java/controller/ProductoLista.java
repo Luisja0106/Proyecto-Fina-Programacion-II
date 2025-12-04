@@ -7,15 +7,14 @@ import java.nio.file.Paths;
 
 import model.Nodo;
 import model.Productos;
-import utils.InputDialog;
 
 public class ProductoLista extends Listas<Productos> {
 
   private final String ARCHIVO_DB = "productos_db.txt";
+  private static ProductoLista instancia;
 
   public ProductoLista() {
     super(); // Inicializa la lista vacía
-
     // carga el txt al inicio de la clase
     setCargarProductosTxt();
   }
@@ -26,6 +25,13 @@ public class ProductoLista extends Listas<Productos> {
     if (cargarDatos)
       setCargarProductosTxt();
 
+  }
+
+  public static ProductoLista getInstancia() {
+    if (instancia == null) {
+      instancia = new ProductoLista();
+    }
+    return instancia;
   }
 
   /**
