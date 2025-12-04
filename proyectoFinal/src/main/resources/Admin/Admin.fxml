@@ -96,6 +96,10 @@
                                                 <Insets bottom="10.0" />
                                              </VBox.margin>
                                           </VBox>
+                                          <Button fx:id="btnImg" mnemonicParsing="false" onAction="#addImg" prefHeight="19.0" prefWidth="189.0" text="Agregar imagen">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></Button>
                                           <Region prefHeight="280.0" prefWidth="187.0" />
                                        </children>
                                     </VBox>

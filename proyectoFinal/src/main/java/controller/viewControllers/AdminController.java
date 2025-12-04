@@ -1,5 +1,6 @@
 package controller.viewControllers;
 
+import java.io.File;
 import java.io.IOException;
 
 import application.App;
@@ -7,9 +8,12 @@ import controller.admin.AdminProductos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import model.Admin;
 import model.Nodo;
 import model.Productos;
@@ -18,9 +22,11 @@ import utils.Paths;
 import utils.UserSession;
 
 public class AdminController {
+  @FXML
+  private Button btnImg;
 
   @FXML
-  private TextField lblStock;
+  private TextField lblstock;
 
   @FXML
   private TextField lblCategoria;
@@ -37,17 +43,29 @@ public class AdminController {
   @FXML
   private VBox productos;
 
+  private String imagenR;
+
   AdminProductos admin = new AdminProductos();
 
   @FXML
   void AggProdu(ActionEvent event) {
-    String nombre = lblNom.getText();
-    float precio = Float.parseFloat(lblPrecio.getText());
-    String imagen = "/Imagenes/KZ-castor-bass.jpg";
-    String cate = lblCategoria.getText();
-    int stock = Integer.parseInt(lblStock.getText());
-    admin.addLista(nombre, precio, imagen, cate, stock);
+    if (verificaciones()) {
+      String nombre = lblNom.getText();
+      float precio = Float.parseFloat(lblPrecio.getText());
+      String imagen = imagenR;
+      String cate = lblCategoria.getText();
+      int stock = Integer.parseInt(lblstock.getText());
+      admin.addLista(nombre, precio, imagen, cate, stock);
+    }
+    setGrid(UserSession.getInstance().getUser());
+  }
 
+  @FXML
+  void addImg(ActionEvent event) {
+    String ruta = selectImage(btnImg);
+    if (ruta != null) {
+      imagenR = ruta;
+    }
   }
 
   @FXML
@@ -97,5 +115,30 @@ public class AdminController {
 
   public void initialize() {
     setGrid(UserSession.getInstance().getUser());
+  }
+
+  private String selectImage(Button btn) {
+    FileChooser fileC = new FileChooser();
+    fileC.setTitle("Seleccionar una imagen"); // titulo del fileChooser
+
+    fileC.getExtensionFilters().addAll(
+        new FileChooser.ExtensionFilter("Imagenes", "*.jpg", "*.png"));
+    Stage stage = (Stage) btn.getScene().getWindow();
+    File archivo = fileC.showOpenDialog(stage);
+
+    if (archivo != null) {
+      String ruta = archivo.getAbsolutePath();
+      return ruta;
+    }
+    return null;
+  }
+
+  private boolean verificaciones() {
+    if (lblNom.getText().isEmpty() || lblSKU.getText().isEmpty() || lblstock.getText().isEmpty()
+        || lblPrecio.getText().isEmpty() || lblCategoria.getText().isEmpty() || imagenR.isEmpty()) {
+      InputDialog.warning("Favor llene todos los datos", "Favor llene todos los datos");
+      return false;
+    }
+    return true;
   }
 }

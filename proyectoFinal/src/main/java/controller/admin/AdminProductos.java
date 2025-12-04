@@ -23,7 +23,6 @@ public class AdminProductos {
   // metodo para cargar la lista personal del admin
   public boolean setLista() {
     if (!isAdmin()) { // verificaciones de que sea admin
-      InputDialog.error("no es admin", "No admin");
       return false;
     }
     ProductoLista todos = new ProductoLista(true);
@@ -37,7 +36,6 @@ public class AdminProductos {
       aux = aux.sig;
     } while (aux != todos.cabecera);
     if (productos.getEsVacia()) {
-      InputDialog.error("no productos", "No produ");
       return false;
     }
     user.setProductos(productos);
