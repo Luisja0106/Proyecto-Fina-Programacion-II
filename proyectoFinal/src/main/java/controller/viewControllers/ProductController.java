@@ -2,6 +2,7 @@ package controller.viewControllers;
 
 import controller.ProductoLista;
 import controller.CarritoLista;
+import controller.WishLista;
 import model.Nodo;
 import model.Productos;
 
@@ -71,16 +72,37 @@ public class ProductController {
 
   @FXML
   void addFavs(ActionEvent event) {
-    if (!isInFav) {
-      favIcon.setGlyphName(FontAwesomeIcon.HEART.name());
-      favIcon.setStyle("-fx-fill:#c00b0b;");
-      isInFav = true;
-    } else {
-      favIcon.setGlyphName(FontAwesomeIcon.HEART_ALT.name());
-      favIcon.setStyle("-fx-fill:#BFC0C2;");
-      isInFav = false;
-    }
+      Productos p = buscarProductoCompleto();
+      if (p == null) return;
+
+      WishLista wishLista = new WishLista();
+
+      if (!isInFav) {
+          // --- AGREGAR A WISHLIST ---
+          boolean agregado = wishLista.agregarAWishList(p);
+          if (agregado) {
+              cambiarIconoFavorito(true);
+              // InputDialog.information("Wishlist", "Producto añadido a tus deseos.");
+          }
+      } else {
+          // --- ELIMINAR DE WISHLIST ---
+          boolean eliminado = wishLista.eliminarDeWishList(p.getId());
+          if (eliminado) {
+              cambiarIconoFavorito(false);
+          }
+      }
   }
+
+    private void cambiarIconoFavorito(boolean activo) {
+        isInFav = activo;
+        if (activo) {
+            favIcon.setGlyphName(FontAwesomeIcon.HEART.name());
+            favIcon.setStyle("-fx-fill:#c00b0b;");
+        } else {
+            favIcon.setGlyphName(FontAwesomeIcon.HEART_ALT.name());
+            favIcon.setStyle("-fx-fill:#BFC0C2;");
+        }
+    }
 
   public void setProducto(String nom, float precio, String ruta) {
     txtNom.setText(nom);
@@ -91,5 +113,28 @@ public class ProductController {
       Image img = new Image(file);
       imgProducto.setImage(img);
     }
+      verificarEstadoInicialWishList(nom);
   }
+    private void verificarEstadoInicialWishList(String nombre) {
+        WishLista wl = new WishLista();
+        // Buscamos en el catálogo global para tener el ID, y luego preguntamos a la wishlist
+        ProductoLista catalogo = new ProductoLista();
+        Nodo<Productos> nodo = catalogo.buscarPorNombre(nombre);
+        if (nodo != null) {
+            if (wl.existeEnWishList(nodo.info.getId())) {
+                cambiarIconoFavorito(true);
+            }
+        }
+    }
+
+    private Productos buscarProductoCompleto() {
+        String nombre = txtNom.getText();
+        ProductoLista catalogo = new ProductoLista();
+        Nodo<Productos> nodo = catalogo.buscarPorNombre(nombre);
+        if (nodo != null) {
+            return nodo.info;
+        }
+        InputDialog.error("Error", "No se encontró información del producto.");
+        return null;
+    }
 }
