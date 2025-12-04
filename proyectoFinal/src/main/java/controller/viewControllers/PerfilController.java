@@ -1,7 +1,7 @@
 package controller.viewControllers;
 
 import java.io.IOException;
-
+import controller.WishLista;
 import application.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +10,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import model.Nodo;
+import model.Productos;
 import utils.InputDialog;
 import utils.Paths;
 import utils.UserSession;
@@ -72,24 +74,40 @@ public class PerfilController {
 
   }
 
-  private void addGrid() {
-    try {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_WISHLIST_VIEW));
-      HBox tarjeta = loader.load();
-      ProductoWishController controller = loader.getController();
-      controller.setProducto("Kz Castor Bass",
-          "Los kz son unos in-ear especializados en el audion profundo con bajos definidos", 50000, 1,
-          "/Imagenes/KZ-castor-bass.jpg");
-      productos.getChildren().add(tarjeta);
-    } catch (IOException e) {
-      e.printStackTrace();
-      InputDialog.error("error", "error" + e.getMessage());
-    }
+
+  private void cargarWishListUsuario() {
+      productos.getChildren().clear(); // Limpiamos datos de ejemplo
+
+      WishLista wishListManager = new WishLista();
+
+      if (wishListManager.getEsVacia()) {
+          // Podrías mostrar un label "Lista vacía"
+          return;
+      }
+
+      Nodo<Productos> actual = wishListManager.cabecera;
+      do {
+          crearTarjetaWishList(actual.info);
+          actual = actual.sig;
+      } while (actual != wishListManager.cabecera);
   }
 
-  public void initialize() {
-    for (int i = 0; i < 20; i++) {
-      addGrid();
+  private void crearTarjetaWishList(Productos p) {
+      try {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_WISHLIST_VIEW));
+          HBox tarjeta = loader.load();
+
+          ProductoWishController controller = loader.getController();
+          // Pasamos el objeto completo para tener el ID
+          controller.setDatosProducto(p);
+
+          productos.getChildren().add(tarjeta);
+      } catch (IOException e) {
+          e.printStackTrace();
+          InputDialog.error("Error", "Error al cargar item de wishlist: " + e.getMessage());
+      }
     }
-  }
+    public void initialize() {
+        cargarWishListUsuario();
+    }
 }
