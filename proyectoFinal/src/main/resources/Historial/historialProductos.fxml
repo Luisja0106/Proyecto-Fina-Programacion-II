@@ -17,8 +17,7 @@
                </children>
             </HBox>
             <Region prefHeight="7.0" prefWidth="766.0" VBox.vgrow="ALWAYS" />
-            <Label fx:id="lblNombre1" styleClass="lblNombre" text="Label" VBox.vgrow="ALWAYS" />
-            <Label fx:id="lblNombre2" styleClass="lblNombre" text="Label" VBox.vgrow="ALWAYS" />
+            <Label fx:id="lblNombre1" styleClass="lblNombre" text="Label" VBox.vgrow="ALWAYS" wrapText="true" />
          </children>
       </VBox>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" styleClass="datos" HBox.hgrow="ALWAYS">
