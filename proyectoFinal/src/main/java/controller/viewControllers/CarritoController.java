@@ -13,6 +13,10 @@ import model.Productos;
 import utils.InputDialog;
 import utils.Paths;
 
+import model.Productos;
+import controller.CarritoLista;
+import model.Nodo;
+
 public class CarritoController {
   @FXML
   private Button btnPagar;
@@ -30,27 +34,47 @@ public class CarritoController {
 
   }
 
-  private void addGrid() {
-    try {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_CARRITO_PRODUCTO_VIEW));
-      HBox tarjeta = loader.load();
-      ProductoCarritoController controller = loader.getController();
-      controller.setProductos("Kz castor bass", "Audifonos in-ear centrados en tener unos bajos profundos y definidos",
-          500000, 1, "/Imagenes/KZ-castor-bass.jpg");
-      TlProdu.getChildren().add(tarjeta);
-    } catch (IOException e) {
-      e.printStackTrace();
-      InputDialog.error("error", "error" + e.getMessage());
-    }
-  }
+    public void initialize() {
+        btnPagar.setOnMouseEntered(e -> btnPagar.setText("P a g a r"));
+        btnPagar.setOnMouseExited(e -> btnPagar.setText("Pagar"));
 
-  public void initialize() {
-    btnPagar.setOnMouseEntered(e -> btnPagar.setText("P a g a r"));
-    btnPagar.setOnMouseExited(e -> btnPagar.setText("Pagar"));
-    for (int i = 0; i < 20; i++) {
-      addGrid();
+        cargarItemsDelCarrito();
     }
-  }
+
+    private void cargarTarjetaProducto(Productos p) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_CARRITO_PRODUCTO_VIEW));
+            HBox tarjeta = loader.load();
+
+            ProductoCarritoController controller = loader.getController();
+
+            String descripcionGenerada = p.getNomVendedor() + " - " + p.getCategoria();
+
+            controller.setProductos(p);
+
+            TlProdu.getChildren().add(tarjeta);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            InputDialog.error("Error al cargar tarjeta", "No se pudo cargar el producto: " + p.getNombre());
+        }
+    }
+
+
+
+    private void cargarItemsDelCarrito() {
+        TlProdu.getChildren().clear();
+        CarritoLista carrito = new CarritoLista();
+        if (carrito.getEsVacia()) {
+            return;
+        }
+
+        Nodo<Productos> actual = carrito.cabecera;
+        do {
+            cargarTarjetaProducto(actual.info);
+            actual = actual.sig;
+        } while (actual != carrito.cabecera);
+    }
 
   private void addGrid(Productos produ) {
     try {
@@ -73,12 +97,29 @@ public class CarritoController {
 
   @FXML
   void goToLogin(ActionEvent event) {
-    App.app.setScene(Paths.GESTIONAR_LOGIN_VIEW);
+      controller.CarritoLista limpiador = new controller.CarritoLista();
+      limpiador.vaciarCarritoTotalmente();
+      App.app.setScene(Paths.GESTIONAR_LOGIN_VIEW);
   }
 
   @FXML
   void goToProfile(ActionEvent event) {
     App.app.setScene(Paths.GESTIONAR_PERFIL_VIEW);
   }
+
+
+    //  private void addGrid() {
+//    try {
+//      FXMLLoader loader = new FXMLLoader(getClass().getResource(Paths.GESTIONAR_CARRITO_PRODUCTO_VIEW));
+//      HBox tarjeta = loader.load();
+//      ProductoCarritoController controller = loader.getController();
+//      controller.setProductos("Kz castor bass", "Audifonos in-ear centrados en tener unos bajos profundos y definidos",
+//          500000, 1, "/Imagenes/KZ-castor-bass.jpg");
+//      TlProdu.getChildren().add(tarjeta);
+//    } catch (IOException e) {
+//      e.printStackTrace();
+//      InputDialog.error("error", "error" + e.getMessage());
+//    }
+//  }
 
 }
