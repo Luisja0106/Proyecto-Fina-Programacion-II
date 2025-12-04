@@ -1,0 +1,8 @@
+{
+  "tarjeta": 379425116265820,
+  "direccion": "Tv.29 #29-69",
+  "nombre": "mango",
+  "isAdmin": false,
+  "correo": "mang0@yahoo.com",
+  "password": "cocinar>programar_x100"
+}

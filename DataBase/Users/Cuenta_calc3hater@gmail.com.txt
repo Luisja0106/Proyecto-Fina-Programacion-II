@@ -1,0 +1,8 @@
+{
+  "tarjeta": 4498230137462826,
+  "direccion": "Cra.6 #68-72",
+  "nombre": "Lucas Gomez",
+  "isAdmin": false,
+  "correo": "calc3hater@gmail.com",
+  "password": "codeCr@shed4fun"
+}
