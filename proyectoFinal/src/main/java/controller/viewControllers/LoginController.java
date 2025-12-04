@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import utils.UserSession;
 
 public class LoginController {
 
@@ -42,6 +43,7 @@ public class LoginController {
     if (!resu) {
       return;
     }
+    UserSession.getInstance().setCorreoUsuario(correo);
     App.app.setScene(Paths.GESTIONAR_CATALOGO_VIEW);
   }
 
